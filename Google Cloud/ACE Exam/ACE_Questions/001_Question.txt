@@ -1,0 +1,59 @@
+Every employee of your company has a Google account. Your operational team needs to manage a large number of instances on Compute Engine. Each member of this team needs only administrative access to the servers. Your security team wants to ensure that the deployment of credentials is operationally efficient and must be able to determine who accessed a given instance. What should you do?
+	
+	A. Generate a new SSH key pair. Give the private key to each member of your team. Configure the public key in the metadata of each instance.
+	
+	B. Ask each member of the team to generate a new SSH key pair and to send you their public key. Use a configuration management tool to deploy those keys on each instance.
+	
+	C. Ask each member of the team to generate a new SSH key pair and to add the public key to their Google account. Grant the "compute.osAdminLogin" role to the Google group corresponding to this team. [✔️]
+	
+	D. Generate a new SSH key pair. Give the private key to each member of your team. Configure the public key as a project-wide public SSH key in your Cloud Platform project and allow project-wide public SSH keys on each instance. [Suggested]
+	
+	-------
+
+	The recommended approach for managing SSH access on Compute Engine instances is to use Google Cloud Identity-Aware Proxy (IAP) along with Cloud IAM roles. Option C closely aligns with this best practice:
+
+	Option C (Ask each member of the team to generate a new SSH key pair and add the public key to their Google account. Grant the "compute.osAdminLogin" role to the Google group corresponding to this team): This option is aligned with Google IAP and IAM best practices. By associating SSH keys with Google accounts and using the "compute.osAdminLogin" role, you can provide administrative access while allowing IAP to control access to the instances.
+	
+	Explanation of why other options are not ideal:
+
+		Option A (Generate a new SSH key pair. Give the private key to each member of your team. Configure the public key in the metadata of each instance): This approach involves manually distributing private keys, which is not recommended for security reasons. It lacks the centralized control provided by IAM roles and IAP.
+
+		Option B (Ask each member of the team to generate a new SSH key pair and send you their public key. Use a configuration management tool to deploy those keys on each instance): While using a configuration management tool is a step in the right direction for automation, managing SSH keys directly on instances is less secure and less scalable compared to using IAM roles and IAP.
+
+		Option D (Generate a new SSH key pair. Give the private key to each member of your team. Configure the public key as a project-wide public SSH key in your Cloud Platform project and allow project-wide public SSH keys on each instance): Similar to Option A, this approach involves manually distributing private keys and lacks the centralized control provided by IAM roles and IAP.
+
+	In summary, Option C is the recommended choice as it leverages Google IAP and IAM for secure and centralized access management.
+
+	-------
+
+	Bard:
+
+		The most appropriate solution to manage SSH keys for the operational team while ensuring operational efficiency and auditability is C. Ask each member of the team to generate a new SSH key pair and to add the public key to their Google account. Grant the "compute.osAdminLogin" role to the Google group corresponding to this team.
+
+		This approach offers several advantages:
+
+			Operational Efficiency: 
+
+				It allows each team member to manage their own SSH keys securely within their Google account. This simplifies key management and reduces the risk of mishandling or losing private keys.
+
+			Auditability: 
+
+				Adding the public keys to Google accounts enables audit trails of who accessed each instance. This fulfills the security team's requirement to track user access.
+
+			Granular Access Control: 
+
+				Granting the "compute.osAdminLogin" role to the Google group associated with the operational team ensures that only authorized members have administrative access to the instances.
+
+			Centralized Management: 
+
+				Managing public keys centrally within Google accounts eliminates the need to deploy keys manually to each instance, simplifying credential management.
+
+		In contrast, the other options have limitations:
+
+			Option A: Distributing private keys to team members directly poses a security risk due to the potential loss or misuse of these sensitive keys.
+
+			Option B: Relying on a configuration management tool to deploy public keys from each team member introduces the complexity of managing multiple public keys and adds another layer of potential error.
+
+			Option D: Using project-wide public SSH keys grants broader access permissions to all members of the project, which may not be desirable for administrative access to instances.
+
+		Therefore, option C, which combines user-managed keys with granular role-based access control and centralized management, aligns with the operational efficiency, auditability, and security requirements of the situation.

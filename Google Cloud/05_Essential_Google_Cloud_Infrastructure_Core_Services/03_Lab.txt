@@ -1,0 +1,9 @@
+qwiklabs-gcp-00-4e9fb5538a53:us-central1:wordpress-db
+
+-------
+
+34.121.33.93
+
+-------
+
+10.120.96.4

@@ -1,0 +1,121 @@
+qwiklabs-gcp-03-de97f1de43ce
+
+34.28.17.162
+
+34.145.229.240
+
+https://storage.googleapis.com/qwiklabs-gcp-03-de97f1de43ce/my-excellent-blog.png
+
+-------
+
+Firestore:
+
+	Serverless document database that effortlessly scales to meet any demand, with no maintenance
+
+	Fully customizable security and data validation rules to ensure the data is always protected
+
+	Accelerate development of mobile, web, and IoT apps with direct connectivity to the database
+
+	Built-in live synchronization and offline mode makes it easy to develop real-time applications
+
+	Seamless integration with Firebase and Google Cloud services like Cloud Functions and BigQuery
+
+-------
+
+Cloud Spanner:
+
+	Write and read scalability with no limits
+
+		Spanner decouples compute resources from data storage, which makes it possible to transparently scale in and out processing resources. 
+
+		Each additional compute capacity can process both reads and writes, providing effortless horizontal scalability. 
+
+		Spanner optimizes performance by automatically handling the sharding, replication, and transaction processing.
+
+	Automated maintenance
+
+		Reduce operational costs and improve reliability for any size database. 
+
+		Synchronous replication and maintenance are automatic and built in. 
+
+		100% online schema changes and maintenance while serving traffic with zero downtime.
+
+	PostgreSQL interface
+
+		Combine the scalability and reliability of Spanner with the familiarity and portability of a PostgreSQL interface. 
+
+		Use the skills and tools that your teams already know, future-proofing your investment for peace of mind
+
+	Automatic database sharding
+
+		Never worry about manually resharding your database again. 
+
+		Built-in sharding automatically distributes data to optimize for performance and availability.
+
+		Scale up and scale down without interruption.
+
+	High-performance, workload-isolated query processing
+
+		Cloud Spanner Data Boost enables users to run analytical queries, batch processing jobs, or data export operations faster without affecting the existing transactional workload. 
+
+		Fully managed by Google Cloud, Data Boost does not require capacity planning or management. 
+
+		It is always hot, ready to process user queries directly on data stored in Spanner's distributed storage system, Colossus. 
+
+		This on-demand, independent compute resource lets users easily handle mixed workloads and worry-free data sharing
+
+-------
+
+Cloud SQL:
+
+	Fully managed relational database service for MySQL, PostgreSQL, and SQL Server.
+
+		Cloud SQL manages your databases so you don't have to, so your business can run without disruption. 
+
+		It automates all your backups, replication, patches, encryption, and storage capacity increases to give your applications the reliability, scalability, and security they need.
+
+	More than 95% of Google Cloud's top 100 customers use Cloud SQL to run their businesses.
+
+	Open and standards-based
+
+		Cloud SQL supports the most popular open source and commercial engines, including MySQL, PostgreSQL, and SQL Server with rich support for extensions, configuration flags, and popular developer tools.
+
+		It's easy to get started—simply bring your existing skills over and enjoy the flexibility to work the way you want. You can create a database with just a few clicks in the console and connect your application.
+
+	Cost-effective
+
+		According to an IDC study, Cloud SQL customers achieved a three-year ROI of 246% and a payback period of 11 months. 
+
+		You can scale as your application grows, customize your machine types, and choose different levels of performance and availability, up to a 99.99% availability SLA. 
+
+		Committed use discounts offer additional savings for 1 to 3 year commitments
+
+	Supports Gen AI
+
+		Extend your database application to build AI-powered experiences using the pgvector PostgreSQL extension, LangChain, and LLMs. 
+
+		Cloud SQL for PostgreSQL is great for storing vector embeddings from your ML models.
+
+	Easy migrations
+
+		No matter where your database is located—whether on-premises, on Compute Engine, or in other clouds—Database Migration Service (DMS) can migrate it securely and with minimal downtime. 
+
+		DMS leverages the native replication capabilities of the source database to maximize the reliability of your migration. 
+
+		And it’s available at no additional charge for migrations to Cloud SQL.
+
+-------
+
+Cloud Bigtable
+
+	HBase-compatible, enterprise-grade NoSQL database service with single-digit millisecond latency, limitless scale, and 99.999% availability for large analytical and operational workloads.
+
+		Build responsive applications with consistent, single-digit millisecond latency
+
+		Seamlessly scale to match your storage and throughput needs; no downtime during reconfiguration
+
+		Easily migrate from Apache HBase to Bigtable with no-downtime, live migrations
+
+		Ideal for use cases such as personalization, fraud detection, real-time analytics, and IoT
+
+		Ensure high availability with multi-primary replication in up to 8 regions

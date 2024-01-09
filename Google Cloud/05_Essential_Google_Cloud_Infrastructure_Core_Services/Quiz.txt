@@ -1,0 +1,27 @@
+1. What abstraction is primarily used to administer user access in IAM ?
+
+	Roles, an abstraction of job roles.
+	(IAM administration uses pre-defined roles for administration of user access. The roles are defined by more granular permissions. But permissions are not applied to users directly, only through the roles that are assigned to them)
+
+-------
+
+2. Which of the following is not a type of IAM role?
+
+	Advanced
+	(There are three types of roles in IAM: basic roles, predefined roles, and custom roles. There are no "advanced" roles in IAM)
+
+-------
+
+3. Which of the following is not a type of IAM member?
+
+		Service Account
+
+		Google Group
+
+		Organization Account -> This is not a type of organization account
+
+		Google Workspace domain
+
+		Google Account
+
+		Cloud Identity domain

@@ -1,0 +1,48 @@
+You deployed an App Engine application using gcloud app deploy, but it did not deploy to the intended project. You want to find out why this happened and where the application deployed. What should you do?
+	
+	A. Check the app.yaml file for your application and check project settings.
+	
+	B. Check the web-application.xml file for your application and check project settings.
+	
+	C. Go to Deployment Manager and review settings for deployment of applications.
+	
+	D. Go to Cloud Shell and run gcloud config list to review the Google Cloud configuration used for deployment.
+	[✔️]
+
+-------
+
+D. Go to Cloud Shell and run gcloud config list to review the Google Cloud configuration used for deployment.
+
+	Recommended: Running gcloud config list in Cloud Shell will show the current configuration settings, including the active project. This will help you identify which project is currently set as the default for deployments.
+
+A. Check the app.yaml file for your application and check project settings.
+
+	Partially relevant: Checking the app.yaml file is a good practice to ensure that the intended settings are specified for the App Engine application. However, it might not directly show where the application was deployed.
+
+B. Check the web-application.xml file for your application and check project settings.
+
+	Not relevant: web-application.xml is not a standard configuration file for App Engine deployments. The standard configuration file is app.yaml.
+
+C. Go to Deployment Manager and review settings for deployment of applications.
+
+	Not relevant: Deployment Manager is generally used for managing the deployment of infrastructure as code and might not directly provide information about the location of an App Engine deployment.
+
+In summary, option D is the most relevant for quickly checking the current configuration settings and the active project, which will help identify where the application was deployed.
+
+-------
+
+Bard:
+
+	The most appropriate approach to determine why the App Engine application did not deploy to the intended project and where it was deployed is D. Go to Cloud Shell and run gcloud config list to review the Google Cloud configuration used for deployment.
+
+		The gcloud config list command provides a comprehensive overview of the current Google Cloud configuration, including the project ID that was used for the most recent deployment. This information can be used to identify the project where the application is deployed and to troubleshoot any configuration issues that may have caused the deployment to fail.
+
+	The other options are less suitable for this task:
+
+		Option A: Checking the app.yaml file for project settings may not provide accurate information about the actual project used for deployment, as the deployment configuration may have overridden the project settings in the app.yaml file.
+
+		Option B: Checking the web-application.xml file for project settings is not relevant for App Engine applications, as this file is used for deploying web applications to Java-based platforms like Google App Engine Flex and Google Container Engine (GKE).
+
+		Option C: Reviewing deployment settings in Deployment Manager is not applicable for App Engine applications, as Deployment Manager is used for deploying infrastructure-as-code (IaC) templates, not for deploying web applications.
+
+	Therefore, option D, which involves using the gcloud config list command to determine the project used for the recent deployment, is the most effective and reliable method for identifying the deployed application's location.

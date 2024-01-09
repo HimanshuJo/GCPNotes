@@ -1,0 +1,80 @@
+Cloud Shell provides you with which of the following? (Select all that apply).
+
+	5 GB of persistent storage (/home)
+	Command-line access to a free temporary Compute Engine VM
+	Built-in authorization for access to resources and instances
+
+-------
+
+To create a persistent state in Cloud Shell, which file would you configure?
+
+	.profile
+
+-------
+
+Use the gcloud storage command to create another bucket. 
+Replace <BUCKET_NAME> with a globally unique name 
+(you can append a 2 to the globally unique bucket name you used previously):
+
+	gcloud storage buckets create gs://<BUCKET_NAME>
+
+-------
+
+Copy the file into one of the buckets you created earlier in the lab. Replace [MY_FILE] with the file you uploaded and [BUCKET_NAME] with one of your bucket names:
+
+	glcoud storage cp [MY_FILE] gs://[BUCKET_NAME]
+
+-------
+
+To list available regions, execute the following command:
+
+	gcloud compute regions list
+
+-------
+
+Create an environment variable and replace [YOUR_REGION] with the region you selected in the previous step:
+
+	INFRACLASS_REGION=[YOUR_REGION]
+
+-------
+
+Append the value of your Region environment variable to the config file:
+	
+	echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
+
+-------
+
+NAME: us-west1
+CPUS: 0/24
+DISKS_GB: 0/4096
+ADDRESSES: 0/8
+RESERVED_ADDRESSES: 0/8
+STATUS: UP
+TURNDOWN_DATE: 
+
+-------
+
+qwiklabs-gcp-00-faf1e1eb6e10
+
+-------
+
+Use the source command to set the environment variables, 
+and use the echo command to verify that the project variable was set:
+
+	source infraclass/config
+	
+	echo $INFRACLASS_PROJECT_ID
+
+-------
+
+The GCP Console can do things Cloud Shell can't and vice versa.
+
+For example, the GCP Console 
+
+	can keep track of the context of your configuration activities.
+
+	It can use the Cloud API to determine from the current system state, what options are valid, and it can perform repetitive or more leveraged activities on your behalf.
+
+Cloud Shell 
+
+	in contrast offers detailed and precise control, and through its commands, a way to script and automate activities.

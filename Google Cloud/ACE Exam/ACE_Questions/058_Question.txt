@@ -1,0 +1,53 @@
+You are building an application that stores relational data from users. Users across the globe will use this application. Your CTO is concerned about the scaling requirements because the size of the user base is unknown. You need to implement a database solution that can scale with your user growth with minimum configuration changes. Which storage solution should you use? [Question 58]
+	
+	A. Cloud SQL
+	
+	B. Cloud Spanner [✔️]
+	
+	C. Cloud Firestore
+	
+	D. Cloud Datastore
+
+-------
+
+In this scenario, where the user base is expected to grow globally, and scalability is a concern, Cloud Spanner is the most suitable choice. Here's why:
+
+B. Cloud Spanner:
+
+	Global Distribution: Cloud Spanner is designed for globally distributed applications. It provides strong consistency and high availability across multiple regions, making it suitable for applications with a worldwide user base.
+	
+	Horizontal Scalability: Cloud Spanner horizontally scales across multiple nodes and regions automatically. It can handle increased workloads and storage requirements without significant manual configuration changes.
+	
+	Relational Data Model: Cloud Spanner supports a relational data model, making it suitable for applications that require complex queries and transactions. It provides the benefits of a relational database with the scalability of a globally distributed, horizontally scalable system.
+	
+	Automatic Sharding: Cloud Spanner automatically shards and distributes data across nodes and regions, ensuring optimal performance and scalability without manual intervention.
+
+Other Options:
+
+	A. Cloud SQL: While Cloud SQL is a managed relational database service, it might require more manual intervention for scaling, and it may not provide the same level of global distribution and automatic sharding as Cloud Spanner.
+	
+	C. Cloud Firestore: Cloud Firestore is a NoSQL document database, suitable for flexible, scalable applications. However, if your application requires complex queries and transactions associated with a relational data model, Cloud Spanner might be a better fit.
+	
+	D. Cloud Datastore: Cloud Datastore is a NoSQL database that provides horizontal scalability. However, Cloud Spanner offers a more advanced feature set, including global distribution and automatic sharding, making it a more suitable choice for large-scale, globally distributed applications.
+
+In summary, Cloud Spanner is the recommended option for a globally distributed application with unknown scaling requirements and relational data needs.
+
+-------
+
+Bard:
+
+	The best storage solution for this scenario is B. Cloud Spanner.
+
+		Cloud Spanner is a fully managed globally distributed database service that can seamlessly scale to meet the demands of your growing user base. It automatically distributes data across multiple data centers, ensuring high availability and low latency for users worldwide.
+
+		Cloud Spanner's horizontal scalability makes it ideal for unknown user growth. You don't need to manually provision or manage additional resources as your user base expands. Cloud Spanner will automatically add more servers and replicas to handle the increasing load.
+
+	Compared to other options:
+
+		Cloud SQL is a relational database service that runs on Google's infrastructure, but it's not fully distributed like Cloud Spanner. It requires you to manage and scale the database yourself, which can be more complex and less efficient for large-scale applications.
+
+		Cloud Firestore is a NoSQL database service that is well-suited for mobile and web applications with high read and write workloads. However, it's not as suitable for large-scale relational data storage due to its schemaless nature and lack of ACID guarantees.
+
+		Cloud Datastore is another NoSQL database service that offers a balance between flexibility and scalability. It's a good choice for applications with a moderate amount of data and unpredictable growth patterns.
+
+	In summary, Cloud Spanner is the most suitable choice for this scenario due to its ability to seamlessly scale across multiple regions, handle large amounts of relational data, and meet the demands of a growing global user base. It provides the flexibility and resilience needed to support a wide range of applications with unpredictable growth patterns.

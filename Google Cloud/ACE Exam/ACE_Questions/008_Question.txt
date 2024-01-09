@@ -1,0 +1,48 @@
+You have an application that looks for its licensing server on the IP 10.0.3.21. You need to deploy the licensing server on Compute Engine. You do not want to change the configuration of the application and want the application to be able to reach the licensing server. What should you do?
+	
+	A. Reserve the IP 10.0.3.21 as a static internal IP address using gcloud and assign it to the licensing server.
+	[✔️]
+	
+	B. Reserve the IP 10.0.3.21 as a static public IP address using gcloud and assign it to the licensing server.
+	
+	C. Use the IP 10.0.3.21 as a custom ephemeral IP address and assign it to the licensing server.
+	
+	D. Start the licensing server with an automatic ephemeral IP address, and then promote it to a static internal IP address
+
+-------
+
+A. Reserve the IP 10.0.3.21 as a static internal IP address using gcloud and assign it to the licensing server.
+
+	Recommended: This option allows you to reserve the specific internal IP address (10.0.3.21) as a static IP address and assign it to the licensing server. This ensures that the IP address remains constant, meeting the requirement of not changing the configuration of the application.
+
+B. Reserve the IP 10.0.3.21 as a static public IP address using gcloud and assign it to the licensing server.
+
+	Not recommended: If the application is configured to look for the licensing server on an internal IP (10.0.3.21), assigning a public IP would likely not match the application's expectations. Additionally, it may introduce unnecessary exposure to the public internet.
+
+C. Use the IP 10.0.3.21 as a custom ephemeral IP address and assign it to the licensing server.
+
+	Not recommended: Ephemeral IP addresses are dynamic and may change if the instance is stopped and started. This could lead to the application being unable to reach the licensing server if the IP address changes.
+
+D. Start the licensing server with an automatic ephemeral IP address, and then promote it to a static internal IP address.
+
+	Not optimal: While promoting an ephemeral IP to a static IP is possible, it may involve changes to the instance's configuration. Directly reserving the desired internal IP address as static is a more straightforward solution.
+
+In summary, option A is the most appropriate for ensuring that the application can reach the licensing server without changing its configuration by reserving 10.0.3.21 as a static internal IP address.
+
+-------
+
+Bard:
+
+	The most appropriate approach to deploy the licensing server on Compute Engine and ensure that the application can reach it without modifying its configuration is A. Reserve the IP 10.0.3.21 as a static internal IP address using gcloud and assign it to the licensing server.
+
+		By reserving the IP 10.0.3.21 as a static internal IP address, you can guarantee that the licensing server will always have access to this specific IP address, allowing the application to connect to it consistently without requiring any changes to its configuration. This approach provides the most reliable and secure method for ensuring uninterrupted communication between the application and the licensing server.
+
+	The other options are less suitable for this task:
+
+		Option B: Reserving the IP 10.0.3.21 as a static public IP address would expose the licensing server to the Internet, which is not recommended for security reasons.
+
+		Option C: Using the IP 10.0.3.21 as a custom ephemeral IP address would not provide the same level of consistency as a static IP address, potentially causing connection issues for the application.
+
+		Option D: Starting the licensing server with an automatic ephemeral IP address and then promoting it to a static internal IP address is an unnecessarily complex approach that does not guarantee consistent connectivity for the application.
+
+	Therefore, option A, which involves reserving the IP 10.0.3.21 as a static internal IP address and assigning it to the licensing server, is the most secure, reliable, and efficient method for fulfilling the requirements of this scenario.

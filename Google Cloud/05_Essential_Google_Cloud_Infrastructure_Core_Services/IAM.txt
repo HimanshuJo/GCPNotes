@@ -1,0 +1,41 @@
+Cloud IAM composed of different objects:
+
+	Organization
+
+	Folders
+
+	Projects
+
+	Resources
+
+	Roles
+
+	Members
+
+-------
+
+Google Cloud resources are organized hierarchically.
+
+	The organization node is the root node in this hierarchy
+
+	Folders are the children of the organization
+
+	Projects are the children of folders, and individual resources are the children of projects
+
+	-------
+
+	Each resource has exactly one parent
+
+	The organization resource represents your company
+
+		Cloud IAM roles granted by this level are inherited by all resources under the organization
+
+	The folder resource could represent your department
+
+		Cloud IAM roles granted at this level are inherited by all resources that the folder contains
+
+	-------
+
+	Projects represent a trust boundary within your company
+
+		Services within the same project have the same default level of trust

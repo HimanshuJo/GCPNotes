@@ -1,0 +1,5 @@
+If your application needs increased availability, you can place two virtual machines into multiple zones, but within the same subnet work as shown on this slide.
+
+A regional managed instance group contains instances from multiple zones across the same region, which provides increased availability.
+
+Therefore, by allocating VMs on a single subnet to separate zones, you get improved availability without additional security complexity.

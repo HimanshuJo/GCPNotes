@@ -1,0 +1,255 @@
+VMs:
+
+	are the most common infrastructure component and in GCP they're provided by Compute Engine.
+
+	A VM is similar but not identical to a hardware computer.
+
+	VMs consists of a virtual CPU, some amount of memory, disk storage, and an IP address.
+
+	The main VM options are CPU, memory, discs, and networking.
+
+-------
+
+Compute Engine:
+
+	gives you the utmost in flexibility: run whatever language you want—it's your virtual machine.
+
+	This is purely an 'infrastructure as a service' or IaaS model.
+
+	You have a VM and an operating system, and you can choose how to manage it and
+	how to handle aspects, such as autoscaling, where you’ll configure the rules about adding more virtual machines in specific situations.
+
+	-------
+
+	The primary work case of Compute Engine is any generic workload, especially an enterprise application that was designed to run on a server infrastructure.
+
+	Other services, like Google Kubernetes Engine, which consists of containerized workloads, may not be as easily transferable as what you’re used to from on-premises.
+
+	-------
+
+	At its heart, it's physical servers that you're used to, running inside the Google Cloud environment, with a number of different configurations.
+
+	Specifically, your network will scale at 2 gigabits per second for each CPU core, except for
+	instances with 2 or 4 CPUs which receive up to 10 gigabits per second of bandwidth.
+
+	As of this recording, there is a theoretical maximum throughput of 100 gigabits per second for an instance with 224 vCPU, when you choose an N2D machine series.
+
+	-------
+
+	When you're migrating from an on-premises setup, you're used to physical cores, which have hyperthreading.
+
+	On Compute Engine, each virtual CPU (or vCPU) is implemented as a single hardware hyper-thread on one of the available CPU Platforms.
+
+	You have three options: Standard, SSD, or local SSD.
+
+		So basically, do you want the standard spinning hard disk drives (HDDs), or flash memory solid-state drives (SSDs)?
+
+		Basically, SSDs are designed to give you a higher number of IOPS per dollar versus standard disks, which will give you a higher amount of capacity for your dollar.
+
+		Local SSDs have higher throughput and lower latency than SSD persistent disks, because they are attached to the physical hardware.
+
+		However, the data that you store on local SSDs persists only until you stop or delete the instance.
+
+-------
+
+VM Accesses and lifecycles:
+
+	Provisioning:
+
+		When you define all the properties of an instance and click Create, the instance enters the provisioning state.
+
+		Here the resources such as CPU, memory, and disks are being reserved for the instance, but the instance itself isn’t running yet.
+
+	Staging:
+
+		Next, the instance moves to the staging state where resources have been acquired and the instance is prepared for launch.
+
+		Specifically, in this state, Compute Engine is adding IP addresses, booting up the system image, and booting up the system.
+
+	Running:
+
+		After the instance starts running, it will go through pre-configured startup scripts and enable SSH or RDP access.
+
+-------
+
+Some actions require you to stop your virtual machine; for example, if you want to upgrade your machine by adding more CPU.
+
+-------
+
+Using Google Cloud, we can easily manage the patching of your OSes.
+
+	Managing patches effectively is a great way to keep your infrastructure up-to-date and reduce the risk
+	of security vulnerabilities But without the right tools, patching can be a daunting and labor intensive process.
+
+	Use patch management to apply operating system patches across a set of Compute Engine VM instances.
+
+	Long-running VMs require periodic system updates to protect against defects and vulnerabilities.
+
+	The OS patch management service has two main components: 
+
+		Patch compliance reporting, which reports insights on the patch status of your VM instances across Windows and Linux distributions.
+
+	A patch job runs across VM instances and applies patches.
+
+-------
+
+When a VM is terminated, you do not pay for memory and CPU resources.
+
+	However, you are charged for any attached disks and reserved IP addresses.
+
+-------
+
+Creating VMs:
+
+	You can use the Cloud Console, the Cloud Shell command line, or the RESTful API.
+
+	If you’d like to automate and process very complex configurations, you might want to programmatically configure these through the RESTful API by defining all the different options for your environment.
+
+	-------
+
+	When you create a VM, you select a machine type from a machine family that determines the resources available to that VM.
+
+	There are several machine families you can choose from and each machine family is further organized into machine series and predefined machine types within each series.
+
+	A machine family is a curated set of processor and hardware configurations optimized for specific workloads.
+
+		When you create a VM instance, you choose a predefined or custom machine type from your preferred machine family.
+
+	-------
+
+	There are four Compute Engine machine families.
+		
+		General-purpose 
+
+		Compute-optimized 
+
+		Memory-optimized, and 
+
+		Accelerator-optimized 
+
+		-------
+
+		The general-purpose:
+
+			machine family has the best price-performance with the most flexible vCPU to memory ratios, and provides features that target most standard and cloud-native workloads.
+
+			The E2 machine series is suited for day-to-day computing at a lower cost, especially where there are also no application dependencies on a specific CPU architecture.
+
+				E2 VMs provide a variety of compute resources for the lowest price on Compute Engine, especially when paired with committed-use discounts.
+
+				You simply pick the amount of vCPU and memory that you want, and Google provisions it for you.
+
+				Standard E2 VMs have between 2 to 32 vCPUs with a ratio of 0.5 GB to 8 GB of memory per vCPU.
+
+				They are a great choice for web servers, small to medium databases, development and test environments, and many applications that don't have strict performance requirements.
+
+			The E2 machine series also contains shared-core machine types that use context-switching to share a physical core between vCPUs for multitasking.
+
+			In general, shared-core machine types can be more cost-effective for running small, non-resource intensive applications than standard, high-memory, or high-CPU machine types.
+
+			Shared-core E2 machine types have 0.25 to 1 vCPUs with 0.5 GB to 8 GB of memory.
+
+			-------
+
+			N2 and N2D are the next generation following N1 VMs, offering a significant performance jump.
+
+				N2 and N2D are the most flexible VM types and provide a balance between price and performance
+				across a wide range of VM shapes, including enterprise applications, medium-to-large databases, and many web and app-serving workloads.
+
+				N2 VMs support the latest second generation scalable processor from Intel with up to 128 vCPUs and 0.5 to 8 GB of memory per vCPU.
+
+			-------
+
+			Tau T2D VMs are optimized for cost-effective performance of demanding scale-out workloads.
+
+				T2D VMs are built on the latest 3rd Gen AMD EPYCTM processors and offer full x86 compatibility.
+
+				They are suited to scale-out workloads including web servers, containerized microservices, media transcoding, and large-scale Java applications.
+
+	-------
+
+	The Compute-optimized:
+
+		machine family has the highest performance per core on Compute Engine and is optimized for compute-intensive workloads.
+
+		C2 VMs are the best fit VM type for compute-intensive workloads, including AAA gaming, electronic design automation, and high-performance computing across simulations, genomic analysis, or media transcoding.
+
+			Powered by high-frequency Intel-scalable processors, Cascade Lake, C2 machine types offer up to 3.8 Ghz sustained all-core turbo and provide full transparency into the architecture of the underlying server platforms, enabling advanced performance tuning.
+
+		The C2 series comes in different machine types ranging from 4 to 60 vCPUs, and offers up to 240 GB of memory.
+
+			The C2D machine series provides the largest VM sizes and are best-suited for high-performance computing (HPC).
+
+			The C2D series also has the largest available last-level cache (LLC) per core.
+
+			They are ideal for workloads that require higher memory-to-vCPU ratios than the high-memory machine types in the general-purpose machine family.
+
+	-------
+
+	The Memory-optimized:
+
+		The M1 machine series has up to 4 TB of memory, while the M2 machine series has up to 12 TB of memory.
+
+		These machine series are well-suited for large in-memory databases such as SAP HANA, as well as in-memory data analytics workloads.
+
+		Both the M1 and M2 machine series offer the lowest cost per GB of memory on Compute Engine, making them a great choice for workloads that utilize higher memory configurations with low compute resources requirements.
+
+	-------
+
+	The accelerator-optimized machine family:
+
+		is ideal for massively parallelized Compute Unified Device Architecture (CUDA) compute workloads, such as machine learning (ML) and high-performance computing (HPC).
+
+		The A2 series has 12 to 96 vCPUs, and up to 1360 GB of memory.
+
+		Each A2 machine type has a fixed number (up to 16) of NVIDIA’s Ampere A100 GPUs attached.
+
+		An A100 GPU provides 40 GB of GPU memory—ideal for large language models, databases, and HPC
+
+-------
+
+A preemptible VM is an instance that you can create and run at a much lower cost than normal instances
+
+	these VMs might be preempted at any time, and there is no charge if that happens within the first minute.
+
+	Also, preemptible VMs are only going to live for up to 24 hours, and you only get a 30-second notification before the machine is preempted
+
+ 	You can actually create monitoring and load balancers that can start up new preemptible VMs in case of a failure.
+
+ 	-------
+
+ 	One major use case for preemptible VMs is running batch processing jobs.
+
+ 	If some of those instances terminate during processing, the job slows but it does not completely stop.
+
+ 	Therefore, preemptible instances complete your batch processing tasks without placing additional workload on your existing instances, and without requiring you to pay full price for additional normal instances.
+
+ 	-------
+
+ 	Spot VMs are the latest version of preemptible VMs.
+
+ 		Spot VMs are virtual machine (VM) instances with the spot provisioning model.
+
+ 		Spot VMs provide new features that preemptible VMs do not support.
+
+ 			Preemptible VMs can only run for up to 24 hours at a time, but Spot VMs do not have a maximum runtime.
+
+ 		Spot VMs are finite Compute Engine resources, so they might not always be available.
+
+ 		-------
+
+ 		If you have workloads that require physical isolation from other workloads or virtual machines in order to meet compliance requirements, you want to consider sole-tenant nodes.
+
+ 			A sole-tenant node is a physical Compute Engine server that is dedicated to hosting VM instances only for your specific project.
+
+ 			Use sole-tenant nodes to keep your instances physically separated from instances in other projects, or to group your instances together on the same host hardware, for example if you have a payment processing workload that needs to be isolated to meet compliance requirements.
+
+ 		-------
+
+ 		Shielded VMs offer verifiable integrity to your VM instances, so you can be confident that your instances haven't been compromised by boot or kernel-level malware or rootkits.
+
+ 		-------
+
+ 		Confidential VMs are a breakthrough technology that allows you to encrypt data in use, while it's been processed.
+
+ 			Confidential Virtual Machine (Confidential VM) is a type of N2D Compute Engine VM instance running on hosts based on the second generation of AMD Epyc processors, code-named "Rome".

@@ -1,0 +1,47 @@
+Both Cloud Functions and Cloud Run can scale from zero to meet incredibly high demand. But there are trade-offs between the two in terms of simplicity and flexibility
+
+-------
+
+Cloud Functions:
+
+	If you’re using a serverless product to connect your platform, you likely don’t need to configure a container to control the web server or language runtime. 
+
+	In this case, Cloud Functions manages this configuration on your behalf, letting you focus on what’s core to your business. 
+
+	Cloud Functions makes connecting your platform simple to build and easy to maintain — you’re just responsible for the code. 
+
+		Anyone on your team with coding knowledge can create a solution without having to package up the code. 
+
+		You can also choose from seven popular languages. 
+
+		Data scientists, for example, can get a python script running in the cloud with limited infrastructure knowledge.
+
+	Cloud Functions keeps productivity high and operations low by making each function its own independent component, isolating it from directly impacting other workloads. 
+
+		Changes and updates to one function are unlikely to impact another function.
+
+-------
+
+Cloud Run:
+
+	Cloud Run is a managed compute platform that enables you to run stateless containers that are invocable via HTTP requests. 
+
+	Cloud Run is serverless: it abstracts away all infrastructure management, so you can focus on what matters most — building great applications.
+
+	Running services, on the other hand, requires more control of the container including choosing the web server or language runtime. 
+
+	For this use case, Cloud Run provides the flexibility needed for these configurations while managing the rest on your behalf.
+
+	Cloud Run simplifies scaling and maintaining services by utilizing industry-standard containers. 
+
+	You can leverage existing tools and knowledge to package and deploy your service on Cloud Run, and let us manage the runtime infrastructure to host and scale it.
+
+	Cloud Run works well for a broad range of applications. 
+
+		It lets you deploy your service with a single containerized app. 
+
+		You can use any language, library, or binary to run your application. 
+
+		And Google handles server management and scalability for you, even for containerized legacy workloads such as three-tier Java applications.
+
+	Cloud Run is built from Knative, letting you choose to run your containers either fully managed with Cloud Run, or in your Google Kubernetes Engine cluster with Cloud Run on GKE.

@@ -1,0 +1,51 @@
+Your company is moving its entire workload to Compute Engine. Some servers should be accessible through the Internet, and other servers should only be accessible over the internal network. All servers need to be able to talk to each other over specific ports and protocols. The current on-premises network relies on a demilitarized zone (DMZ) for the public servers and a Local Area Network (LAN) for the private servers. You need to design the networking infrastructure on Google Cloud to match these requirements. What should you do?
+
+	1. Create a single VPC with a subnet for the DMZ and a subnet for the LAN. 2. Set up firewall rules to open up relevant traffic between the DMZ and the LAN subnets, and another firewall rule to allow public ingress traffic for the DMZ. [✔️]
+ 	
+ 	1. Create a single VPC with a subnet for the DMZ and a subnet for the LAN. 2. Set up firewall rules to open up relevant traffic between the DMZ and the LAN subnets, and another firewall rule to allow public egress traffic for the DMZ.
+ 	
+ 	1. Create a VPC with a subnet for the DMZ and another VPC with a subnet for the LAN. 2. Set up firewall rules to open up relevant traffic between the DMZ and the LAN subnets, and another firewall rule to allow public ingress traffic for the DMZ.
+ 	
+ 	1. Create a VPC with a subnet for the DMZ and another VPC with a subnet for the LAN. 2. Set up firewall rules to open up relevant traffic between the DMZ and the LAN subnets, and another firewall rule to allow public egress traffic for the DMZ.
+
+-------
+
+The correct design for the networking infrastructure on Google Cloud to match the specified requirements involves creating a single VPC with subnets for the DMZ and the LAN. The correct answer is:
+
+	A. 1. Create a single VPC with a subnet for the DMZ and a subnet for the LAN. 2. Set up firewall rules to open up relevant traffic between the DMZ and the LAN subnets, and another firewall rule to allow public ingress traffic for the DMZ.
+
+Here's why:
+
+	Single VPC: 
+
+		Creating a single VPC simplifies the network architecture and allows for better communication and management of resources within the VPC.
+
+		Subnets for DMZ and LAN: Creating separate subnets for the DMZ and the LAN helps in segregating public-facing servers from private servers. It allows you to control the flow of traffic between the two subnets.
+
+	Firewall Rules: 
+
+		Setting up firewall rules is crucial for controlling traffic between different subnets. The firewall rules should allow relevant traffic between the DMZ and the LAN subnets. Additionally, another firewall rule should be created to allow public ingress traffic for the DMZ, ensuring that public-facing servers can receive external requests.
+
+Why Option B is Incorrect:
+
+	Option B suggests allowing public egress traffic for the DMZ. Egress traffic typically refers to outgoing traffic from a network. In this context, it's not necessary to explicitly allow public egress traffic for the DMZ. The focus should be on ingress traffic for public-facing servers.
+
+Why Options C and D are Incorrect:
+
+	Options C and D propose creating multiple VPCs for the DMZ and the LAN. While this is technically feasible, it introduces unnecessary complexity. A single VPC is sufficient for this scenario, and it simplifies the overall network design.
+
+In summary, Option A is the most appropriate choice for designing the networking infrastructure to match the specified requirements on Google Cloud.
+
+-------
+
+Bard:
+
+	The correct answer is 1. Create a single VPC with a subnet for the DMZ and a subnet for the LAN. 2. Set up firewall rules to open up relevant traffic between the DMZ and the LAN subnets, and another firewall rule to allow public ingress traffic for the DMZ.
+
+		This approach provides a secure and efficient way to replicate the on-premises network architecture on Google Cloud. By using a single VPC, you can maintain centralized network management and visibility. Subnetting the VPC into DMZ and LAN subnets allows for the separation of public and private resources, while firewall rules ensure controlled communication between them.
+
+	Option 2, creating separate VPCs for the DMZ and LAN, introduces complexity and potential security risks. It requires managing two separate network configurations, which can be challenging to maintain and troubleshoot. Additionally, it increases the attack surface as the DMZ is directly exposed to the public internet.
+
+	Option 3, creating firewall rules to allow public egress traffic for the DMZ, is not recommended as it opens up unnecessary exposure to the internet. Publicly accessible servers should only communicate with the internet when necessary, and the firewall should be configured to limit that traffic.
+
+	Therefore, the recommended approach is to create a single VPC with separate subnets for the DMZ and LAN. This provides a secure and manageable network architecture that mirrors the on-premises environment while leveraging Google Cloud's scalability and flexibility.

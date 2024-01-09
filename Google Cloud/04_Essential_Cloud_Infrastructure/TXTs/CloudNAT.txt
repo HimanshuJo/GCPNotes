@@ -1,0 +1,51 @@
+Cloud NAT (network address translation) lets certain resources in Google Cloud create outbound connections to the internet or to other Virtual Private Cloud (VPC) networks. 
+
+Cloud NAT supports address translation for established inbound response packets only. 
+
+It does not allow unsolicited inbound connections.
+
+-------
+
+Cloud NAT provides outgoing connectivity for the following resources:
+
+	Compute Engine virtual machine (VM) instances
+	
+	Private Google Kubernetes Engine (GKE) clusters
+	
+	Cloud Run instances through Serverless VPC Access
+	
+	Cloud Functions instances through Serverless VPC Access
+	
+	App Engine standard environment instances through Serverless VPC Access
+
+-------
+
+Public NAT:
+
+	Public NAT lets Google Cloud resources that do not have public IP addresses communicate with the internet. 
+
+		These VMs use a set of shared public IP addresses to connect to the internet. 
+
+	Public NAT does not rely on proxy VMs. 
+
+	Instead, a Public NAT gateway allocates a set of external IP addresses and source ports to each VM that uses the gateway to create outbound connections to the internet.
+
+	Consider a scenario in which you have VM-1 in subnet-1 whose network interface does not have an external IP address. 
+
+		However, VM-1 needs to connect to the internet to download critical updates. 
+
+		To enable connectivity to the internet, you can create a Public NAT gateway that is configured to apply to the IP address range of subnet-1. 
+
+		Now, VM-1 can send traffic to the internet by using the internal IP address of subnet-1.
+
+-------
+
+Architecture:
+
+	Cloud NAT is a distributed, software-defined managed service. 
+
+	It's not based on proxy VMs or appliances. 
+
+	Cloud NAT configures the Andromeda software that powers your Virtual Private Cloud (VPC) network so that it provides source network address translation (source NAT or SNAT) for resources. 
+
+	Cloud NAT also provides destination network address translation (destination NAT or DNAT) for established inbound response packets.

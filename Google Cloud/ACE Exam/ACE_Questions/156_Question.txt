@@ -1,0 +1,60 @@
+You are the team lead of a group of 10 developers. You provided each developer with an individual Google Cloud Project that they can use as their personal sandbox to experiment with different Google Cloud solutions. You want to be notified if any of the developers are spending above $500 per month on their sandbox environment. What should you do?
+	
+	A. Create a single budget for all projects and configure budget alerts on this budget.
+	
+	B. Create a separate billing account per sandbox project and enable BigQuery billing exports. Create a Data Studio dashboard to plot the spending per billing account.
+	
+	C. Create a budget per project and configure budget alerts on all of these budgets. [✔️]
+	
+	D. Create a single billing account for all sandbox projects and enable BigQuery billing exports. Create a Data Studio dashboard to plot the spending per project. [Bard Suggested] [✔️]
+
+-------
+
+C. Create a budget per project and configure budget alerts on all of these budgets.
+
+	Recommended: This approach allows you to set individual budgets and alerts for each developer's sandbox project. It provides fine-grained control and notifications tailored to the spending patterns of each developer.
+
+A. Create a single budget for all projects and configure budget alerts on this budget.
+
+	Not recommended: This approach creates a collective budget for all projects, making it difficult to track individual spending patterns. The alerts would be triggered based on the cumulative spending across all sandbox projects.
+
+B. Create a separate billing account per sandbox project and enable BigQuery billing exports. Create a Data Studio dashboard to plot the spending per billing account.
+
+	Complex: While this approach allows for detailed analysis, it involves creating multiple billing accounts, which might be an overcomplication for managing individual sandbox projects. It also involves additional steps with BigQuery and Data Studio.
+
+D. Create a single billing account for all sandbox projects and enable BigQuery billing exports. Create a Data Studio dashboard to plot the spending per project.
+
+	Complex and less granular: Similar to option B, this approach involves unnecessary complexity with multiple billing accounts and might not provide the fine-grained control needed for individual sandbox projects.
+	Therefore, option C is the most straightforward and effective solution for monitoring and setting budget alerts on individual spending for each developer's sandbox project.
+
+-------
+
+Bard:
+
+	The most appropriate approach to monitor and alert on the spending of each developer's sandbox project is D. Create a single billing account for all sandbox projects and enable BigQuery billing exports. Create a Data Studio dashboard to plot the spending per project.
+
+	This approach offers several advantages:
+
+		Centralized Billing Management: 
+
+			Creating a single billing account for all sandbox projects simplifies billing management and ensures that all usage is aggregated together.
+
+		Detailed Billing Exports: 
+
+			Enabling BigQuery billing exports generates detailed billing data for each project, providing granular insights into individual developer spending.
+
+		Data Studio Dashboard: 
+
+			Creating a Data Studio dashboard allows for visualizing the spending data from BigQuery, making it easy to identify developers who exceed the $500 threshold.
+
+		Scalability and Flexibility: 
+
+			As the team grows or new projects are added, the single billing account and Data Studio dashboard can accommodate the increased usage and provide consistent monitoring.
+
+	The other options are less suitable for this scenario:
+
+		Option A: Creating a single budget for all projects may not be effective for identifying individual developer spending.
+
+		Option B: Creating separate billing accounts and Data Studio dashboards for each project would be overly complex and redundant.
+
+		Option C: Creating a budget per project would require setting up multiple budgets and alerts, which can be time-consuming and error-prone.

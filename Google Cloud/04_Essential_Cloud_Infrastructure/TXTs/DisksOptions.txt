@@ -1,0 +1,70 @@
+Every single VM comes with a single root persistent disk, because you're choosing a base image to have that loaded on.
+
+	This image is bootable in that you can attach it to a VM and boot from it, and it is durable in that it can survive if the VM terminates.
+
+-------
+
+The first disk that we create is what we call a persistent disk:
+
+	That means it's going to be attached to the VM through the network interface.
+
+	Even though it's persistent, it's not physically attached to the machine.
+
+	This separation of disk and compute allows the disk to survive if the VM terminates.
+
+	Another cool feature of persistent disks is that you can dynamically resize them, even while they are running and attached to a VM.
+
+	You can also attach a disk in read-only mode to multiple VMs.
+
+		This allows you to share static data between multiple instances, which is cheaper than replicating your data to unique disks for individual instances.
+
+	-------
+
+	Zonal persistent disks offer efficient, reliable block storage.
+
+	Regional persistent disks provide active-active disk replication across two zones in the same region
+
+		Regional persistent disks deliver durable storage that is synchronously replicated across zones and are a great option for high-performance databases and enterprise applications that also require high availability.
+
+	-------
+
+	When you configure a zonal or regional persistent disk, you can select one of the following disk types:
+
+		Standard persistent disks are backed by standard hard disk drives and are suitable for large data processing workloads that primarily use sequential I/Os.
+
+		Performance SSD persistent disks are backed by solid-state drives and are suitable for enterprise applications and high-performance databases that require lower latency and more IOPS than standard persistent disks provide.
+
+		Balanced persistent disks are also backed by solid-state drives.
+
+			They are an alternative to SSD persistent disks that balance performance and cost.
+
+			These disks have the same maximum IOPS as SSD persistent disks and lower IOPS per gigabyte.
+
+		Extreme persistent disks are zonal persistent disks also backed by solid-state drives.
+
+			Extreme persistent disks are designed for high-end database workloads, providing consistently high performance for both random access workloads and bulk throughput.
+
+-------
+
+Now, local SSDs are different from persistent disks in that they are physically attached to the virtual machine.
+
+	Therefore, these disks are ephemeral but provide very high IOPS.
+
+	Currently, local SSDs are 375 gigabytes in size and you can attach up to to 24 local SSD partitions for a total of 9 terabytes per instance.
+
+	Data on these disks will survive a reset but not a VM stop or terminate, because these disks can’t be reattached to a different VM.
+
+-------
+
+The persistent disks offer data redundancy because the data on each persistent disk is distributed across several physical disks.
+
+	Local SSDs provide even higher performance, but without the data redundancy.
+
+-------
+
+Finally, RAM disks are very volatile but they provide the highest performance.
+
+-------
+
+Now, just as there is a limit on how many Local SSDs you can attach to a
+VM, there is also a limit on how many persistent disks you can attach to a VM.

@@ -1,0 +1,47 @@
+An employee was terminated, but their access to Google Cloud Platform (GCP) was not removed until 2 weeks later. You need to find out this employee accessed any sensitive customer information after their termination. What should you do?
+	
+	A. View System Event Logs in Stackdriver. Search for the user's email as the principal.
+	
+	B. View System Event Logs in Stackdriver. Search for the service account associated with the user. [Suggested]
+	
+	C. View Data Access audit logs in Stackdriver. Search for the user's email as the principal. [✔️]
+	
+	D. View the Admin Activity log in Stackdriver. Search for the service account associated with the user.
+
+-------
+
+C. View Data Access audit logs in Stackdriver. Search for the user's email as the principal.
+
+	Recommended: Data Access audit logs in Stackdriver provide information about accesses to resources, which includes actions such as reading or modifying data. Searching for the user's email as the principal in Data Access audit logs can help identify any access to sensitive customer information.
+
+A. View System Event Logs in Stackdriver. Search for the user's email as the principal.
+
+	Not the most relevant: System Event Logs may not provide detailed information about data access activities. Data Access audit logs are more appropriate for tracking resource accesses.
+
+B. View System Event Logs in Stackdriver. Search for the service account associated with the user.
+
+	Not the most relevant: System Event Logs may not directly associate with data access, and searching for the service account associated with the user might not provide detailed information about data interactions.
+
+D. View the Admin Activity log in Stackdriver. Search for the service account associated with the user.
+
+	Not the most relevant: The Admin Activity log focuses on administrative actions rather than data access. Searching for the service account associated with the user may not provide information about sensitive data access.
+
+In summary, option C, viewing Data Access audit logs in Stackdriver and searching for the user's email as the principal, is the most appropriate choice for identifying whether the terminated employee accessed sensitive customer information after termination.
+
+-------
+
+Bard:
+
+	The correct answer is C. View Data Access audit logs in Stackdriver. Search for the user's email as the principal.
+
+		Data Access Audit Logs in Stackdriver are specifically designed to capture access to sensitive data, including customer information. These logs record all data-access events, including the user or service account that performed the access, the time of the access, and the resource that was accessed.
+
+		To determine if a terminated employee accessed sensitive customer information, you should search the Data Access Audit Logs for events that occurred after the employee's termination date. You should also filter the logs by the user's email address to ensure that you are only looking at events that were initiated by the terminated employee.
+
+	Option A is incorrect because System Event Logs capture a broader range of events, including system-level actions such as service restarts or instance provisioning. They do not specifically record data access events.
+
+	Option B is incorrect because service accounts are typically used to automate tasks or access resources on behalf of users. While a terminated employee may have been associated with a service account, it is the user associated with the service account that would have initiated the access.
+
+	Option D is incorrect because the Admin Activity log captures administrative actions, such as creating users, granting roles, or modifying IAM policies. It does not record data access events.
+
+	Therefore, the best way to determine if a terminated employee accessed sensitive customer information after their termination is to view the Data Access Audit Logs in Stackdriver and search for events that occurred after the termination date and were initiated by the terminated employee's email address.

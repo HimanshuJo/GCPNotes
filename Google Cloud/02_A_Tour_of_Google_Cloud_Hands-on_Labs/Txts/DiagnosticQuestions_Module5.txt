@@ -1,0 +1,44 @@
+1. Which of the scenarios below is an example of a situation where you should use a service account?
+
+	For individual GKE pods
+	(When configuring access for GKE, you set up dedicated service accounts for each pod. You then use workload identity to map them to dedicated Kubernetes service accounts)
+
+-------
+
+2. You have a custom role implemented for administration of the dev/test environment for Cymbal Superstore’s transportation management application. You are developing a pilot to use Cloud Run instead of Cloud Functions. You want to ensure your administrators have the correct access to the new resources. What should you do?
+
+	Make the change to the custom role locally and run an update on the custom role
+	(There is a recommended process to update an existing custom role. You get the current policy, update it locally, and write the updated policy back into Google Cloud. The gcloud commands used in this process include the get and update policy subcommands.)
+
+-------
+
+3. Which Cloud Audit log is disabled by default with a few exceptions?
+
+	Data Access audit logs
+	(Data Access audit logs are disabled by default except for BigQuery.)
+
+-------
+
+4. Cymbal Superstore is implementing a mobile app for end users to track deliveries that are en route to them. The app needs to access data about truck location from Pub/Sub using Google recommended practices. What kind of credentials should you use?
+
+	Service account key
+	(Service account keys are used for accessing private data such as your Pub/Sub truck information from an external environment such as a mobile app running on a phone.)
+
+-------
+
+5. You are trying to assign roles to the dev and prod projects of Cymbal Superstore’s e-commerce app but are receiving an error when you try to run set-iam policy. The projects are organized into an ecommerce folder in the Cymbal Superstore organizational hierarchy. You want to follow best practices for the permissions you need while respecting the practice of least privilege. What should you do?
+
+	Ask your administrator for the roles/resourcemanager.folderIamAdmin for the ecommerce folder
+	(This choice gives you the required permissions while minimizing the number of individual resources you have to set permissions for.)
+
+-------
+
+6. Outline where Cloud Audit logs can be accessed: in the logging tab of the operations interface Link: https://cloud.google.com/storage/docs/audit-logging You are configuring audit logging for Cloud Storage. You want to know when objects are added to a bucket. Which type of audit log entry should you monitor?
+
+	DATA_WRITE log entries
+
+-------
+
+7. You need to configure access to Cloud Spanner from the GKE cluster that is supporting Cymbal Superstore’s ecommerce microservices application. You want to specify an account type to set the proper permissions. What should you do?
+
+	Assign permissions through service account referenced by the application

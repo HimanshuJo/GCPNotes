@@ -1,0 +1,43 @@
+student-00-7d0558e89c85@qwiklabs.net
+
+zS00nU2EvrHT
+
+qwiklabs-gcp-03-2ae5c10f914c
+
+-------
+
+The username in the left panel, which resembles googlexxxxxx_student@qwiklabs.net, is a Cloud IAM identity
+
+-------
+
+A Google Cloud project is an organizing entity for your Google Cloud resources. It often contains resources and services; for example, it may hold a pool of virtual machines, a set of databases, and a network that connects them together. Projects also contain settings and permissions, which specify security rules and who has access to what resources.
+
+-------
+
+The "Qwiklabs Resources" project contains files, datasets, and machine images for certain labs and can be accessed from every Google Cloud lab environment. It's important to note that "Qwiklabs Resources" is shared (read only) with all student users, which means that you cannot delete or modify it.
+
+-------
+
+Qwiklabs Resources is not the project where you run all of your lab steps.
+
+-------
+
+Whenever you start a new lab, you will be given access to one or more new Google Cloud projects, and there (not "Qwiklabs Resources") is where you will run all of the lab steps.
+
+-------
+
+Editor Role:
+
+	Provides all viewer permissions, plus permissions for actions that modify state, such as changing existing resources.
+
+Viewer Role:
+
+	Permissions for read-only actions that do not affect state, such as viewing (but not modifying) existing resources or data.
+
+Owner Role:
+
+	All editor permissions and permissions for the following actions: manage roles and permissions for a project and all resources within the project; set up billing for a project.
+
+-------
+
+The Dialogflow API allows you to build rich conversational applications (e.g., for Google Assistant) without having to understand the underlying machine learning and natural language schema.

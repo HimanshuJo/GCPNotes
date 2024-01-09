@@ -1,0 +1,27 @@
+Your management has asked an external auditor to review all the resources in a specific project. The security team has enabled the Organization Policy called Domain Restricted Sharing on the organization node by specifying only your Cloud Identity domain. You want the auditor to only be able to view, but not modify, the resources in that project. What should you do?
+	
+	A. Ask the auditor for their Google account, and give them the Viewer role on the project.
+	
+	B. Ask the auditor for their Google account, and give them the Security Reviewer role on the project. [chatGPT Suggested]
+	
+	C. Create a temporary account for the auditor in Cloud Identity, and give that account the Viewer role on the project. [✔️]
+	
+	D. Create a temporary account for the auditor in Cloud Identity, and give that account the Security Reviewer role on the project.
+
+-------
+
+Bard:
+
+	The correct answer is C. Create a temporary account for the auditor in Cloud Identity, and give that account the Viewer role on the project.
+
+		This is the recommended approach for granting access to external auditors while maintaining security. Creating a temporary account for the auditor ensures that their access is limited to the specific project and duration of the audit.
+
+	The other options are not as secure or appropriate for this scenario:
+
+		A. Ask the auditor for their Google account, and give them the Viewer role on the project. This is not secure as it exposes the auditor's personal Google account credentials.
+
+		B. Ask the auditor for their Google account, and give them the Security Reviewer role on the project. While this provides more permissions than the Viewer role, it is still not ideal as it allows the auditor to modify some resources.
+
+		D. Create a temporary account for the auditor in Cloud Identity, and give that account the Security Reviewer role on the project. This is not the best choice as it grants the auditor more permissions than necessary for auditing purposes.
+
+	By creating a temporary account for the auditor and granting them the Viewer role, you can effectively limit their access to the project and ensure that they can only view, but not modify, the resources. This approach strikes a balance between security and providing the auditor with the necessary access to perform their duties.

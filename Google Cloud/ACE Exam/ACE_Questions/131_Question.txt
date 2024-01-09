@@ -1,0 +1,35 @@
+You need to create a copy of a custom Compute Engine virtual machine (VM) to facilitate an expected increase in application traffic due to a business acquisition. What should you do?
+	
+	A. Create a Compute Engine snapshot of your base VM. Create your images from that snapshot.
+	
+	B. Create a Compute Engine snapshot of your base VM. Create your instances from that snapshot. [Another Most Voted]
+	(While creating VMs directly from a snapshot is quicker and more straightforward, using an intermediate custom image offers enhanced management capabilities, version control, and the ability to maintain consistent configurations across multiple instances. The choice between the two approaches depends on the specific requirements of the deployment scenario and the need for customization and control.)
+	
+	C. Create a custom Compute Engine image from a snapshot. Create your images from that image.
+	
+	D. Create a custom Compute Engine image from a snapshot. Create your instances from that image. [✔️]
+	(Snapshot->Image->Instances)
+
+-------
+
+When you need to create a copy of a custom Compute Engine virtual machine (VM) to accommodate an expected increase in application traffic, the recommended approach involves using snapshots and custom images. Let's evaluate each option:
+
+	A. Create a Compute Engine snapshot of your base VM. Create your images from that snapshot.
+
+		While creating a snapshot is a good practice for backing up data, creating images directly from a snapshot might not be as flexible and doesn't provide as many customization options.
+
+	B. Create a Compute Engine snapshot of your base VM. Create your instances from that snapshot.
+
+		This option is closer to the recommended approach. Snapshots can be used to capture the state of a disk, and you can use these snapshots to create new instances. However, for more customization and control, using custom images might be a better option.
+
+	C. Create a custom Compute Engine image from a snapshot. Create your images from that image.
+
+		This is a more precise option. Creating a custom image from a snapshot allows you to have a predefined image that includes not only the disk content but also the machine configuration, allowing for more customization when creating new instances.
+
+	D. Create a custom Compute Engine image from a snapshot. Create your instances from that image.
+
+		This is the most suitable option. Creating a custom image from a snapshot and then creating instances from that custom image provides a more streamlined process. Custom images include both the disk content and the machine configuration, offering a comprehensive solution for copying a VM.
+
+Conclusion:
+	
+	Option D, "Create a custom Compute Engine image from a snapshot. Create your instances from that image," is the recommended approach. It allows you to capture both the disk content and machine configuration in a custom image, providing flexibility and control when creating new instances.

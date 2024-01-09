@@ -1,0 +1,92 @@
+You can list the active account name with this command:
+
+	gcloud auth list
+
+-------
+
+You can list the project ID with this command:
+
+	gcloud config list project
+
+-------
+
+From Cloud Shell, enable the Cloud Run API:
+
+	gcloud services enable run.googleapis.com
+
+-------
+
+Set the compute region:
+
+	gcloud config set compute/region "REGION"
+
+-------
+
+To containerize the sample app, create a new file named Dockerfile in the same directory as the source files, and add the following content:
+
+	nano Dockerfile
+
+		# Use the official lightweight Node.js 12 image.
+		# https://hub.docker.com/_/node
+		FROM node:12-slim
+
+		# Create and change to the app directory.
+		WORKDIR /usr/src/app
+
+		# Copy application dependency manifests to the container image.
+		# A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
+		# Copying this first prevents re-running npm install on every code change.
+		COPY package*.json ./
+
+		# Install production dependencies.
+		# If you add a package-lock.json, speed your build by switching to 'npm ci'.
+		# RUN npm ci --only=production
+		RUN npm install --only=production
+
+		# Copy local code to the container image.
+		COPY . ./
+
+		# Run the web service on container startup.
+		CMD [ "npm", "start" ]
+
+-------
+
+Now, build your container image using Cloud Build by running the following command from the directory containing the Dockerfile. (Note the $GOOGLE_CLOUD_PROJECT environmental variable in the command, which contains your lab's Project ID):
+
+	gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld
+
+-------
+
+List all the container images associated with your current project using this command:
+
+	gcloud container images list
+
+-------
+
+Register gcloud as the credential helper for all Google-supported Docker registries:
+
+	gcloud auth configure-docker
+
+-------
+
+To run and test the application locally from Cloud Shell, start it using this standard docker command:
+
+	docker run -d -p 8080:8080 gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld
+
+-------
+
+Deploying your containerized application to Cloud Run is done using the following command adding your Project-ID:
+
+	gcloud run deploy --image gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld --allow-unauthenticated --region=$LOCATION
+
+-------
+
+You can either decide to delete your GCP project to avoid incurring charges, which will stop billing for all the resources used within that project, or simply delete your helloworld image using this command :
+
+	gcloud container images delete gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld
+
+-------
+
+To delete the Cloud Run service, use this command :
+
+	gcloud run services delete helloworld --region="REGION"

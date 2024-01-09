@@ -1,0 +1,48 @@
+You have downloaded and installed the gcloud command line interface (CLI) and have authenticated with your Google Account. Most of your Compute Engine instances in your project run in the europe-west1-d zone. You want to avoid having to specify this zone with each CLI command when managing these instances.
+What should you do?
+	
+	A. Set the europe-west1-d zone as the default zone using the gcloud config subcommand. [✔️]
+	
+	B. In the Settings page for Compute Engine under Default location, set the zone to europe west1-d.
+	
+	C. In the CLI installation directory, create a file called default.conf containing zone=europe west1 d. [Suggested]
+	
+	D. Create a Metadata entry on the Compute Engine page with key compute/zone and value europe west1 d.
+
+-------
+
+A. Set the europe-west1-d zone as the default zone using the gcloud config subcommand.
+
+	Recommended: This option allows you to set the default zone for the gcloud command line interface, ensuring that you don't have to specify the zone with each command when managing instances.
+
+Explanation for other options:
+
+	B. In the Settings page for Compute Engine under Default location, set the zone to europe-west1-d:
+
+	Not a gcloud CLI configuration: This setting is related to the Google Cloud Console and not the gcloud command line interface. It won't affect the behavior of the CLI.
+
+C. In the CLI installation directory, create a file called default.conf containing zone=europe-west1-d:
+
+	Manual approach: This is not the standard way to configure the default zone for the gcloud CLI. Using the gcloud config subcommand is the recommended method.
+
+D. Create a Metadata entry on the Compute Engine page with key compute/zone and value europe-west1-d:
+
+	Not a gcloud CLI configuration: This option involves setting metadata at the project level, which is not the standard way to configure the default zone for the gcloud CLI. The gcloud CLI configuration should be done using the gcloud config command.
+
+-------
+
+Bard:
+
+	The most appropriate approach to set the europe-west1-d zone as the default zone using the gcloud config subcommand is A. Set the europe-west1-d zone as the default zone using the gcloud config subcommand.
+
+		This approach involves utilizing the gcloud config set command to specify the default zone for all subsequent CLI commands related to Compute Engine instances. This eliminates the need to explicitly mention the zone with each command, making it more convenient for managing instances in that region.
+
+	The other options are less suitable for this task:
+
+		Option B: Setting the zone in the Compute Engine Settings page only applies to the web interface, not to CLI commands.
+
+		Option C: Creating a default.conf file in the CLI installation directory is an outdated method that may not work with the latest version of gcloud.
+
+		Option D: Creating a Metadata entry on the Compute Engine page with the specified key and value will not affect the default zone for CLI commands.
+
+	Therefore, option A, which involves setting the default zone using the gcloud config subcommand, is the most efficient and reliable method for managing Compute Engine instances in the specified zone without explicitly specifying the zone with each command.

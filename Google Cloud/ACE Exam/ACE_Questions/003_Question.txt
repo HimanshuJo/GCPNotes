@@ -1,0 +1,45 @@
+You want to select and configure a cost-effective solution for relational data on Google Cloud Platform. You are working with a small set of operational data in one geographic location. You need to support point-in-time recovery. What should you do?
+	
+	A. Select Cloud SQL (MySQL). Verify that the enable binary logging option is selected. [✔️]
+	
+	B. Select Cloud SQL (MySQL). Select the create failover replicas option. [Bard suggested] [✔️]
+	
+	C. Select Cloud Spanner. Set up your instance with 2 nodes.
+	
+	D. Select Cloud Spanner. Set up your instance as multi-regional.
+
+-------
+
+A. Select Cloud SQL (MySQL). Verify that the enable binary logging option is selected.
+
+	Recommended: This option provides point-in-time recovery capability by enabling binary logging in Cloud SQL (MySQL). Binary logs allow you to restore the database to a specific point in time, supporting data recovery.
+
+B. Select Cloud SQL (MySQL). Select the create failover replicas option.
+
+	Not the best fit for point-in-time recovery: While failover replicas can provide high availability, they may not be the optimal solution for point-in-time recovery. Enabling binary logging is more directly related to this requirement.
+
+C. Select Cloud Spanner. Set up your instance with 2 nodes.
+
+	May be overkill for small sets of operational data: Cloud Spanner is a globally distributed, horizontally scalable database. For small datasets in a single geographic location, it might be considered over-engineering and could be more costly.
+
+D. Select Cloud Spanner. Set up your instance as multi-regional.
+
+	May be overkill for small sets of operational data: Similar to option C, setting up Cloud Spanner as multi-regional is designed for high availability and global distribution, which may not be necessary for a small set of operational data in one geographic location.
+
+In summary, option A, selecting Cloud SQL (MySQL) and enabling binary logging, is recommended for a cost-effective solution that supports point-in-time recovery for a small set of operational data in one geographic location.
+
+-------
+
+Bard:
+
+	The correct answer is B. Select Cloud SQL (MySQL). Select the create failover replicas option.
+
+		Cloud SQL is a managed MySQL server that offers cost-effectiveness and point-in-time recovery. The create failover replicas option allows you to create asynchronous replicas of your primary Cloud SQL instance. If the primary instance fails, you can fail over to one of the replicas without data loss.
+
+	Option A is incorrect because enabling binary logging allows you to perform point-in-time recovery, but it does not provide the full functionality of a failover replica. A failover replica is a fully functional copy of your database, whereas binary logging only allows you to restore your database to a specific point in time.
+
+	Option C is incorrect because a Cloud Spanner instance with 2 nodes is not a cost-effective solution for a small set of operational data. Cloud Spanner is a fully managed globally distributed database that is designed for large-scale workloads. It is not well-suited for small, localized applications.
+
+	Option D is incorrect because a Cloud Spanner instance configured as multi-regional is not necessary for a small set of operational data in one geographic location. Multi-regional instances are designed for applications that require high availability and low latency across multiple regions. They are not required for applications that only operate in one region.
+
+	Therefore, the best way to select a cost-effective solution for relational data on Google Cloud Platform with point-in-time recovery for a small set of operational data in one geographic location is to select Cloud SQL (MySQL) and enable the create failover replicas option. This will allow you to create a fully functional replica of your database that can be used for failover if the primary instance fails.

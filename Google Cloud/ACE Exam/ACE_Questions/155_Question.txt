@@ -1,0 +1,47 @@
+You are storing sensitive information in a Cloud Storage bucket. For legal reasons, you need to be able to record all requests that read any of the stored data. You want to make sure you comply with these requirements. What should you do?
+	
+	A. Enable the Identity Aware Proxy API on the project.
+	
+	B. Scan the bucket using the Data Loss Prevention API.
+	
+	C. Allow only a single Service Account access to read the data.
+	
+	D. Enable Data Access audit logs for the Cloud Storage API. [✔️]
+
+-------
+
+D. Enable Data Access audit logs for the Cloud Storage API.
+
+	Recommended: Enabling Data Access audit logs for the Cloud Storage API allows you to record and track all requests that read the stored data. This helps you comply with legal requirements and provides an audit trail for data access.
+
+A. Enable the Identity Aware Proxy API on the project.
+
+	Not directly related: The Identity Aware Proxy (IAP) is more focused on controlling access to applications rather than logging and auditing data access. While IAP provides identity-based access controls, it may not fulfill the specific requirement of recording all data access requests.
+
+B. Scan the bucket using the Data Loss Prevention API.
+
+	Not directly related: The Data Loss Prevention (DLP) API is designed for identifying and redacting sensitive data in your content. It is not primarily intended for logging and auditing data access requests.
+
+C. Allow only a single Service Account access to read the data.
+
+	Limited approach: While restricting access to a single Service Account can control who can read the data, it doesn't provide detailed logs of every access attempt. Enabling audit logs for the Cloud Storage API is a more comprehensive solution for tracking all access requests.
+
+In summary, option D is the most appropriate for meeting the requirement of recording all requests that read the stored data in the Cloud Storage bucket.
+
+-------
+
+Bard:
+
+	The most appropriate approach to enable recording of all requests that read sensitive information stored in a Cloud Storage bucket is D. Enable Data Access audit logs for the Cloud Storage API.
+
+		Data Access audit logs provide detailed information about all requests that access Cloud Storage resources, including read, write, and delete operations. This information includes the user or service account that initiated the request, the timestamp of the request, the resource being accessed, and the specific operation performed. By enabling data access audit logs, you can effectively record all requests that read the sensitive information stored in the Cloud Storage bucket.
+
+	The other options are not as appropriate for this task:
+
+		Option A: Enabling the Identity Aware Proxy API (IAP) enhances security by requiring users to authenticate before accessing resources. However, it does not specifically address the need to record data access requests.
+
+		Option B: Scanning the bucket using the Data Loss Prevention (DLP) API is used to identify and classify sensitive data, but it does not provide detailed logs of data access requests.
+
+		Option C: Allowing only a single Service Account access to read the data can restrict access, but it does not guarantee that all data access requests are recorded.
+
+	Therefore, option D, which involves enabling data access audit logs for the Cloud Storage API, is the most suitable and effective approach to fulfill the requirement of recording all requests that read sensitive information stored in the bucket.

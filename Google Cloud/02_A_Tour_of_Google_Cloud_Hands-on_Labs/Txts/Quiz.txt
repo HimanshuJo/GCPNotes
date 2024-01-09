@@ -1,0 +1,15 @@
+1. What type of cloud computing service lets you bind your application code to libraries that give access to the infrastructure your application needs?
+
+	Platform as a service
+
+-------
+
+2. Why might a Google Cloud customer use resources in several regions around the world?
+
+	To bring their applications closer to users around the world, and for improved fault tolerance
+
+-------
+
+3. What is the primary benefit to a Google Cloud customer of using resources in several zones within a region?
+
+	For improved fault tolerance

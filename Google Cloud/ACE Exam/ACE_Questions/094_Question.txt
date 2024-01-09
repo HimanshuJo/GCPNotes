@@ -1,0 +1,28 @@
+You create a Deployment with 2 replicas in a Google Kubernetes Engine cluster that has a single preemptible node pool. After a few minutes, you use kubectl to examine the status of your Pod and observe that one of them is still in Pending status:
+
+What is the most likely cause?
+	
+	A. The pending Pod's resource requests are too large to fit on a single node of the cluster.
+	
+	B. Too many Pods are already running in the cluster, and there are not enough resources left to schedule the pending Pod. [✔️]
+	
+	C. The node pool is configured with a service account that does not have permission to pull the container image used by the pending Pod.
+	
+	D. The pending Pod was originally scheduled on a node that has been preempted between the creation of the Deployment and your verification of the Pods' status. It is currently being rescheduled on a new node.
+	[Bard Suggested and chatGPT Suggested] [✔️]
+
+-------
+
+Bard:
+
+	The most likely cause of the pending Pod being in Pending status is D. The pending Pod was originally scheduled on a node that has been preempted between the creation of the Deployment and your verification of the Pods' status. It is currently being rescheduled on a new node.
+
+		Preemptible nodes are subject to termination at any time by Google to accommodate other users' workloads. If the node that the pending Pod was originally scheduled on was preempted, then the Pod would be evicted and Kubernetes would attempt to reschedule it on another node. This process can take a few minutes, and during this time, the Pod will be in Pending status.
+
+	Option A, the resource requests are too large to fit on a single node of the cluster, is less likely because the Deployment has only 2 replicas and the preemptible node pools are typically provisioned with enough resources to accommodate multiple Pods.
+
+	Option B, too many Pods are already running in the cluster, is also less likely because the preemptible node pools are designed to handle a burst of traffic and should be able to accommodate the additional Pod.
+
+	Option C, the node pool is configured with a service account that does not have permission to pull the container image used by the pending Pod, is also less likely because the service account is typically configured with the necessary permissions to pull container images.
+
+	Therefore, the most probable explanation for the pending Pod being in Pending status is that it was originally scheduled on a preempted node and is currently being rescheduled on a new node.

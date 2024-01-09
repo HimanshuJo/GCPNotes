@@ -1,0 +1,47 @@
+You have 32 GB of data in a single file that you need to upload to a Nearline Storage bucket. The WAN connection you are using is rated at 1 Gbps, and you are the only one on the connection. You want to use as much of the rated 1 Gbps as possible to transfer the file rapidly. How should you upload the file?
+	
+	A. Use the GCP Console to transfer the file instead of gsutil.
+	
+	B. Enable parallel composite uploads using gsutil on the file transfer. [✔️]
+	
+	C. Decrease the TCP window size on the machine initiating the transfer.
+	
+	D. Change the storage class of the bucket from Nearline to Multi-Regional.
+
+-------
+
+B. Enable parallel composite uploads using gsutil on the file transfer.
+
+	Recommended: Using gsutil with parallel composite uploads allows the file to be split into smaller components that can be uploaded concurrently, maximizing the use of the available bandwidth. This helps in achieving faster transfers.
+
+A. Use the GCP Console to transfer the file instead of gsutil.
+
+	Not efficient: The GCP Console may not optimize the transfer process as effectively as gsutil, especially for large files. Using gsutil with parallel composite uploads is a more efficient option.
+
+C. Decrease the TCP window size on the machine initiating the transfer.
+
+	Not recommended: Decreasing the TCP window size could potentially limit the amount of data in flight and may not be the best approach for maximizing the utilization of the available bandwidth.
+
+D. Change the storage class of the bucket from Nearline to Multi-Regional.
+
+	Not relevant: The storage class of the bucket does not directly impact the speed of file uploads. It determines the storage cost and retrieval characteristics but does not affect the transfer rate.
+
+In summary, option B, enabling parallel composite uploads using gsutil, is the most appropriate choice for maximizing the use of the available 1 Gbps bandwidth and achieving a rapid file transfer.
+
+-------
+
+Bard:
+
+	The correct answer is B. Enable parallel composite uploads using gsutil on the file transfer.
+
+		Nearline Storage is a cost-effective storage class for infrequently accessed data. However, it is not designed for high-performance workloads. When uploading a large file to Nearline Storage, you should use parallel composite uploads to improve the performance of the transfer.
+
+		Parallel composite uploads break the file into smaller chunks and uploads them in parallel. This can significantly reduce the upload time, especially for large files.
+
+	Option A is incorrect because the GCP Console is a web-based tool that is not designed for transferring large amounts of data. It would be much more efficient to use gsutil, which is a command-line tool specifically designed for interacting with Cloud Storage.
+
+	Option C is incorrect because decreasing the TCP window size would limit the amount of data that can be transferred at once. This would actually reduce the performance of the transfer.
+
+	Option D is incorrect because changing the storage class of the bucket from Nearline to Multi-Regional would not improve the performance of the upload. Multi-Regional Storage is a different storage class that is designed for data that needs to be accessed from multiple regions. It is not designed for high-throughput workloads.
+
+	Therefore, the best way to upload a large file to a Nearline Storage bucket using a 1 Gbps WAN connection is to enable parallel composite uploads using gsutil.

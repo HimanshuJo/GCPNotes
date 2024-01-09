@@ -1,0 +1,45 @@
+You host a static website on Cloud Storage. Recently, you began to include links to PDF files on this site. Currently, when users click on the links to these PDF files, their browsers prompt them to save the file onto their local system. Instead, you want the clicked PDF files to be displayed within the browser window directly, without prompting the user to save the file locally. What should you do?
+	
+	A. Enable Cloud CDN on the website frontend.
+	
+	B. Enable 'Share publicly' on the PDF file objects.
+	
+	C. Set Content-Type metadata to application/pdf on the PDF file objects. [✔️]
+	
+	D. Add a label to the storage bucket with a key of Content-Type and value of application/pdf
+
+-------
+
+C. Set Content-Type metadata to application/pdf on the PDF file objects.
+
+	Recommended: By setting the Content-Type metadata to application/pdf, you specify the correct MIME type for the PDF files. This helps the browser recognize the file type and display it directly within the browser window instead of prompting the user to save it locally.
+
+A. Enable Cloud CDN on the website frontend.
+
+	Not directly related: Cloud CDN (Content Delivery Network) helps in delivering content quickly to users by caching it at locations close to them. While it can improve performance, it's not the primary solution for controlling how browsers handle file types.
+
+B. Enable 'Share publicly' on the PDF file objects.
+
+	Not directly related: Enabling public sharing doesn't control how the browser displays the file; it only affects who can access the file.
+
+D. Add a label to the storage bucket with a key of Content-Type and value of application/pdf.
+
+	Not necessary: Labels are not used to control how browsers interpret the content type. Setting the correct Content-Type metadata directly on the file objects is the appropriate approach.
+
+In summary, option C is the most appropriate solution for ensuring that the clicked PDF files are displayed within the browser window without prompting the user to save the file locally.
+
+-------
+
+Bard:
+
+	The correct answer is C. Set Content-Type metadata to application/pdf on the PDF file objects.
+
+		To display PDF files directly within the browser window, you need to set the Content-Type metadata to application/pdf on the PDF file objects. This will tell the browser that the file is a PDF and that it should be displayed inline, rather than saved locally.
+
+	Option A is incorrect because Cloud CDN is a content delivery network that can improve the performance of your website by caching static content closer to users. It will not directly affect how PDF files are displayed.
+
+	Option B is incorrect because enabling 'Share publicly' on the PDF file objects will make the files publicly accessible, but it will not change how they are displayed in the browser.
+
+	Option D is incorrect because adding a label to the storage bucket will not affect the metadata of individual objects within the bucket.
+
+	Therefore, the only way to ensure that PDF files are displayed directly within the browser window is to set the Content-Type metadata to application/pdf on the PDF file objects themselves.

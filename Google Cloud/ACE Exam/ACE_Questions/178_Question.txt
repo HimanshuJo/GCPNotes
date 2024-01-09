@@ -1,0 +1,57 @@
+You are managing a project for the Business Intelligence (BI) department in your company. A data pipeline ingests data into BigQuery via streaming. You want the users in the BI department to be able to run the custom SQL queries against the latest data in BigQuery. What should you do?
+		
+	1. Create a Data Studio dashboard that uses the related BigQuery tables as a source and give the BI team view access to the Data Studio dashboard.
+ 	
+ 	2. Create a Service Account for the BI team and distribute a new private key to each member of the BI team.
+ 	
+ 	3. Use Cloud Scheduler to schedule a batch Dataflow job to copy the data from BigQuery to the BI team's internal data warehouse. [Suggested]
+ 	
+ 	4. Assign the IAM role of BigQuery User to a Google Group that contains the members of the BI team. [✔️]
+
+-------
+
+To enable users in the BI department to run custom SQL queries against the latest data in BigQuery, you should grant them the appropriate permissions. The recommended approach is:
+
+	D. Assign the IAM role of BigQuery User to a Google Group that contains the members of the BI team.
+
+Here's why:
+
+	A. Create a Data Studio dashboard that uses the related BigQuery tables as a source and give the BI team view access to the Data Studio dashboard.
+
+		While Data Studio dashboards can provide a visualization layer on top of BigQuery data, they might not be suitable for running custom SQL queries directly. This option provides a more limited interaction with the data.
+
+	B. Create a Service Account for the BI team and distribute a new private key to each member of the BI team.
+
+		Creating a Service Account with private keys is generally used for programmatic access. It's not the most user-friendly approach for individuals in the BI department who want to run queries interactively.
+	
+	C. Use Cloud Scheduler to schedule a batch Dataflow job to copy the data from BigQuery to the BI team's internal data warehouse.
+
+		Scheduling a batch job to copy data introduces latency, and it may not provide real-time access to the latest data. It's also an unnecessary additional step if users want to directly query the data in BigQuery.
+
+Why Option D is Recommended:
+
+	Assigning the IAM role of BigQuery User to a Google Group simplifies access management. You can add or remove users from the Google Group to control access to BigQuery.
+	
+	The BigQuery User role provides the necessary permissions for running custom SQL queries and accessing the data in BigQuery.
+	
+	It allows users in the BI department to directly interact with BigQuery through the BigQuery web UI, client libraries, or any other query tool.
+
+Conclusion:
+	
+	Option D is the recommended approach for granting users in the BI department the ability to run custom SQL queries against the latest data in BigQuery. It provides a straightforward and user-friendly solution while ensuring proper access control.
+
+-------
+
+Bard:
+
+	The correct answer is 4. Assign the IAM role of BigQuery User to a Google Group that contains the members of the BI team.
+
+		This approach provides the most secure and efficient way for BI team members to access and analyze data in BigQuery. By assigning the BigQuery User role to a Google Group, you can centrally manage access permissions and ensure that only authorized members of the BI team can access the data.
+
+	Option 1, creating a Data Studio dashboard, is not sufficient for allowing direct SQL queries against BigQuery data. Data Studio provides visualizations and dashboards based on data sources, but it doesn't enable users to directly execute SQL queries.
+
+	Option 2, creating a Service Account for the BI team and distributing private keys, is not recommended for sharing data access. Service Accounts are intended for automated tasks, and distributing private keys exposes sensitive credentials to unauthorized access.
+
+	Option 3, using Cloud Scheduler to schedule a batch Dataflow job, is not necessary for BI team members to run their own SQL queries. The goal is to enable them to access and analyze the latest data in BigQuery without the need for scheduled data transfers.
+
+	By assigning the BigQuery User role to a Google Group, you can effectively grant access to the BI team members while maintaining centralized control and security. This ensures that only authorized users can access the data and utilize SQL queries for analysis without the need for extra tools or manual processes.

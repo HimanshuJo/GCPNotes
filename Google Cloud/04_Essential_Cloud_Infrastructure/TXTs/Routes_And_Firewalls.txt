@@ -1,0 +1,7 @@
+A route is created when a subnet is created.
+
+This is what enables VMs on the same network to communicate.
+
+Every virtual machine instance in the network is directly connected to this router, and all packets leaving
+	
+	a virtual machine instance are first handled at this layer before they are forwarded to their next hop

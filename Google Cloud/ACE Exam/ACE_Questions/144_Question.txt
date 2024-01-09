@@ -1,0 +1,27 @@
+You have a Compute Engine instance hosting an application used between 9 AM and 6 PM on weekdays. You want to back up this instance daily for disaster recovery purposes. You want to keep the backups for 30 days. You want the Google-recommended solution with the least management overhead and the least number of services. What should you do?
+	
+	A. 1. Update your instances' metadata to add the following value: snapshot schedule: 0 1 * * * 2. Update your instances' metadata to add the following value: snapshot retention: 30
+	
+	B. 1. In the Cloud Console, go to the Compute Engine Disks page and select your instance's disk. 2. In the Snapshot Schedule section, select Create Schedule and configure the following parameters: - Schedule frequency: Daily - Start time: 1:00 AM 2:00 AM - Autodelete snapshots after: 30 days [✔️]
+	
+	C. 1. Create a Cloud Function that creates a snapshot of your instance's disk. 2. Create a Cloud Function that deletes snapshots that are older than 30 days. 3. Use Cloud Scheduler to trigger both Cloud Functions daily at 1:00 AM.
+	
+	D. 1. Create a bash script in the instance that copies the content of the disk to Cloud Storage. 2. Create a bash script in the instance that deletes data older than 30 days in the backup Cloud Storage bucket. 3. Configure the instance's crontab to execute these scripts daily at 1:00 AM.
+
+-------
+
+The appropriate answer is B. In the Cloud Console, go to the Compute Engine Disks page and select your instance's disk. In the Snapshot Schedule section, select Create Schedule and configure the following parameters: - Schedule frequency: Daily - Start time: 1:00 AM - Autodelete snapshots after: 30 days.
+
+Explanation:
+
+	Option B (Create Snapshot Schedule): This option uses the native snapshot scheduling feature available in Google Cloud Platform. It involves configuring a snapshot schedule for the Compute Engine disk directly from the Cloud Console. This approach requires the least management overhead, as it is a built-in feature of Google Cloud, and it allows you to specify the frequency and retention period for automatic snapshots.
+	
+	Options A, C, and D introduce more manual or custom scripting and may involve more management overhead:
+
+		Option A (Update instances' metadata): This option suggests updating the instances' metadata to create snapshots and set retention. While metadata can be used for custom configurations, using the built-in snapshot scheduling feature is a more straightforward and recommended approach.
+
+		Option C (Create a Cloud Function): Creating a custom Cloud Function to handle snapshot creation and deletion introduces additional complexity. While Cloud Functions can be powerful, using native features is often more straightforward.
+
+		Option D (Create a bash script): Using custom bash scripts on the instance for copying content to Cloud Storage and managing backups introduces more manual effort and maintenance. This approach also depends on the instance's local configurations.
+
+	Therefore, option B is the recommended solution for creating daily snapshots with a retention period of 30 days, offering the least management overhead and utilizing a built-in feature of Google Cloud Platform.

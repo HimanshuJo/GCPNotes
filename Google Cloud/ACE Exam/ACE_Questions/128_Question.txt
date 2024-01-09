@@ -1,0 +1,28 @@
+You have an application on a general-purpose Compute Engine instance that is experiencing excessive disk read throttling on its Zonal SSD Persistent Disk. The application primarily reads large files from disk. The disk size is currently 350 GB. You want to provide the maximum amount of throughput while minimizing costs.
+What should you do?
+
+	A. Increase the size of the disk to 1 TB.
+	
+	B. Increase the allocated CPU to the instance.
+	
+	C. Migrate to use a Local SSD on the instance.
+	
+	D. Migrate to use a Regional SSD on the instance. [✔️]
+
+	-------
+
+	Bard:
+
+		The correct answer is D. Migrate to use a Regional SSD on the instance.
+
+			Regional SSDs provide higher throughput than Zonal SSDs, and they are also more resilient to failures. This makes them a better choice for applications that experience excessive disk read throttling.
+
+		The other options are not as suitable for this scenario:
+
+			A. Increasing the size of the disk to 1 TB will not necessarily increase the throughput of the disk. The throughput of a Zonal SSD is limited by the performance of the underlying hardware, and increasing the disk size will not change the performance of the hardware.
+		
+			B. Increasing the allocated CPU to the instance will not help to improve disk read throughput. The CPU is not the bottleneck for disk read operations. The bottleneck is the storage hardware itself.
+			
+			C. Migrating to use a Local SSD on the instance will not provide the same level of throughput as a Regional SSD. Local SSDs are designed for low-latency access, not high throughput.
+		
+		Therefore, the best option is to migrate to use a Regional SSD on the instance. This will provide the maximum amount of throughput while minimizing costs.

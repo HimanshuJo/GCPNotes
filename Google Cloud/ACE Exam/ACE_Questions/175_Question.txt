@@ -1,0 +1,57 @@
+You have developed an application that consists of multiple microservices, with each microservice packaged in its own Docker container image. You want to deploy the entire application on Google Kubernetes Engine so that each microservice can be scaled individually. What should you do?
+	
+	Create and deploy a Custom Resource Definition per microservice.
+	
+	Create and deploy a Docker Compose File.
+	
+	Create and deploy a Job per microservice.
+	
+	Create and deploy a Deployment per microservice. [✔️]
+
+-------
+
+To deploy an application consisting of multiple microservices, each packaged in its own Docker container image, on Google Kubernetes Engine (GKE) with the ability to scale each microservice individually, you should:
+
+	D. Create and deploy a Deployment per microservice.
+
+Here's why:
+
+	A. Create and deploy a Custom Resource Definition per microservice.
+
+		Custom Resource Definitions (CRDs) are used for extending the Kubernetes API. While you can use CRDs for custom resources, they are not the primary mechanism for deploying and managing microservices.
+	
+	B. Create and deploy a Docker Compose File.
+
+		Docker Compose is typically used for defining and running multi-container Docker applications, but it's not the primary tool for managing deployments on Kubernetes. GKE uses Kubernetes manifests like Deployments to define and manage application resources.
+	
+	C. Create and deploy a Job per microservice.
+
+		Jobs are designed for running short-lived tasks, not for deploying and managing long-running microservices. Deployments are better suited for managing microservices in a scalable and resilient manner.
+
+Why Option D is Recommended:
+
+	Deployments in Kubernetes are designed to manage the deployment and scaling of applications, including microservices.
+	
+	Deployments provide features like rolling updates, scaling, and rollback, making them suitable for managing the lifecycle of microservices.
+	
+	Each microservice can be independently deployed, scaled, and updated by creating a separate Deployment for each microservice.
+
+Conclusion:
+	
+	Option D, "Create and deploy a Deployment per microservice," is the recommended approach for deploying an application with multiple microservices on Google Kubernetes Engine. It allows you to manage each microservice independently and provides the necessary features for scaling and updating microservices.
+
+-------
+
+Bard:
+
+	The correct answer is Create and deploy a Deployment per microservice.
+
+		This approach provides the most scalable and flexible way to deploy microservices on Google Kubernetes Engine (GKE). Deployments are a core abstraction in Kubernetes that manage the lifecycle of pods, the basic unit of deployment in Kubernetes. By creating a Deployment per microservice, you can independently scale each microservice up or down based on its workload.
+
+	Option 1, creating and deploying a Custom Resource Definition (CRD) per microservice, is not as flexible as using Deployments. CRDs are more complex to manage and can be less efficient for scaling individual microservices.
+
+	Option 2, creating and deploying a Docker Compose file, is not a native Kubernetes resource and does not leverage the full capabilities of Kubernetes for managing microservices. It offers less control and flexibility compared to Deployments.
+
+	Option 3, creating and deploying a Job per microservice, is not suitable for long-running microservices. Jobs are designed for short-lived tasks, such as batch processing or data ingestion. For long-running microservices, Deployments provide a more appropriate and scalable solution.
+
+	Therefore, creating and deploying a Deployment per microservice is the most recommended approach for deploying microservices on GKE. This approach ensures that each microservice can be scaled independently, managed effectively, and utilizes the full capabilities of Kubernetes for microservice orchestration.

@@ -1,0 +1,32 @@
+Your company publishes large files on an Apache web server that runs on a Compute Engine instance. The Apache web server is not the only application running in the project. You want to receive an email when the egress network costs for the server exceed 100 dollars for the current month as measured by Google Cloud.
+What should you do?
+
+	A. Set up a budget alert on the project with an amount of 100 dollars, a threshold of 100%, and notification type of email. [Suggested]
+
+	B. Set up a budget alert on the billing account with an amount of 100 dollars, a threshold of 100%, and notification type of email.
+
+	C. Export the billing data to BigQuery. Create a Cloud Function that uses BigQuery to sum the egress network costs of the exported billing data for the Apache web server for the current month and sends an email if it is over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly. [✔️]
+
+	D. Use the Cloud Logging Agent to export the Apache web server logs to Cloud Logging. Create a Cloud Function that uses BigQuery to parse the HTTP response log data in Cloud Logging for the current month and sends an email if the size of all HTTP responses, multiplied by current Google Cloud egress prices, totals over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly.
+
+-------
+
+A. Set up a budget alert on the project with an amount of 100 dollars, a threshold of 100%, and notification type of "email."
+
+	This option involves setting up a budget alert directly on the project. However, budget alerts in GCP may not be real-time and could have a delay. Also, budget alerts are usually for monitoring overall project spending and may not provide detailed insights into specific resources like egress costs for the Apache web server.
+
+B. Set up a budget alert on the billing account with an amount of 100 dollars, a threshold of 100%, and notification type of "email."
+
+	This option is more appropriate than Option A. Setting up a budget alert on the billing account would give a broader view of the costs, and it's likely to capture egress costs effectively. However, it still might not be real-time and could have some delay.
+
+C. Export the billing data to BigQuery. Create a Cloud Function that uses BigQuery to sum the egress network costs of the exported billing data for the Apache web server for the current month and sends an email if it is over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly.
+
+	This option provides a more detailed and customizable solution. Exporting billing data to BigQuery allows for more granular analysis of costs. The Cloud Function can perform specific calculations for the Apache web server's egress costs, and it can run hourly for near-real-time monitoring.
+
+D. Use the Stackdriver Logging Agent to export the Apache web server logs to Stackdriver Logging. Create a Cloud Function that uses BigQuery to parse the HTTP response log data in Stackdriver for the current month and sends an email if the size of all HTTP responses, multiplied by current GCP egress prices, totals over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly.
+
+	This option involves monitoring Apache web server logs, but it may not be the most straightforward way to monitor egress costs. It introduces additional complexity by parsing logs and calculating costs based on HTTP response size. It might not be as accurate and reliable as directly analyzing billing data.
+
+Conclusion:
+	
+	Option C seems to be the most appropriate choice. Exporting billing data to BigQuery allows for detailed analysis, and scheduling a Cloud Function hourly provides a near-real-time monitoring solution. Option B is a reasonable alternative, but it might not be as detailed and customizable as Option C. Options A and D, while addressing monitoring, have limitations and complexities that make them less suitable for this specific use case.

@@ -1,0 +1,29 @@
+Standard storage
+
+	Storage for data that is frequently accessed ("hot" data) and/or stored for only brief periods of time.
+
+	"Hot" data, including websites, streaming videos, and mobile apps.
+
+-------
+
+Nearline storage
+
+	Low cost, highly durable storage service for storing infrequently accessed data.
+
+	Data that can be stored for 30 days.
+
+-------
+
+Coldline Storage
+
+	A very low cost, highly durable storage service for storing infrequently accessed data.
+
+	Data that can be stored for 90 days.
+
+-------
+
+Archival storage
+
+	The lowest cost, highly durable storage service for data archiving, online backup, and disaster recovery.
+
+	Data that can be stored for 365 days.

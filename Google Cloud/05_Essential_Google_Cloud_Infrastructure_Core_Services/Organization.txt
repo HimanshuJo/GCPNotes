@@ -1,0 +1,59 @@
+The organization resource is the root node in the GCP resource hierarchy
+
+	This node has many roles, like the organization admin
+
+-------
+
+In the context of GCP organization setup, the G Suite or Cloud Identity super administrator responsibilities are: 
+
+	assign the organization admin role to some users, be a point of contact in case of recovery issues
+
+	control the lifecycle of the G Suite or Cloud Identity account and organization resource
+
+-------
+
+The responsibilities of the organization admin role are: 
+
+	define IAM policies
+
+	determine the structure of the resource hierarchy, delegate responsibility over critical components such as networking, billing, and resource hierarchy, through IAM roles
+
+	following the principle of least privilege, this role does not include the permission to perform other actions, such as creating folders
+
+	to get these permissions, an organization admin must assign additional roles to their account
+
+-------
+
+Folders:
+
+	They can be viewed as sub organizations within the organization
+
+	Folders provide an additional grouping mechanism and isolation boundary between projects
+
+	Folders can be used to model different legal entities, departments, and teams within a company
+
+	-------
+
+	For example, a first-level of folders can be used to represent the main departments in your organization, like departments x and y
+
+	Because folders, can contain projects in other folders, each folder could then include other sub-folders to represent different teams, like teams A and B
+
+		Each team folder could contain additional sub-folders, to represent different applications, like products 1 and 2
+
+-------
+
+The folder node has multiple roles that mimic the organizational roles, but are applied to resources within a folder
+
+	There is an admin role that provides full control over folders
+
+	A creator role, to browse the hierarchy and create folders
+
+	A viewer role, to view folders and projects below a resource
+
+-------
+
+Similarly for projects, there is:
+
+	A creator role that allows a user to create new projects, making that user automatically the owner
+
+	There is also a project deleter role that grants deletion privileges for projects

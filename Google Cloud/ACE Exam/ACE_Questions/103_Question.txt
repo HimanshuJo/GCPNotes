@@ -1,0 +1,26 @@
+You have a developer laptop with the Cloud SDK installed on Ubuntu. The Cloud SDK was installed from the Google Cloud Ubuntu package repository. You want to test your application locally on your laptop with Cloud Datastore. What should you do?
+	
+	A. Export Cloud Datastore data using gcloud datastore export.
+	
+	B. Create a Cloud Datastore index using gcloud datastore indexes create.
+	
+	C. Install the google-cloud-sdk-datastore-emulator component using the apt get install command.
+	[Another Most Voted and chatGPT Suggested]
+	
+	D. Install the cloud-datastore-emulator component using the gcloud components install command. [✔️]
+
+-------
+
+Bard:
+
+	The correct answer is D. Install the cloud-datastore-emulator component using the gcloud components install command.
+
+		To test your application locally on your laptop with Cloud Datastore, you need to install the Datastore emulator component. This component provides a local emulation of the production Cloud Datastore environment, allowing you to develop and test your application without relying on the real Google Cloud platform.
+
+	Option A. Export Cloud Datastore data using gcloud datastore export is not relevant for testing locally. It is used to export data from Cloud Datastore to a local file or another datastore.
+
+	Option B. Create a Cloud Datastore index using gcloud datastore indexes create is also not directly related to testing locally. Index creation is typically done in production environments to optimize data retrieval.
+
+	Option C. Install the google-cloud-sdk-datastore-emulator component using the apt get install command is incorrect. The apt get install command is used to install packages from the Ubuntu package repository, while the Cloud SDK components are installed using the gcloud components install command.
+
+	Therefore, the correct approach for testing your application locally with Cloud Datastore is to install the cloud-datastore-emulator component using the gcloud components install command. This will provide the necessary emulator environment for local testing.

@@ -1,0 +1,85 @@
+Persistent Disks
+
+	Persistent disks are durable block storage devices that can be attached to Compute Engine virtual machines (VMs) to store data that needs to persist even after the VM is shut down. They are ideal for applications that require data to be available even if the VM restarts, such as databases and web applications.
+
+	Persistent disks come in two types:
+
+		Standard persistent disks: 
+
+			These are the most common type of persistent disk, and they are designed for general-purpose use. They offer a good balance of performance, capacity, and cost.
+
+		SSD persistent disks: 
+
+			These are high-performance persistent disks that are designed for applications that require fast I/O operations. They are ideal for applications such as data warehouses and high-performance computing.
+
+	Persistent disks can be attached to VMs in a number of ways:
+
+		Primary persistent disks: 
+
+			These are the main disks that are attached to a VM. They are mounted at the root of the VM's filesystem.
+
+		Secondary persistent disks: 
+
+			These are additional disks that can be attached to a VM. They are mounted at a custom location on the VM's filesystem.
+
+		Scratch disks: 
+
+			These are ephemeral disks that are only available while the VM is running. They are not persisted when the VM is shut down.
+
+-------
+
+Instance Templates
+
+	Instance templates are configuration files that define the specifications for a group of Compute Engine VMs. They specify the following:
+
+		Machine type: 
+
+			The size and type of the VM instance.
+
+		Operating system: 
+
+			The operating system that will be installed on the VM.
+
+		Firewall rules: 
+
+			The firewall rules that will control the traffic to and from the VM.
+
+		Persistent disks: 
+
+			The persistent disks that will be attached to the VM.
+
+	-------
+
+	Instance templates are useful for several reasons:
+
+		They make it easy to create multiple VMs with the same configuration.
+
+		They improve the consistency of VMs across different deployments.
+
+		They make it easier to automate the creation of VMs.
+
+-------
+
+Using Persistent Disks and Instance Templates Together
+
+	Persistent disks and instance templates can be used together to automate the creation of VMs with the desired persistent disk configuration. For example, you can create an instance template that specifies the machine type, operating system, firewall rules, and persistent disks for a group of web servers. Then, you can use this instance template to create multiple web servers with the same configuration.
+
+	-------
+
+	Benefits of Using Persistent Disks and Instance Templates
+
+		There are several benefits to using persistent disks and instance templates:
+
+			Reduced deployment time: 
+
+				Persistent disks and instance templates can significantly reduce the time it takes to deploy new VMs.
+
+			Improved consistency: 
+
+				Persistent disks and instance templates ensure that all VMs in a deployment have the same configuration.
+
+			Reduced operational overhead: 
+
+				Persistent disks and instance templates can help to reduce the operational overhead of managing VMs.
+
+		Overall, persistent disks and instance templates are essential tools for managing Compute Engine VMs. They can help to improve deployment times, consistency, and operational efficiency.

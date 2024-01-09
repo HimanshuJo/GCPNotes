@@ -1,0 +1,34 @@
+You have an application that uses Cloud Spanner as a database backend to keep current state information about users. Cloud Bigtable logs all events triggered by users. You export Cloud Spanner data to Cloud Storage during daily backups. One of your analysts asks you to join data from Cloud Spanner and Cloud
+Bigtable for specific users. You want to complete this ad hoc request as efficiently as possible. What should you do?
+	
+	A. Create a dataflow job that copies data from Cloud Bigtable and Cloud Storage for specific users.
+	
+	B. Create a dataflow job that copies data from Cloud Bigtable and Cloud Spanner for specific users. [Suggested and chatGPT Suggested]
+	
+	C. Create a Cloud Dataproc cluster that runs a Spark job to extract data from Cloud Bigtable and Cloud Storage for specific users.
+	
+	D. Create two separate BigQuery external tables on Cloud Storage and Cloud Bigtable. Use the BigQuery console to join these tables through user fields, and apply appropriate filters. [✔️]
+
+-------
+
+C. Create a Cloud Dataproc cluster that runs a Spark job to extract data from Cloud Bigtable and Cloud Storage for specific users.
+
+	Possible but not as efficient: Cloud Dataproc can be used for processing large datasets using Apache Spark, but for this specific task, Dataflow is more suitable as it is a fully managed service for stream and batch processing.
+
+D. Create two separate BigQuery external tables on Cloud Storage and Cloud Bigtable. Use the BigQuery console to join these tables through user fields, and apply appropriate filters.
+
+	Possible but less efficient: While BigQuery can perform joins, creating external tables on Cloud Storage and Cloud Bigtable and joining them in BigQuery may introduce additional latency and be less efficient than using Dataflow for processing and joining the data directly.
+
+-------
+
+Bard:
+
+	The correct answer is D. Create two separate BigQuery external tables on Cloud Storage and Cloud Bigtable. Use the BigQuery console to join these tables through user fields, and apply appropriate filters.
+
+		This approach is the most efficient and scalable way to join data from Cloud Spanner and Cloud Bigtable for specific users. By creating separate external tables for each source, you can take advantage of BigQuery's parallel processing capabilities to efficiently join the data. Additionally, using BigQuery's console makes it easy to filter and visualize the results.
+
+	Option A is incorrect because creating a dataflow job to copy the data from both sources would be inefficient and would not scale well for multiple requests.
+
+	Option B is incorrect because creating a dataflow job to copy the data from Cloud Bigtable would be inefficient, as the data is already stored in Cloud Storage.
+
+	Option C is incorrect because creating a Cloud Dataproc cluster and running a Spark job would be more complex and time-consuming than the other options. Additionally, Spark is not as well-suited for ad hoc data analysis as BigQuery.

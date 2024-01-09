@@ -1,0 +1,47 @@
+You are running a data warehouse on BigQuery. A partner company is offering a recommendation engine based on the data in your data warehouse. The partner company is also running their application on Google Cloud. They manage the resources in their own project, but they need access to the BigQuery dataset in your project. You want to provide the partner company with access to the dataset. What should you do?
+	
+	A. Create a Service Account in your own project, and grant this Service Account access to BigQuery in your project.
+	
+	B. Create a Service Account in your own project, and ask the partner to grant this Service Account access to BigQuery in their project.
+	
+	C. Ask the partner to create a Service Account in their project, and have them give the Service Account access to BigQuery in their project.
+	
+	D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project. [✔️]
+
+-------
+
+D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project.
+
+Explanation:
+	
+	In a scenario where another project (partner's project) needs access to a BigQuery dataset in your project, it's best to have the partner create a Service Account in their own project.
+
+	The partner can then share the Service Account email address with you, and you can grant the necessary permissions (read or specific roles) on your BigQuery dataset to that Service Account.
+	
+	This way, the access control is managed on the dataset owner's (your) side, and the partner retains control over the Service Account and its permissions in their own project.
+
+	It follows the principle of least privilege, as you grant access only to the specific dataset and don't provide more permissions than necessary.
+
+Other Options:
+
+	Option A and Option B suggest creating a Service Account in your own project. However, in this scenario, it's more appropriate to have the partner manage their own Service Account for access to your dataset.
+	
+	Option C suggests the partner creating a Service Account in their project and giving it access to BigQuery in their project. However, in this scenario, the access needs to be granted to your dataset, so they should have access to your project's dataset.
+
+-------
+
+Bard:
+
+	The correct answer is D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project.
+
+		This approach is the most secure and recommended way to grant access to your BigQuery dataset to an external partner. By creating a Service Account in their own project, you can tightly control the permissions granted to the partner, ensuring that they only have access to the data they need to perform their tasks.
+
+	The other options are less secure:
+
+		A. Create a Service Account in your own project, and grant this Service Account access to BigQuery in your project. This option would give the partner too much access to your data, as they would be able to see and potentially modify all of the data in your project.
+
+		B. Create a Service Account in your own project, and ask the partner to grant this Service Account access to BigQuery in their project. This option would require the partner to give you their project credentials, which is not a secure practice.
+
+		C. Ask the partner to create a Service Account in their project, and have them give the Service Account access to BigQuery in their project. This option is not the most secure, as the partner would still have full control over the Service Account.
+
+	Therefore, the best approach is to have the partner create a Service Account in their project and grant you access to the BigQuery dataset in their project. This will give you the necessary access to the data while still maintaining a secure separation of permissions.

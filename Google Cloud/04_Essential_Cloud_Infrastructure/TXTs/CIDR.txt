@@ -1,0 +1,81 @@
+/8 corresponds to 
+
+	11111111.00000000.00000000.00000000 and the more readable subnet mask 255.0.0.0.
+
+-------
+
+How many addresses does a CIDR block represent? You calculate 232-prefix, where prefix is the number after the slash.
+
+	For example, /29 contains 232-29=23=8 addresses.
+
+-------
+
+It's easy to calculate how many subnets can fit inside a larger one. 
+
+	For example, how many /30 networks fit in a /27 network?
+
+	Using the properties of exponents it's easy
+
+		2^(32-27)/2^(32-30)
+		= 25/22
+		= 25-2
+		= 23
+		= 8
+
+-------
+
+/8 - 16,777,216 addresses (2^24)
+/9 - 8,388,608 addresses (2^23)
+/10 - 4,194,304 addresses (2^22)
+/11 - 2,097,152 addresses (2^21)
+/12 - 1,048,576 addresses (2^20)
+/13 - 524,288 addresses (2^19)
+
+/14 - 262,144 addresses (2^18)
+/15 - 131,072 addresses (2^17)
+/16 - 65,536 addresses (2^16)
+/17 - 32,768 addresses (2^15)
+/18 - 16,384 addresses (2^14)
+/19 - 8,192 addresses (2^13)
+/20 - 4,096 addresses (2^12)
+/21 - 2,048 addresses (2^11)
+/22 - 1,024 addresses (2^10)
+
+/23 - 512 addresses (2^9)
+/24 - 256 addresses (2^8)
+/25 - 128 addresses (2^7)
+/26 - 64 addresses (2^6)
+/27 - 32 addresses (2^5)
+/28 - 16 addresses (2^4)
+/29 - 8 addresses (2^3)
+/30 - 4 addresses (2^2)
+/31 - 2 addresses (2^1)
+/32 - 1 address (2^0)
+
+-------
+
+Virtual Private Cloud:
+
+	VPC is a comprehensive set of Google managed networking objects
+
+	Projects are going to encompass every single service that we use including networks
+
+	-------
+
+	Regions in zones represents Google's data-centers and they provide continuous Data Protection
+	and high availability
+
+	VPC provides IP addresses for internal and external use along with granular IP address range selections
+
+	-------
+
+	The external IP address is mapped to the VM's internal address transparently by VPC.
+
+-------
+
+IP Addresses:
+
+	When you create a VM in Google Cloud, its symbolic name is registered with an internal DNS service that translates the name to an internal IP address
+
+	The DNS is scoped to the network, so it can translate web URLs and VM names of hosts in the same network,
+	but it can't translate host names from VMs in a different network

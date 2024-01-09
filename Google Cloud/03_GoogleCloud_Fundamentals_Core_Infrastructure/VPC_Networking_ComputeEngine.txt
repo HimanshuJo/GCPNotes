@@ -1,0 +1,18 @@
+mynet-eu-vm	europe-west2-c		
+10.154.0.2 (nic0)	35.197.197.74 (nic0) 	
+mynet-us-vm	us-west3-c		
+10.180.0.3 (nic0)	34.106.169.64 (nic0) 
+
+-------
+
+Preemptible VMs
+
+Very similar to an ordinary VM. It only has one differeence — it has permission to terminate if its resources are needed elsewhere. You can save a lot of money with preemptible VMs, you just should make sure that your job is able to be stopped and restarted.
+
+-------
+
+An SLA (service-level agreement)
+
+	is a contract between clients and a service provider that outlines the services the provider will offer and the service standards it is required to uphold.
+
+	SLAs are very necessary for service providers to manage customer expectations and to specify the severity levels and conditions of the agreement.

@@ -1,0 +1,45 @@
+Your company has an internal application for managing transactional orders. The application is used exclusively by employees in a single physical location. The application requires strong consistency, fast queries, and ACID guarantees for multi-table transactional updates. The first version of the application is implemented in PostgreSQL, and you want to deploy it to the cloud with minimal code changes. Which database is most appropriate for this application?
+	
+	A. BigQuery
+	
+	B. Cloud SQL [✔️]
+	
+	C. Cloud Spanner [Another Most Voted and chatGPT recommended]
+	
+	D. Cloud Datastore
+
+-------
+
+The most appropriate database for an application that requires strong consistency, fast queries, ACID guarantees for multi-table transactional updates, and minimal code changes for deployment in the cloud is:
+
+C. Cloud Spanner
+
+	Explanation:
+		
+		Cloud Spanner is a globally distributed, strongly consistent, and horizontally scalable database service.
+		
+		It provides ACID transactions and supports SQL queries, making it suitable for multi-table transactional updates.
+		
+		Cloud Spanner's global distribution allows it to provide low-latency access to data for users in different physical locations.
+	
+Cloud SQL (Option B) is a fully managed relational database service but doesn't provide the same global distribution and scalability features as Cloud Spanner.
+
+BigQuery (Option A) is a serverless, highly scalable, and cost-effective multi-cloud data warehouse, but it's not designed for transactional updates and doesn't provide ACID guarantees.
+
+Cloud Datastore (Option D) is a NoSQL document database, and while it's good for certain use cases, it may not be the best fit for applications requiring strong consistency and multi-table transactional updates.
+
+-------
+
+Bard:
+
+	Cloud Spanner is the most suitable database for this application because it provides strong consistency, fast queries, and ACID guarantees for multi-table transactional updates. It is also a good choice for applications that need to be deployed to the cloud with minimal code changes, as it is compatible with PostgreSQL and other relational databases.
+
+	The other options are not as suitable for this application:
+
+		A. BigQuery is a data warehouse, not a transactional database. It is not designed for applications that need strong consistency and fast queries.
+
+		B. Cloud SQL is a managed relational database service. It can provide strong consistency and fast queries, but it is not as scalable as Cloud Spanner. Additionally, Cloud SQL is not compatible with PostgreSQL, so you would need to rewrite your application to use a different database dialect.
+
+		D. Cloud Datastore is a NoSQL database. It does not provide strong consistency, and it is not as efficient for transactional applications as Cloud Spanner. Additionally, Cloud Datastore is not compatible with PostgreSQL, so you would need to rewrite your application to use a different database technology.
+
+	Therefore, Cloud Spanner is the most appropriate database for this application because it provides the features and compatibility that the application needs.

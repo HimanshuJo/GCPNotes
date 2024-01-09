@@ -1,0 +1,55 @@
+Your finance team wants to view the billing report for your projects. You want to make sure that the finance team does not get additional permissions to the project. What should you do?
+
+	A. Add the group for the finance team to roles/billing user role.
+	
+	B. Add the group for the finance team to roles/billing admin role.
+	
+	C. Add the group for the finance team to roles/billing viewer role. [✔️]
+	
+	D. Add the group for the finance team to roles/billing project/Manager role.
+
+-------
+
+C. Add the group for the finance team to roles/billing viewer role.
+
+	Recommended: The roles/billing viewer role allows users to view the billing information without granting additional permissions that could affect the resources in the project.
+
+A. Add the group for the finance team to roles/billing user role.
+
+	Not as suitable: The roles/billing user role includes permissions to view billing information, but it also includes additional permissions that might not be necessary for a team that only needs to view billing reports.
+
+B. Add the group for the finance team to roles/billing admin role.
+
+	Not recommended: The roles/billing admin role provides full control over billing settings, including the ability to modify budgets and link and unlink projects, which might be more access than the finance team needs.
+
+D. Add the group for the finance team to roles/billing project/Manager role.
+
+	Not a valid role: The role roles/billing project/Manager does not exist.
+
+Therefore, option C is the most appropriate choice if you want to grant the finance team the ability to view billing reports without giving them additional permissions that could impact other aspects of the project.
+
+-------
+
+Bard:
+
+	The most appropriate approach for allowing the finance team to view the billing report for your projects while restricting their access to other project resources is C. Add the group for the finance team to roles/billing viewer role.
+
+		Granting the finance team the IAM Role of Billing Viewer provides them with the following capabilities:
+
+			View billing reports for projects in their billing account.
+			
+			See the billing details for specific projects.
+			
+			Analyze billing data to identify trends and optimize costs.
+		
+		This role ensures that the finance team has the necessary permissions to view billing information without granting them any administrative or resource-management capabilities.
+
+	The other options are less suitable for this task:
+
+		Option A: Adding the group to the roles/billing user role provides broader access to billing data and administrative capabilities.
+
+		Option B: Adding the group to the roles/billing admin role grants excessive permissions, including the ability to modify billing settings and manage billing accounts.
+
+		Option D: Adding the group to roles/billing project/Manager role provides access to project-level billing data and administrative capabilities, which is not necessary for simply viewing billing reports.
+
+	Therefore, option C, which limits the finance team's permissions to the roles/billing viewer role, is the most secure and appropriate approach for fulfilling their access requirements.

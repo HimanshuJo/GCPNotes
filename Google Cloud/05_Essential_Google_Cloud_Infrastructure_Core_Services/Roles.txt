@@ -1,0 +1,51 @@
+There are three types of roles in Cloud IAM:
+
+	basic roles
+
+	predefined roles
+
+	and custom roles.
+
+-------
+
+Basic roles are the original roles that were available in the Cloud console, but they are broad
+
+	You apply them to a Google Cloud project, and they affect all resources in that project
+
+	In other words, IAM basic roles offer fixed, coarse-grained levels of access
+
+	The basic roles are the
+
+		owner
+
+			The owner has full administrative access
+
+			That is the owner role includes the permissions of the editor role
+
+		editor
+
+			The editor role has modify and delete access
+
+			This allows the developer to deploy applications and modify or configure its resources
+
+			The editor role includes the permissions of the viewer role
+
+		viewer roles
+
+			The view role has read only access
+
+-------
+
+Compute Engine has several predefined IAM roles
+
+	The Compute Admin role provides full control of all Compute Engine resources
+
+-------
+
+The Network Admin role Contains permissions to create, modify and delete network resources, except for firewall rules and SSL certificates
+
+	In other words, the network admin role allows read only access to firewall rules SSL certificates, and instances to view their ephemeral IP addresses
+
+-------
+
+The storage admin role contains permissions to create, modify, and delete disks, images, and snapshots

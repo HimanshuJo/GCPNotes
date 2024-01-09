@@ -1,0 +1,39 @@
+You want to deploy an application on Cloud Run that processes messages from a Cloud Pub/Sub topic. You want to follow Google-recommended practices. What should you do? [Question 64]
+	
+	A. 1. Create a Cloud Function that uses a Cloud Pub/Sub trigger on that topic. 2. Call your application on Cloud Run from the Cloud Function for every message.
+	
+	B. 1. Grant the Pub/Sub Subscriber role to the service account used by Cloud Run. 2. Create a Cloud Pub/Sub subscription for that topic. 3. Make your application pull messages from that subscription. [chatGPT Suggested]
+	
+	C. 1. Create a service account. 2. Give the Cloud Run Invoker role to that service account for your Cloud Run application. 3. Create a Cloud Pub/Sub subscription that uses that service account and uses your Cloud Run application as the push endpoint. [✔️]
+	
+	D. 1. Deploy your application on Cloud Run on GKE with the connectivity set to Internal. 2. Create a Cloud Pub/Sub subscription for that topic. 3. In the same Google Kubernetes Engine cluster as your application, deploy a container that takes the messages and sends them to your application. [Suggested]
+
+-------
+
+Bard:
+
+	The most appropriate and Google-recommended approach for deploying an application on Cloud Run that processes messages from a Cloud Pub/Sub topic is C. Create a service account. 2. Give the Cloud Run Invoker role to that service account for your Cloud Run application. 3. Create a Cloud Pub/Sub subscription that uses that service account and uses your Cloud Run application as the push endpoint.
+
+	This approach offers several advantages:
+
+		Efficient Processing: 
+
+			The Cloud Pub/Sub service will push messages directly to your Cloud Run application using a dedicated service account, eliminating the need for your application to actively pull messages from the subscription. This improves efficiency and reduces the load on your application.
+
+		Reduced Operational Overhead: 
+
+			This approach simplifies deployment and management, as you don't need to maintain a separate script or service to invoke your Cloud Run application for each message.
+
+		Granular Access Control: 
+
+			By granting the Cloud Run Invoker role to the service account, you ensure that only authorized messages can trigger your Cloud Run application, enhancing security and preventing unauthorized access.
+
+	The other options have limitations:
+
+		Option A: Using a Cloud Function to trigger your Cloud Run application for each message introduces additional overhead and latency compared to the direct push approach.
+
+		Option B: Granting the Pub/Sub Subscriber role to the Cloud Run service account requires your application to pull messages from the subscription, which can increase load and complexity.
+
+		Option D: Deploying your application on Cloud Run on GKE with internal connectivity limits the scalability and flexibility of your deployment. It also requires managing an additional container for message forwarding.
+
+	Therefore, option C, which utilizes Cloud Pub/Sub's push mechanism and leverages a dedicated service account with the Cloud Run Invoker role, aligns with the Google recommended practices for efficient, secure, and manageable message processing on Cloud Run.

@@ -1,0 +1,7 @@
+student-00-eff5741f97f4@qwiklabs.net
+
+student-00-fb923fccd2a7@qwiklabs.net U2
+
+-------
+
+qwiklabs-gcp-02-e40249e08991_bucket

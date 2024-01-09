@@ -1,0 +1,35 @@
+You have a web application deployed as a managed instance group. You have a new version of the application to gradually deploy. Your web application is currently receiving live web traffic. You want to ensure that the available capacity does not decrease during the deployment. What should you do?
+	
+	A. Perform a rolling-action start-update with maxSurge set to 0 and maxUnavailable set to 1. [Bard and chatGPT suggested] [✔️]
+	
+	B. Perform a rolling-action start-update with maxSurge set to 1 and maxUnavailable set to 0. [✔️]
+	
+	C. Create a new managed instance group with an updated instance template. Add the group to the backend service for the load balancer. When all instances in the new managed instance group are healthy, delete the old managed instance group. [Suggested]
+	
+	D. Create a new instance template with the new application version. Update the existing managed instance group with the new instance template. Delete the instances in the managed instance group to allow the managed instance group to recreate the instance using the new instance template.
+
+-------
+
+D. Create a new instance template with the new application version. Update the existing managed instance group with the new instance template. Delete the instances in the managed instance group to allow the managed instance group to recreate the instance using the new instance template.
+
+	Not recommended: This option involves deleting instances, which could lead to a temporary decrease in capacity and might not be suitable for scenarios where maintaining consistent capacity is crucial.
+
+-------
+
+Bard:
+
+	The correct answer is A. Perform a rolling-action start-update with maxSurge set to 0 and maxUnavailable set to 1.
+
+		Rolling updates are a way to gradually deploy new versions of an application without disrupting traffic. With a rolling update, you can update a small number of instances at a time, and the load balancer will automatically distribute traffic to the healthy instances. This ensures that the available capacity does not decrease during the deployment.
+
+		The maxSurge parameter specifies the maximum number of new instances that can be created during the update. Setting maxSurge to 0 means that no new instances will be created until all of the old instances have been updated and are healthy.
+
+		The maxUnavailable parameter specifies the maximum number of instances that can be unavailable during the update. Setting maxUnavailable to 1 means that one instance will be unavailable at a time. This means that the load balancer will always have at least one instance available to serve traffic.
+
+	Option B is incorrect because it would allow the number of instances to increase during the update, which could overload the load balancer.
+
+	Option C is incorrect because it would create a new managed instance group and then delete the old one. This would disrupt traffic for the duration of the deployment, which is not what we want.
+
+	Option D is incorrect because deleting the instances in the managed instance group would disrupt traffic. Instead, we should wait for the rolling update to complete before deleting the old instances.
+
+	Therefore, the best way to gradually deploy a new version of a web application deployed as a managed instance group without disrupting traffic is to perform a rolling-action start-update with maxSurge set to 0 and maxUnavailable set to 1.

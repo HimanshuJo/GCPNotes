@@ -1,0 +1,5 @@
+student-00-2fb09f9c5ada@qwiklabs.net
+
+qwiklabs-gcp-03-ead593a86357_bucket
+
+gsutil ls gs://qwiklabs-gcp-03-ead593a86357_bucket

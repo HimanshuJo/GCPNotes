@@ -1,0 +1,40 @@
+You are given a project with a single Virtual Private Cloud (VPC) and a single subnetwork in the us-central1 region. There is a Compute Engine instance hosting an application in this subnetwork. You need to deploy a new instance in the same project in the europe-west1 region. This new instance needs access to the application. You want to follow Google-recommended practices. What should you do?
+	
+	A. 1. Create a subnetwork in the same VPC, in europe-west1. 2. Create the new instance in the new subnetwork and use the first instance's private address as the endpoint. [✔️]
+	
+	B. 1. Create a VPC and a subnetwork in europe-west1. 2. Expose the application with an internal load balancer. 3. Create the new instance in the new subnetwork and use the load balancer's address as the endpoint. 
+	[Bard and chatGPT suggested] [✔️]
+	
+	C. 1. Create a subnetwork in the same VPC, in europe-west1. 2. Use Cloud VPN to connect the two subnetworks. 3. Create the new instance in the new subnetwork and use the first instance's private address as the endpoint.
+	
+	D. 1. Create a VPC and a subnetwork in europe-west1. 2. Peer the 2 VPCs. 3. Create the new instance in the new subnetwork and use the first instance's private address as the endpoint.
+
+-------
+
+Bard:
+
+	The most appropriate and Google-recommended approach for allowing the new instance in europe-west1 to access the application in us-central1 is B. 1. Create a VPC and a subnetwork in europe-west1. 2. Expose the application with an internal load balancer. 3. Create the new instance in the new subnetwork and use the load balancer's address as the endpoint.
+
+	This approach offers several advantages:
+
+		Secure Communication: 
+
+			By exposing the application with an internal load balancer, you can restrict its access to authorized instances within the VPC. This enhances security and prevents unauthorized connections.
+
+		Scalability and Flexibility: 
+
+			Using an internal load balancer allows you to scale the application horizontally by adding more instances behind the load balancer. It also provides flexibility in managing the application's traffic distribution.
+
+		Simplified Deployment: 
+
+			By deploying the new instance in a separate VPC and subnetwork, you avoid the complexities of peering or VPN connections, which can be more difficult to manage and troubleshoot.
+
+	The other options have limitations:
+
+		Option A: Creating a subnetwork in the same VPC but different region introduces unnecessary complexity and potential security risks.
+
+		Option C: Using Cloud VPN to connect the two subnetworks adds additional overhead and introduces latency due to the VPN tunnel.
+
+		Option D: Peering the two VPCs is a secure method but requires configuring and managing the peering connection. It may be more complex and less scalable than using an internal load balancer.
+
+	Therefore, option B, which utilizes an internal load balancer to expose the application securely and deploys the new instance in a separate VPC for simplicity and scalability, aligns with the Google recommended practices for VPC interconnection and application accessibility.

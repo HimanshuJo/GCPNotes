@@ -1,0 +1,55 @@
+Your company implemented BigQuery as an enterprise data warehouse. Users from multiple business units run queries on this data warehouse. However, you notice that query costs for BigQuery are very high, and you need to control costs. Which two methods should you use? (Choose two.)
+	
+	A. Split the users from business units to multiple projects. [Bard Suggested] [✔️]
+	
+	B. Apply a user- or project-level custom query quota for BigQuery data warehouse. [✔️]
+	
+	C. Create separate copies of your BigQuery data warehouse for each business unit.
+	
+	D. Split your BigQuery data warehouse into multiple data warehouses for each business unit.
+	
+	E. Change your BigQuery query model from on-demand to flat rate. Apply the appropriate number of slots to each Project. [✔️]
+
+-------
+
+The two methods you should use to control costs for BigQuery in the given scenario are:
+
+	B. Apply a user- or project-level custom query quota for BigQuery data warehouse.
+
+		Explanation: By applying custom query quotas at the user or project level, you can limit the amount of resources consumed by users or projects. This helps control costs by preventing excessive resource usage.
+	
+	E. Change your BigQuery query model from on-demand to flat rate. Apply the appropriate number of slots to each Project.
+
+		Explanation: Switching from on-demand pricing to flat-rate pricing allows you to allocate a specific number of slots to each project, which can help control costs. With flat-rate pricing, you pay a fixed monthly fee based on the allocated slots, providing more predictable costs.
+	
+Other Options:
+
+	A. Split the users from business units to multiple projects.
+
+		Explanation: While splitting users into multiple projects might provide some isolation, it may not directly control costs. Implementing custom query quotas and choosing the appropriate pricing model are more effective for cost control.
+	
+	C. Create separate copies of your BigQuery data warehouse for each business unit.
+
+		Explanation: Creating separate copies could lead to data redundancy and increased storage costs. It doesn't directly address the query cost control issue.
+	
+	D. Split your BigQuery data warehouse into multiple data warehouses for each business unit.
+
+		Explanation: Similar to option C, splitting into multiple data warehouses might introduce complexity and data redundancy without directly addressing the query cost control issue.
+	
+	In summary, applying custom query quotas and choosing the appropriate pricing model (flat rate) are effective methods for controlling costs in BigQuery.
+
+-------
+
+Bard:
+
+	The two most suitable methods for controlling costs in this scenario are A. Split the users from business units to multiple projects and E. Change your BigQuery query model from on-demand to flat rate. Apply the appropriate number of slots to each Project.
+
+		A. Split the users from business units to multiple projects allows you to isolate the query activity of each business unit, enabling you to set separate query quotas and monitor individual project usage. This granular approach can help you identify and address excessive query costs more effectively.
+
+		E. Change your BigQuery query model from on-demand to flat rate. Apply the appropriate number of slots to each Project. By switching to the flat-rate pricing model, you can pre-purchase a set of query slots for each project. This eliminates the unpredictable costs associated with on-demand queries and provides a fixed monthly fee. By aligning the number of slots to each project's expected query volume, you can optimize costs while ensuring adequate query capacity.
+
+	Option B. Apply a user- or project-level custom query quota for BigQuery data warehouse addresses the need to control query costs but is not the most suitable approach in this scenario. While it allows you to set limits on query usage, it doesn't provide granular control over costs and doesn't address the issue of fluctuating costs with the on-demand model.
+
+	While options C. Create separate copies of your BigQuery data warehouse for each business unit and D. Split your BigQuery data warehouse into multiple data warehouses for each business unit could potentially isolate query costs, they are generally not recommended due to the overhead of managing multiple data warehouses and the potential for data duplication.
+
+	In summary, A. Project-based isolation and E. Flat-rate pricing with slot allocation are the most effective methods for controlling BigQuery query costs in this scenario. They provide granular control over resource utilization, predictable pricing, and optimized resource allocation.

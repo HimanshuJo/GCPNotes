@@ -1,0 +1,3 @@
+student-00-233cc4ccbaaa@qwiklabs.net
+
+qwiklabs-gcp-02-e5fb2acde336_bucket

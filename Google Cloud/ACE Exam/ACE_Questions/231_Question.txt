@@ -1,0 +1,23 @@
+You have deployed an application on a single Compute Engine instance. The application writes logs to disk. Users start reporting errors with the application. You want to diagnose the problem. What should you do?
+	
+	A. Navigate to Cloud Logging and view the application logs. [Bard and ChatGPT Suggested] [✔️]
+	
+	B. Connect to the instance's serial console and read the application logs.
+	
+	C. Configure a Health Check on the instance and set a Low Healthy Threshold value.
+	
+	D. Install and configure the Cloud Logging Agent and view the logs from Cloud Logging. [✔️]
+
+-------
+
+The correct answer is A. Navigate to Cloud Logging and view the application logs.
+
+	When an application writes logs to disk, Cloud Logging can automatically collect and centralize those logs for easy access and analysis. This makes it the most efficient way to diagnose application errors and identify the root cause of the problem.
+
+Option B, connecting to the instance's serial console, is a less efficient approach as it requires manually accessing the instance and manually reading the logs. It also doesn't provide a central repository for logs to be stored and analyzed.
+
+Option C, configuring a Health Check on the instance, is used to monitor the instance's health and determine whether it is functioning correctly. It doesn't directly address the issue of analyzing application logs to identify errors.
+
+Option D, installing and configuring the Cloud Logging Agent, is an alternative method of collecting logs from the instance. However, it is still necessary to view the logs in Cloud Logging to analyze the errors.
+
+Therefore, the most effective way to diagnose application errors in this scenario is to navigate to Cloud Logging and view the application logs. This provides a centralized and easily searchable repository of logs for efficient analysis.

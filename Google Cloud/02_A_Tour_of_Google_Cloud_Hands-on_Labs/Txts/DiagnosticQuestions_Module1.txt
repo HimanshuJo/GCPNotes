@@ -1,0 +1,58 @@
+You want to use the Cloud Shell to copy files to your Cloud Storage bucket. Which Cloud SDK command should you use?
+
+	gsutil
+
+-------
+
+What Google Cloud project attributes can be changed?
+
+	The Project Name
+
+-------
+
+How are resource hierarchies organized in Google Cloud?
+
+	Organization, Folder, Project, Resource
+
+-------
+
+The Operations Department at Cymbal Superstore wants to provide managers access to information about VM usage without allowing them to make changes that would affect the state. You assign them the Compute Engine Viewer role. Which two permissions will they receive?
+
+	compute.images.get
+
+	compute.images.list
+
+-------
+
+Pick two choices, from the options below, that provide a command line interface to Google Cloud.
+
+	Cloud Shell
+
+	Cloud SDK
+
+-------
+
+You need to add new groups of employees in Cymbal Superstore’s production environment. You need to consider Google’s recommendation of using least privilege. What should you do?
+
+	Grant predefined and custom roles that provide necessary permissions and grant basic roles only where needed.
+
+-------
+
+Fiona is the billing administrator for the project associated with Cymbal Superstore’s eCommerce application. Jeffrey, the marketing department lead, wants to receive emails related to budget alerts. Jeffrey should have access to no additional billing information. What should you do?
+
+	Use Cloud Monitoring notification channels to send Jeffrey an email alert.
+	(Correct! You can set up to 5 Cloud Monitoring channels to define email recipients that will receive budget alerts.)
+
+-------
+
+Stella is a new member of a team in your company who has been put in charge of monitoring VM instances in the organization. Stella will need the required permissions to perform this role. How should you grant her those permissions?
+
+	Add Stella to a Google Group in your organization. Bind that group to roles/compute.viewer.
+
+-------
+
+How are billing accounts applied to projects in Google Cloud? (Pick two).
+
+	A billing account can be linked to one or more projects
+
+	A project can only be linked to one billing account at a time

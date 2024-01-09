@@ -1,0 +1,89 @@
+1. Which of these values is globally unique, permanent, and unchangeable, but chosen by the customer?
+
+	The project ID
+
+-------
+
+2. Choose the correct completion: Services and APIs are enabled on a per-__________ basis.
+
+	Project
+
+-------
+
+3. Order these IAM role types from broadest to finest-grained.
+
+	Basic roles, predefined roles, custom roles
+
+-------
+
+4. For which of these interconnect options is a Service Level Agreement available?
+
+	Dedicated Interconnect
+
+-------
+
+5. In Google Cloud VPCs, what scope do subnets have?
+
+	Regional
+
+	(VPC subnets can span the zones that make up a region. This is beneficial because your solutions can incorporate fault tolerance without complicating your network topology.)
+
+-------
+
+6. What is the main reason customers choose Preemptible VMs?
+
+	To reduce cost
+	(The per-hour price of preemptible and spot VMs incorporates a substantial discount.)
+
+-------
+
+7. Which database service can scale to higher database sizes?
+
+	Cloud Spanner
+	(Cloud Spanner can scale to petabyte database sizes, while Cloud SQL is limited by the size of the database instances you choose. At the time this quiz was created, the maximum was 10,230 GB.)
+
+-------
+
+8. You are building a small application. If possible, you'd like this application's data storage to be at no additional charge. Which service has a free daily quota, separate from any free trials?
+
+	Firestore
+
+-------
+
+9. What is the correct use case for Cloud Storage?
+
+	Cloud Storage is well suited to providing durable and highly available object storage.
+
+-------
+
+10. What is a Kubernetes pod?
+
+	A group of containers
+	(In Kubernetes, a group of one or more containers is called a pod. Containers in a pod are deployed together. They are started, stopped, and replicated as a group. The simplest workload that Kubernetes can deploy is a pod that consists only of a single container.)
+
+-------
+
+11. Where do the resources used to build Google Kubernetes Engine clusters come from?
+
+	Compute Engine
+	(Because the resources used to build Google Kubernetes Engine clusters come from Compute Engine, Google Kubernetes Engine gets to take advantage of Compute Engine’s and Google VPC’s capabilities)
+
+-------
+
+12. Cloud Run can only pull images from (Select 2):
+
+	Artifact Registry
+
+	Docker Hub
+
+-------
+
+13. Select the managed compute platform that lets you run stateless containers through web requests or Pub/Sub events.
+
+	Cloud Run
+
+-------
+
+14. Why might a Google Cloud customer choose to use Cloud Functions?
+
+	Their application contains event-driven code that they don't want to provision compute resources for

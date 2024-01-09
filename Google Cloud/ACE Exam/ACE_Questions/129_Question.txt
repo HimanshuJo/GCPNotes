@@ -1,0 +1,49 @@
+Your Dataproc cluster runs in a single Virtual Private Cloud (VPC) network in a single subnet with range 172.16.20.128/25. There are no private IP addresses available in the VPC network. You want to add new VMs to communicate with your cluster using the minimum number of steps. What should you do?
+	
+	A. Modify the existing subnet range to 172.16.20.0/24. [Another Most Voted]
+	
+	B. Create a new Secondary IP Range in the VPC and configure the VMs to use that range.
+	
+	C. Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network. [✔️]
+	
+	D. Create a new VPC network for the VMs with a subnet of 172.32.0.0/16. Enable VPC network Peering between the Dataproc VPC network and the VMs VPC network. Configure a custom Route exchange.
+
+-------
+
+A. Modify the existing subnet range to 172.16.20.0/24.
+
+	Modifying the existing subnet range might cause disruptions to the existing resources and is generally not recommended. Changing the subnet range would also affect the Dataproc cluster, and it may not be the most efficient solution.
+
+B. Create a new Secondary IP Range in the VPC and configure the VMs to use that range.
+
+	This option involves adding a secondary IP range to the existing subnet. While this can provide additional IP addresses, it may not be the most scalable solution, and it doesn't guarantee that the VMs will get unique IP addresses, especially if the original subnet is fully utilized.
+
+C. Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network.
+
+	This option is a valid approach. Creating a new VPC network for the VMs and enabling VPC peering allows communication between the Dataproc cluster VPC and the VMs' VPC. This solution provides isolation and allows for independent scaling of resources.
+
+D. Create a new VPC network for the VMs with a subnet of 172.32.0.0/16. Enable VPC network Peering between the Dataproc VPC network and the VMs VPC network. Configure a custom Route exchange.
+
+	While this option technically could work, it introduces a new VPC network with a different subnet. This may add unnecessary complexity, and VPC peering alone (Option C) should be sufficient for achieving the desired communication.
+
+Conclusion:
+	
+	Option C, "Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network," seems to be the most straightforward and scalable solution. It allows for independent scaling of resources, provides isolation, and enables communication between the Dataproc cluster and the new VMs' VPC.
+
+-------
+
+Bard:
+
+	The correct answer is C. Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network.
+
+		This is the most efficient and straightforward way to add new VMs to communicate with your cluster. By creating a new VPC network for the VMs, you can isolate the new VMs from the Dataproc cluster's network and control access between them. Then, you can enable VPC Peering between the two VPC networks to allow the VMs to communicate with the Dataproc cluster.
+
+	The other options are not as suitable for this scenario:
+
+		A. Modifying the existing subnet range to 172.16.20.0/24 would exhaust the available private IP addresses in the VPC network.
+
+		B. Creating a new Secondary IP Range in the VPC would not provide enough private IP addresses for the new VMs.
+
+		D. Creating a new VPC network for the VMs with a subnet of 172.32.0.0/16 would require configuring a custom Route exchange, which is more complex than simply enabling VPC Peering.
+
+	Therefore, creating a new VPC network for the VMs and enabling VPC Peering with the Dataproc cluster's VPC network is the most effective way to add new VMs and maintain network isolation.

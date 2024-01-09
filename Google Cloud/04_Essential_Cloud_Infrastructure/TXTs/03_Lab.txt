@@ -1,0 +1,177 @@
+VPC:
+
+	Google Cloud Virtual Private Cloud (VPC) provides networking functionality to Compute Engine virtual machine (VM) instances, Kubernetes Engine containers, and the App Engine flexible environment. 
+
+	In other words, without a VPC network, you cannot create VM instances, containers, or App Engine applications.
+
+	Therefore, each Google Cloud project has a default network to get you started.
+
+	-------
+
+	You can think of a VPC network as similar to a physical network, except that it is virtualized within Google Cloud. A VPC network is a global resource that consists of a list of regional virtual subnetworks (subnets) in data centers, all connected by a global wide area network (WAN). VPC networks are logically isolated from each other in Google Cloud.
+
+	-------
+
+	Default Network:
+
+		The default network with its subnets.
+	
+		Each subnet is associated with a Google Cloud region and a private RFC 1918 CIDR block for its internal IP addresses range and a gateway.
+
+-------
+
+Routes:
+
+	Routes tell VM instances and the VPC network how to send traffic from an instance to a destination, either inside the network or outside Google Cloud. 
+
+	Each VPC network comes with some default routes to route traffic among its subnets and send traffic from eligible instances to the internet.
+
+-------
+
+Firewall:
+
+	Each VPC network implements a distributed virtual firewall that you can configure. 
+
+	Firewall rules allow you to control which packets are allowed to travel to which destinations. 
+
+	Every VPC network has two implied firewall rules that block all incoming connections and allow all outgoing connections.
+
+-------
+
+To test connectivity to mynet-eu-vm's internal IP:
+
+	ping -c 3 <Enter mynet-eu-vm's internal IP here>
+
+-------
+
+To test connectivity to mynet-eu-vm's external IP
+
+	ping -c 3 <Enter mynet-eu-vm's external IP here>
+
+-------
+
+To create the privatenet network:
+
+	gcloud compute networks create privatenet --subnet-mode=custom
+
+-------
+
+To create the privatesubnet-us subnet
+
+	gcloud compute networks subnets create privatesubnet-us 
+														--network=privatenet 
+														--region=Lab region 
+														--range=172.16.0.0/24
+
+-------
+
+To create the privatesubnet-eu subnet:
+
+	gcloud compute networks subnets create privatesubnet-eu 
+														--network=privatenet 
+														--region=europe-west1 
+														--range=172.20.0.0/20
+
+-------
+
+To list the available VPC networks
+
+	gcloud compute networks list
+
+-------
+
+To list the available VPC subnets (sorted by VPC network)
+
+	gcloud compute networks subnets list --sort-by=NETWORK
+
+-------
+
+To create the privatenet-allow-icmp-ssh-rdp firewall rule:
+
+	gcloud compute firewall-rules create privatenet-allow-icmp-ssh-rdp 
+																  --direction=INGRESS 
+																  --priority=1000 
+																  --network=privatenet 
+																  --action=ALLOW 
+																  --rules=icmp,tcp:22,tcp:3389 
+																  --source-ranges=0.0.0.0/0
+
+-------
+
+To list all the firewall rules (sorted by VPC network):
+
+	gcloud compute firewall-rules list --sort-by=NETWORK
+
+-------
+
+To create the privatenet-us-vm instance:
+
+	gcloud compute instances create privatenet-us-vm 
+												 --zone=Lab Zone 
+												 --machine-type=e2-micro 
+												 --subnet=privatesubnet-us 
+												 --image-family=debian-11 
+												 --image-project=debian-cloud 
+												 --boot-disk-size=10GB 
+												 --boot-disk-type=pd-standard 
+												 --boot-disk-device-name=pri
+
+-------
+
+To list all the VM instances (sorted by zone):
+
+	gcloud compute instances list --sort-by=ZONE
+
+-------
+
+To test connectivity to mynet-eu-vm's external IP
+
+	ping -c 3 <Enter mynet-eu-vm's external IP here>
+
+-------
+
+To test connectivity to managementnet-us-vm's external IP
+
+	ping -c 3 <Enter managementnet-us-vm's external IP here>
+
+-------
+
+To test connectivity to privatenet-us-vm's external IP
+
+	ping -c 3 <Enter privatenet-us-vm's external IP here>
+
+-------
+
+To test connectivity to mynet-eu-vm's internal IP
+
+	ping -c 3 <Enter mynet-eu-vm's internal IP here>
+
+-------
+
+To test connectivity to managementnet-us-vm's internal IP
+
+	ping -c 3 <Enter managementnet-us-vm's internal IP here>
+
+-------
+
+To test connectivity to privatenet-us-vm's internal IP
+
+	ping -c 3 <Enter privatenet-us-vm's internal IP here>
+
+-------
+
+us-central1 -> 10.128.0.0/20
+
+europe-west1 -> 10.132.0.0/20
+
+-------
+
+10.128.0.2 104.154.87.11
+
+10.132.0.2 34.77.100.53
+
+10.128.0.2 34.69.248.222
+
+-------
+
+So even though this Instance is in the same zone as these other instances I'm trying to ping, the fact that they are in a different network does not allow me to ping on the internal IP, unless we set up other mechanisms such as VPC peering or a VPN.

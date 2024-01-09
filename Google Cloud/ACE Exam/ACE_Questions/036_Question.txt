@@ -1,0 +1,53 @@
+You have one project called proj-sa where you manage all your service accounts. You want to be able to use a service account from this project to take snapshots of VMs running in another project called proj-vm. What should you do?
+	
+	A. Download the private key from the service account, and add it to each VMs custom metadata.
+	
+	B. Download the private key from the service account, and add the private key to each VM's SSH keys.
+	
+	C. Grant the service account the IAM Role of Compute Storage Admin in the project called proj-vm. [✔️]
+	
+	D. When creating the VMs, set the service account's API scope for Compute Engine to read/write.
+	
+	C. Grant the service account the IAM Role of Compute Storage Admin in the project called proj-vm.
+
+-------
+
+Recommended: By granting the service account in the proj-sa project the IAM role of Compute Storage Admin in the proj-vm project, you provide the necessary permissions for the service account to take snapshots of VMs in the specified project.
+
+A. Download the private key from the service account and add it to each VM's custom metadata.
+
+	Not recommended: Embedding the private key directly in VM metadata is a security risk, and it's generally not a good practice. Service accounts are designed to manage access, and granting roles is a better approach.
+
+B. Download the private key from the service account and add the private key to each VM's SSH keys.
+
+	Not applicable: SSH keys are used for authentication, but for service accounts and VM snapshots, IAM roles are more relevant. SSH keys are not directly related to the ability to take VM snapshots.
+
+D. When creating the VMs, set the service account's API scope for Compute Engine to read/write.
+
+	Not as relevant: API scopes are used to restrict the permissions of the default service account on a per-instance basis. However, since you are dealing with a specific service account, granting IAM roles is a more appropriate approach.
+
+Therefore, option C is the most appropriate choice for allowing a service account from proj-sa to take snapshots of VMs in proj-vm. It provides a controlled and granular way to manage permissions.
+
+-------
+
+Bard:
+
+	The most appropriate approach to enable a service account from project proj-sa to take snapshots of VMs running in project proj-vm is C. Grant the service account the IAM Role of Compute Storage Admin in the project called proj-vm.
+
+		This approach ensures that the service account has the necessary permissions to access and manage snapshots of VMs in project proj-vm. Granting the IAM Role of Compute Storage Admin provides the service account with the following capabilities:
+
+			Create, read, update, and delete snapshots of Google Compute Engine instances.
+			
+			List snapshots in the project.
+			
+			Set the snapshot description.
+	
+	The other options are less suitable for this task:
+
+		Option A: Downloading the private key and adding it to each VM's custom metadata is not recommended for security reasons. Exposing the private key in the metadata could compromise the security of the service account.
+
+		Option B: Adding the private key to each VM's SSH keys is not the correct approach for granting permissions to take snapshots. The SSH keys are used for remote login and file transfer, not for administrative tasks like taking snapshots.
+
+		Option D: Setting the service account's API scope for Compute Engine to read/write is not sufficient. The IAM Role of Compute Storage Admin provides more granular permissions for managing snapshots.
+
+	Therefore, option C, which grants the service account the IAM Role of Compute Storage Admin in the project called proj-vm, is the most secure and efficient approach for enabling the service account to take snapshots of VMs in project proj-vm.

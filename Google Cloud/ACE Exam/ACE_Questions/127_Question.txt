@@ -1,0 +1,47 @@
+You have an application that receives SSL-encrypted TCP traffic on port 443. Clients for this application are located all over the world. You want to minimize latency for the clients. Which load balancing option should you use?
+	
+	A. HTTPS Load Balancer [Bard and chatGPT Suggested] [✔️]
+	
+	B. Network Load Balancer
+	
+	C. SSL Proxy Load Balancer [✔️]
+	
+	D. Internal TCP/UDP Load Balancer. Add a firewall rule allowing ingress traffic from 0.0.0.0/0 on the target instances.
+
+-------
+
+A. HTTPS Load Balancer
+
+	Explanation:
+
+	The HTTPS Load Balancer is designed for SSL-encrypted traffic on port 443 and provides global load balancing, which helps minimize latency for clients distributed worldwide.
+	
+	It can distribute incoming HTTPS traffic across multiple backend instances and locations to optimize performance and ensure high availability.
+	
+	HTTPS Load Balancer supports SSL termination at the load balancer, allowing the load balancer to offload SSL processing from the backend instances.
+	
+	This is suitable for applications that receive SSL-encrypted traffic, especially when low latency is a priority for clients around the world.
+
+B. Network Load Balancer: Network Load Balancer operates at the transport layer (Layer 4) and doesn't handle SSL termination. It's suitable for non-HTTP(S) traffic and may not be the best choice for SSL-encrypted applications.
+
+C. SSL Proxy Load Balancer: SSL Proxy Load Balancer handles SSL termination but does not support global load balancing. It's designed for SSL-terminated traffic but may not provide optimal latency for clients distributed worldwide.
+
+D. Internal TCP/UDP Load Balancer: This is used for load balancing internal TCP/UDP traffic and is not suitable for handling global SSL-encrypted traffic from clients worldwide.
+
+-------
+
+Bard:
+
+	The correct answer is A. HTTPS Load Balancer.
+
+		An HTTPS Load Balancer is specifically designed to handle SSL-encrypted traffic on port 443. It provides a secure and efficient way to distribute traffic to application servers.
+
+	The other options are not as suitable for this scenario:
+
+		B. Network Load Balancer can handle both TCP and UDP traffic, but it is not optimized for SSL-encrypted traffic. It would need to decrypt the traffic before forwarding it to the application servers, which can add latency.
+
+		C. SSL Proxy Load Balancer is a type of proxy that can terminate SSL connections and forward the decrypted traffic to the application servers. However, it is not as efficient as an HTTPS Load Balancer because it requires additional processing to terminate and re-encrypt the traffic.
+
+		D. Internal TCP/UDP Load Balancer is designed for traffic within a private network. It would not be able to accept traffic from clients on the public internet. Additionally, it would require a firewall rule to allow ingress traffic from 0.0.0.0/0, which is a security risk.
+
+	Therefore, an HTTPS Load Balancer is the most suitable option for this scenario because it is designed to handle SSL-encrypted traffic on port 443 efficiently and securely.

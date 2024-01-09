@@ -1,0 +1,18 @@
+Every VM instance stores its metadata on a metadata server.
+
+	The metadata server is particularly useful in combination with startup and shutdown scripts because you
+	can use the metadata server to programmatically get unique information about an instance without additional authorization
+
+-------
+
+Snapshots have many use cases:
+
+	For example, they can be used to backup critical data into a durable storage solution to meet application, availability, and recovery requirements.
+
+	Snapshots can also be used to micro data between zones
+
+	If you want to improve disk performance, you could use a snapshot to transfer data from a standard ECD persistent disk to a SSD persistent disk
+
+		Snapshots are available only to persistent disks and not to local SSDs.
+
+		Snapshots are different from public images and custom images which are used primarily to create instances or configure instance templates, in that snapshots are useful for periodic backup of the data on your persistent disks.

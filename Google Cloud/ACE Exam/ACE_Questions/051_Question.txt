@@ -1,0 +1,47 @@
+You need to create an autoscaling managed instance group for an HTTPS web application. You want to make sure that unhealthy VMs are recreated. What should you do?
+	
+	A. Create a health check on port 443 and use that when creating the Managed Instance Group. [✔️]
+	
+	B. Select Multi-Zone instead of Single-Zone when creating the Managed Instance Group.
+	
+	C. In the Instance Template, add the label 'health-check'. [Suggested]
+	
+	D. In the Instance Template, add a startup script that sends a heartbeat to the metadata server.
+
+-------
+
+To create an autoscaling managed instance group for an HTTPS web application and ensure that unhealthy VMs are recreated, you should:
+
+A. Create a health check on port 443 and use that when creating the Managed Instance Group.
+
+Explanation:
+
+	Health checks are used to determine the health of instances within a managed instance group.
+	
+	By creating a health check on port 443 (HTTPS), the load balancer can monitor the health of instances serving the HTTPS web application.
+	
+	If an instance fails the health check, the managed instance group can automatically recreate the instance to maintain the desired number of healthy instances.
+	
+Selecting Multi-Zone (Option B) or adding a label (Option C) doesn't directly address the requirement for health checks and recreation of unhealthy VMs.
+	
+Using a startup script (Option D) for sending a heartbeat to the metadata server is not a typical or recommended approach for health checking and autoscaling managed instance groups.
+	
+Therefore, creating a health check on port 443 is the appropriate choice to ensure that unhealthy VMs are recreated in response to failures.
+
+-------
+
+Bard:
+
+	The correct answer is A. Create a health check on port 443 and use that when creating the Managed Instance Group.
+
+		A health check is a mechanism for determining whether an instance is healthy and can serve traffic. When creating an autoscaling managed instance group for an HTTPS web application, you should create a health check that verifies that the instance can respond to HTTPS requests on port 443. This will ensure that unhealthy VMs are removed from the instance group and replaced with new ones.
+
+	The other options are not as suitable for this scenario:
+
+		B. Selecting Multi-Zone instead of Single-Zone when creating the Managed Instance Group would increase the availability of the instance group, but it would not automatically remove unhealthy instances.
+
+		C. Adding the label 'health-check' to the Instance Template is not a valid method for creating a health check.
+
+		D. Adding a startup script that sends a heartbeat to the metadata server would require you to manually monitor the health of the instances.
+
+	Therefore, creating a health check on port 443 and using that when creating the Managed Instance Group is the most effective way to ensure that unhealthy VMs are recreated.

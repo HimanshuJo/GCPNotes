@@ -1,0 +1,29 @@
+You manage an App Engine Service that aggregates and visualizes data from BigQuery. The application is deployed with the default App Engine Service account. The data that needs to be visualized resides in a different project managed by another team. You do not have access to this project, but you want your application to be able to read data from the BigQuery dataset. What should you do?
+	
+	A. Ask the other team to grant your default App Engine Service account the role of BigQuery Job User. [✔️]
+	(Option A (BigQuery Job User) provides broader access than necessary, allowing users to run queries and potentially interact with the dataset in ways beyond just viewing. It is always advisable to grant the least privilege required for the task.)
+	
+	B. Ask the other team to grant your default App Engine Service account the role of BigQuery Data Viewer.
+	[Bard and ChatGPT Suggested] [✔️]
+	
+	C. In Cloud IAM of your project, ensure that the default App Engine service account has the role of BigQuery Data Viewer.
+	
+	D. In Cloud IAM of your project, grant a newly created service account from the other team the role of BigQuery Job User in your project.
+
+-------
+
+Bard:
+
+	The correct answer is B. Ask the other team to grant your default App Engine Service account the role of BigQuery Data Viewer.
+
+		This is the most secure and appropriate approach for accessing the data from the other team's project. By granting the default App Engine Service account the role of BigQuery Data Viewer, you are providing the application with the least amount of access necessary to complete the task. The Data Viewer role allows the application to read data from the BigQuery dataset, but it does not grant the ability to modify the dataset or run queries.
+
+	The other options are not as suitable for this scenario:
+
+		A. Granting the role of BigQuery Job User provides broader access than necessary, allowing users to run queries and potentially interact with the dataset in ways beyond just viewing. It is always advisable to grant the least privilege required for the task.
+
+		C. Granting the role of BigQuery Data Viewer directly in your project would grant the default App Engine Service account access to the dataset stored in the other team's project, which is not the desired outcome.
+
+		D. Granting the role of BigQuery Job User to a newly created service account from the other team would require the other team to create and manage a service account, which could be a burden for them.
+
+	Therefore, requesting the other team to grant the default App Engine Service account the role of BigQuery Data Viewer is the most secure and appropriate way to access the data from the other team's project.

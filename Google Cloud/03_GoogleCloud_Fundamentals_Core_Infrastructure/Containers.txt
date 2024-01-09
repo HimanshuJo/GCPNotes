@@ -1,0 +1,37 @@
+Kubernetes vs GKE
+
+	GKE is a managed/hosted Kubernetes(i.e. it is managed for you so you can concentrate on running your pods/containers applications)
+
+	Kubernetes does handle:
+
+		Running pods, scheduling them on nodes, guarantee no of replicas per Replication Controller settings (i.e. relaunch pods if they fail, relocate them if the node fails)
+		
+		Services: proxy traffic to the right pod wherever it is located 
+
+		Jobs
+
+	In addition, there are several 'add-ons' to Kubernetes, some of which are part of what makes GKE:
+
+		DNS (you can't really live without it, even thought it's an add-on)
+
+		Metrics monitoring: with influxdb, grafana
+
+		Dashboard
+
+	-------
+
+	None of these are out-of-the-box, although they are fairly easy to setup, but you need to maintain them. 
+
+	There is no real 'logging' add-on, but there are various projects to do this (using Logspout, logstash, elasticsearch etc...)
+
+	In short Kubernetes does the orchestration, the rest are services that would run on top of Kubernetes.
+
+	-------
+
+	GKE brings you all these components out-of-the-box, and you don't have to maintain them. 
+
+	They're setup for you, and they're more 'integrated' with the Google portal.
+
+	-------
+
+	One important thing that everyone needs is the LoadBalancer part: - Since Pods are ephemeral containers, that can be rescheduled anywhere and at any time, they are not static, so ingress traffic needs to be managed separately.

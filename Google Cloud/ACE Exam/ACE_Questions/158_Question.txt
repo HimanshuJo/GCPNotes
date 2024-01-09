@@ -1,0 +1,57 @@
+Your company uses a large number of Google Cloud services centralized in a single project. All teams have specific projects for testing and development. The DevOps team needs access to all of the production services in order to perform their job. You want to prevent Google Cloud product changes from broadening their permissions in the future. You want to follow Google-recommended practices. What should you do?
+	
+	A. Grant all members of the DevOps team the role of Project Editor on the organization level.
+	
+	B. Grant all members of the DevOps team the role of Project Editor on the production project. [Suggested]
+	
+	C. Create a custom role that combines the required permissions. Grant the DevOps team the custom role on the production project. [✔️]
+	
+	D. Create a custom role that combines the required permissions. Grant the DevOps team the custom role on the organization level.
+
+-------
+
+Option C (Create a custom role that combines the required permissions. Grant the DevOps team the custom role on the production project): Creating a custom role allows you to define specific permissions needed for the DevOps team without granting unnecessary privileges. Assigning the custom role at the production project level ensures that permissions are scoped appropriately.
+
+Explanation:
+
+	Option C (Create a custom role that combines the required permissions. Grant the DevOps team the custom role on the production project): This approach follows the principle of least privilege, allowing you to define a custom role tailored to the specific needs of the DevOps team. By assigning the custom role at the production project level, you ensure that the permissions are scoped to the necessary resources without granting broader access.
+
+	Option A (Grant all members of the DevOps team the role of Project Editor on the organization level): This approach grants broad permissions across the entire organization, which may lead to unintended consequences and increases the risk of security issues. It's generally not recommended to assign overly permissive roles at the organization level.
+
+	Option B (Grant all members of the DevOps team the role of Project Editor on the production project): While this approach is more scoped than Option A, granting the Project Editor role may still provide more permissions than needed for the DevOps team. Custom roles offer more granularity.
+
+	Option D (Create a custom role that combines the required permissions. Grant the DevOps team the custom role on the organization level): Similar to Option A, assigning custom roles at the organization level provides broad permissions and may lead to unintended consequences. It's preferable to scope permissions at the project level.
+
+In summary, Option C is recommended as it allows for the creation of a custom role tailored to the DevOps team's specific needs and ensures that permissions are granted at the project level, minimizing the risk of unintended access.
+
+-------
+
+Bard:
+
+	This approach offers the following advantages:
+
+		Granular Access Control: 
+
+			Creating a custom role ensures that the DevOps team only has the specific permissions they need to perform their job, preventing them from accidentally modifying or accessing unauthorized resources.
+
+		Prevent Unintended Permissions Expansion: 
+
+			By granting the custom role on the production project, you limit the impact of any future Google Cloud product changes that could inadvertently broaden permissions. This ensures that the DevOps team's access remains controlled.
+
+		Centralized Management: 
+
+			Managing permissions at the project level provides a centralized approach to control access to production resources, making it easier to track and audit permissions.
+
+		Scalability and Flexibility: 
+
+			As the DevOps team's requirements evolve, the custom role can be modified or new roles can be created to accommodate changes without affecting the broader organization-level permissions.
+
+	The other options are less suitable for this task:
+
+		Option A: Granting all members of the DevOps team the role of Project Editor on the organization level grants them excessive permissions, which could pose security risks.
+
+		Option B: Granting all members of the DevOps team the role of Project Editor on the production project grants them excessive permissions, which could pose security risks and make it difficult to track their activities.
+
+		Option D: Granting the DevOps team the custom role on the organization level allows them to access production resources from any project within the organization, which could increase the risk of unauthorized access.
+
+	Therefore, option C, which utilizes a custom role with restricted permissions granted at the production project level, aligns with Google's recommended practices for granting secure and controlled access to production resources.

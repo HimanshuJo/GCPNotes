@@ -1,0 +1,45 @@
+You significantly changed a complex Deployment Manager template and want to confirm that the dependencies of all defined resources are properly met before committing it to the project. You want the most rapid feedback on your changes. What should you do?
+	
+	A. Use granular logging statements within a Deployment Manager template authored in Python.
+	
+	B. Monitor activity of the Deployment Manager execution on the Stackdriver Logging page of the GCP Console.
+	
+	C. Execute the Deployment Manager template against a separate project with the same configuration, and monitor for failures.
+	
+	D. Execute the Deployment Manager template using the -preview option in the same project, and observe the state of interdependent resources. [✔️]
+
+-------
+
+D. Execute the Deployment Manager template using the "-preview" option in the same project, and observe the state of interdependent resources.
+
+Explanation:
+	
+	The "-preview" option allows you to execute a Deployment Manager template in a preview mode, which means that the changes are not applied to the actual resources but are validated to ensure that dependencies are met and the deployment will succeed.
+	
+	By using the "-preview" option, you can quickly validate the changes without making any modifications to the existing resources in the project. It helps you catch any issues related to dependencies or resource conflicts before committing the changes.
+	
+	This provides a rapid feedback loop, allowing you to identify and address any problems in the Deployment Manager template before applying the changes to the production environment.
+
+Other Options:
+
+	A. Use granular logging statements within a Deployment Manager template authored in Python: While logging statements can help in debugging, they may not provide a comprehensive validation of dependencies.
+	
+	B. Monitor activity of the Deployment Manager execution on the Stackdriver Logging page of the GCP Console: This is useful for reviewing logs during and after the deployment but may not provide a preview of the changes.
+	
+	C. Execute the Deployment Manager template against a separate project with the same configuration, and monitor for failures: This could be a valid approach, but using the "-preview" option in the same project provides a more direct and efficient way to validate changes.
+
+-------
+
+Bard:
+
+	The correct answer is D. Execute the Deployment Manager template using the -preview option in the same project, and observe the state of interdependent resources.
+
+		This is the most rapid and direct way to confirm that the dependencies of all defined resources are properly met. The -preview option allows you to run the deployment without actually modifying any resources, so you can quickly identify any errors or conflicts.
+
+	The other options are not as suitable for this scenario:
+
+		A. Using granular logging statements within a Deployment Manager template authored in Python can be helpful for debugging, but it is not the most efficient way to identify resource dependencies.
+
+		B. Monitoring activity of the Deployment Manager execution on the Stackdriver Logging page of the GCP Console is a good way to troubleshoot problems that arise during deployment, but it does not provide real-time feedback on the status of resource dependencies.
+
+		C. Executing the Deployment Manager template against a separate project with the same configuration can be useful for testing, but it is not as efficient as using the -preview option. Additionally, it can be difficult to keep the two projects synchronized.

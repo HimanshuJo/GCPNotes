@@ -1,0 +1,49 @@
+You are deploying a production application on Compute Engine. You want to prevent anyone from accidentally destroying the instance by clicking the wrong button. What should you do?
+	
+	A. Disable the flag. Delete boot disk when instance is deleted. [Suggested]
+	
+	B. Enable delete protection on the instance. [✔️]
+	
+	C. Disable Automatic restart on the instance.
+	
+	D. Enable Preemptibility on the instance.
+
+-------
+
+The appropriate option is:
+
+B. Enable delete protection on the instance.
+
+	Explanation:
+		
+		Enabling delete protection on the instance helps prevent accidental deletion of the instance. This is a useful safety measure to avoid unintentional data loss or service disruption.
+		
+		With delete protection enabled, attempting to delete the instance through the Google Cloud Console or the API will result in an error, reducing the risk of accidental deletions.
+		
+		This feature adds an additional layer of security by requiring users to explicitly disable delete protection before deleting the instance.
+	
+Other Options:
+
+	A. Disable the flag "Delete boot disk when instance is deleted": While this prevents the deletion of the boot disk along with the instance, it does not protect against accidental deletion of the entire instance.
+	
+	C. Disable Automatic restart on the instance: This setting controls whether the instance should automatically restart when it is terminated. It does not prevent manual deletions.
+	
+	D. Enable Preemptibility on the instance: Preemptible instances are short-lived and can be terminated by Google Cloud at any time. Enabling preemptibility does not protect against manual deletions but rather makes the instance preemptible.
+
+-------
+
+Bard:
+
+	The correct answer is B. Enable delete protection on the instance.
+
+		Delete protection is a security feature that prevents instances from being deleted accidentally. When delete protection is enabled, the instance must be first unprotected before it can be deleted. This prevents anyone from accidentally deleting the instance by clicking the wrong button.
+
+The other options are not as suitable for this scenario:
+
+	A. Disabling the flag. Delete boot disk when instance is deleted will not prevent the instance from being destroyed. The instance will still be destroyed, but the boot disk will be deleted as well.
+
+	C. Disabling Automatic restart on the instance will not prevent the instance from being destroyed if it is restarted manually.
+
+	D. Enabling Preemptibility on the instance will allow the instance to be preempted by Google Cloud, even if delete protection is enabled.
+
+Therefore, the best option is to enable delete protection on the instance. This will prevent the instance from being accidentally deleted, even if someone clicks the wrong button.

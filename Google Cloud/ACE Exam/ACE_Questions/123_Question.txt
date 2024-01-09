@@ -1,0 +1,67 @@
+You have a Compute Engine instance hosting a production application. You want to receive an email if the instance consumes more than 90% of its CPU resources for more than 15 minutes. You want to use Google services. What should you do?
+	
+	A. 1. Create a consumer Gmail account. 2. Write a script that monitors the CPU usage. 3. When the CPU usage exceeds the threshold, have that script send an email using the Gmail account and smtp.gmail.com on port 25 as SMTP server.
+	
+	B. 1. Create a Stackdriver Workspace, and associate your Google Cloud Platform (GCP) project with it. 2. Create an Alerting Policy in Stackdriver that uses the threshold as a trigger condition. 3. Configure your email address in the notification channel. [✔️]
+	
+	C. 1. Create a Stackdriver Workspace, and associate your GCP project with it. 2. Write a script that monitors the CPU usage and sends it as a custom metric to Stackdriver. 3. Create an uptime check for the instance in Stackdriver.
+	
+	D. 1. In Stackdriver Logging, create a logs-based metric to extract the CPU usage by using this regular expression: CPU Usage: ([0-9] {1,3})% 2. In Stackdriver Monitoring, create an Alerting Policy based on this metric. 3. Configure your email address in the notification channel. [Suggested]
+
+-------
+
+B. Create a Stackdriver Workspace, and associate your Google Cloud Platform (GCP) project with it. Create an Alerting Policy in Stackdriver that uses the threshold as a trigger condition. Configure your email address in the notification channel.
+
+	Recommended: This option leverages Google Cloud's native monitoring and alerting service, Stackdriver, to set up alerting policies based on CPU usage. It allows you to receive email notifications when the specified threshold is breached.
+	
+A. Create a consumer Gmail account. Write a script that monitors the CPU usage. When the CPU usage exceeds the threshold, have that script send an email using the Gmail account and smtp.gmail.com on port 25 as SMTP server.
+
+	Not recommended: Using a personal Gmail account for automated alerting is not best practice, and using SMTP to send emails is less integrated and potentially less reliable than using a native monitoring service.
+
+C. Create a Stackdriver Workspace, and associate your GCP project with it. Write a script that monitors the CPU usage and sends it as a custom metric to Stackdriver. Create an uptime check for the instance in Stackdriver.
+
+	Not the most direct solution: While Stackdriver can be used to create custom metrics and alerts, setting up an uptime check might not directly address the CPU usage monitoring requirement.
+
+D. In Stackdriver Logging, create a logs-based metric to extract the CPU usage by using this regular expression: CPU Usage: ([0-9] {1,3})%. In Stackdriver Monitoring, create an Alerting Policy based on this metric. Configure your email address in the notification channel.
+
+Not as direct: This option involves creating a logs-based metric, which might be less straightforward than setting up an alert directly based on resource metrics.
+
+Therefore, option B is the most appropriate choice for setting up email alerts based on CPU usage in a Google Cloud project. It utilizes native Google Cloud services for monitoring and alerting.
+
+-------
+
+Bard:
+
+	The most appropriate approach to receive an email if the instance consumes more than 90% of its CPU resources for more than 15 minutes using Google services is B. 1. Create a Stackdriver Workspace, and associate your Google Cloud Platform (GCP) project with it. 2. Create an Alerting Policy in Stackdriver that uses the threshold as a trigger condition. 3. Configure your email address in the notification channel.
+
+	This approach offers several advantages:
+
+		Centralized Monitoring: 
+
+			Stackdriver Monitoring provides a centralized platform for monitoring CPU usage and other instance metrics.
+
+		Real-time alerting: 
+
+			Stackdriver Monitoring's alerting functionality triggers an email notification when the CPU usage exceeds the threshold, ensuring prompt action.
+
+		Threshold-based alerting: 
+
+			Specifying a threshold of 90% CPU usage for more than 15 minutes allows for targeted alerting and avoids unnecessary notifications.
+
+		Comprehensive monitoring: 
+
+			Stackdriver Monitoring provides a holistic view of the instance's health and performance, enabling proactive identification of potential issues.
+
+		Integrated notification: 
+
+			Stackdriver seamlessly integrates with Gmail to send email notifications, streamlining the alerting process.
+
+	The other options are less suitable for this task:
+
+		Option A: Using a consumer Gmail account for alerting is not recommended due to security concerns and lack of scalability.
+
+		Option C: Sending custom metrics to Stackdriver and relying on uptime checks for alerting are less efficient and less granular than using Stackdriver Monitoring's alerting capabilities.
+
+		Option D: Creating a logs-based metric and alerting on it requires additional complexity and may not provide the same level of flexibility as using Stackdriver Monitoring directly.
+
+	Therefore, option B, which leverages Stackdriver Monitoring's built-in alerting functionality to monitor CPU usage and trigger email notifications when the threshold is exceeded, is the most effective and secure approach for this scenario.

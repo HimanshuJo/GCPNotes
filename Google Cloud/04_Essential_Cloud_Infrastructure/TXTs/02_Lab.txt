@@ -1,0 +1,50 @@
+Jenkins 
+
+	is an open-source continuous integration environment. 
+
+	You can define jobs in Jenkins that can perform tasks such as running a scheduled build of software and backing up data.
+
+	Jenkins is an open source automation server that helps you automate the building, testing, and deployment of any project across multiple platforms. Jenkins helps to avoid breaking changes so that you can save time and ensure the delivery of high-quality software. Its web interface provides an easy way to manage and test your applications before taking them to production. This image bundles the latest versions of community-recommended plugins, including pipelines and Git integration. This open source solution is packaged by Bitnami. Learn how to install, configure, and manage it at docs.bitnami.com. For deployment issues, reach out our support team at community.bitnami.com.
+
+-------
+
+The service you are using, Marketplace, is part of Google Cloud. 
+
+	The Jenkins template is developed and maintained by an ecosystem partner named Bitnami
+
+-------
+
+Deployment Manager 
+
+	is a Google Cloud service that uses templates written in a combination of YAML, python, and Jinja2 to automate the allocation of Google Cloud resources and perform setup tasks. 
+
+	Behind the scenes a virtual machine has been created. 
+
+	A startup script was used to install and configure software, and network Firewall Rules were created to allow traffic to the service.
+
+-------
+
+In the SSH window, enter the following command to shut down all the running services:
+
+	sudo /opt/bitnami/ctlscript.sh stop
+
+-------
+
+In the SSH window, enter the following command to restart the services:
+	
+	sudo /opt/bitnami/ctlscript.sh restart
+
+-------
+
+Google Cloud Marketplace lets you quickly deploy functional software packages by providing pre-defined templates with which Google Cloud service?
+
+	Deployment Manager
+
+-------
+
+Site address http://34.134.29.245/ 
+Admin user user
+Admin password (Temporary) iHvsV8hhnMNA
+Instance jenkins-1-vm
+Instance zone us-central1-a
+Instance machine type g1-small

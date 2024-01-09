@@ -1,0 +1,39 @@
+You are building an application that processes data files uploaded from thousands of suppliers. Your primary goals for the application are data security and the expiration of aged data. You need to design the application to:
+* Restrict access so that suppliers can access only their own data.
+* Give suppliers write access to data only for 30 minutes.
+* Delete data that is over 45 days old.
+You have a very short development cycle, and you need to make sure that the application requires minimal maintenance. Which two strategies should you use? (Choose two.)
+
+	A. Build a lifecycle policy to delete Cloud Storage objects after 45 days. [✔️] 
+	
+	B. Use signed URLs to allow suppliers limited time access to store their objects. [✔️]
+	
+	C. Set up an SFTP server for your application, and create a separate user for each supplier.
+	
+	D. Build a Cloud function that triggers a timer of 45 days to delete objects that have expired. [chatGPT Suggested]
+	
+	E. Develop a script that loops through all Cloud Storage buckets and deletes any buckets that are older than 45 days. [Suggested]
+
+	-------
+
+	C. Set up an SFTP server for your application, and create a separate user for each supplier.
+
+		Explanation: SFTP servers introduce additional complexity and maintenance overhead. This option is not aligned with the goal of minimal maintenance and may not offer the necessary controls for limiting write access to a specific time window.
+
+-------
+
+Bard:
+
+	The two most suitable strategies for this scenario are A. Build a lifecycle policy to delete Cloud Storage objects after 45 days and B. Use signed URLs to allow suppliers limited time access to store their objects.
+
+		A. Build a lifecycle policy to delete Cloud Storage objects after 45 days is the most efficient and least error-prone approach for automatically deleting aged data from Cloud Storage. A lifecycle policy is a managed rule that automatically applies to objects in a bucket, specifying actions to be taken based on object age or other conditions. In this case, you can set a lifecycle rule to delete objects older than 45 days. This eliminates the need for manual intervention or scripts to manage data expiration.
+
+		B. Use signed URLs to allow suppliers limited time access to store their objects is a secure and controlled way to grant suppliers write access to data for a specified duration. Signed URLs are temporary URLs that contain an access token and an expiration time. When a supplier uses the signed URL to upload data, Cloud Storage verifies the access token and allows the upload only within the specified timeframe. This ensures that suppliers can upload data without having permanent access to the bucket.
+
+	While options C. Set up an SFTP server for your application, and create a separate user for each supplier and D. Build a Cloud function that triggers a timer of 45 days to delete objects that have expired could potentially fulfill the requirements, they are less efficient and more prone to errors or manual intervention.
+
+		C. Setting up an SFTP server requires additional setup, configuration, and maintenance, and it may not be scalable for thousands of suppliers. Additionally, managing separate user accounts for each supplier could become cumbersome.
+
+		D. Building a Cloud function to trigger a timer for object deletion involves more complexity and ongoing maintenance. It requires writing and deploying a Cloud function, handling potential errors, and monitoring its operation.
+
+	In summary, A. Building a lifecycle policy for automatic data expiration and B. Using signed URLs for controlled supplier data access are the most effective and maintainable strategies for this scenario. They balance security, efficiency, and minimal ongoing maintenance.

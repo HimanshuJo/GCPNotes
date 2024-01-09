@@ -1,0 +1,19 @@
+You need to create a custom VPC with a single subnet. The subnet's range must be as large as possible. Which range should you use?
+	
+	A. 0.0.0.0/0
+	
+	B. 10.0.0.0/8 [✔️]
+	
+	C. 172.16.0.0/12
+	
+	D. 192.168.0.0/16
+
+-------
+
+If you need to create a custom VPC with a single subnet, and the subnet's range should be as large as possible, you should choose a private IP address range that provides a large number of available addresses. Among the options provided:
+
+B. 10.0.0.0/8
+C. 172.16.0.0/12
+D. 192.168.0.0/16
+
+The largest address space is provided by option B. 10.0.0.0/8. This subnet range covers IP addresses from 10.0.0.0 to 10.255.255.255, offering a total of 16,777,216 (2^24) unique IPv4 addresses. Therefore, choosing option B would give you the largest possible subnet range.

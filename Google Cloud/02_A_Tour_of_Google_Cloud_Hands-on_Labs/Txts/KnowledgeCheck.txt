@@ -1,0 +1,61 @@
+Which Google Cloud interface allows for scripting actions in a set of command line executables?
+
+	Cloud Shell
+
+-------
+
+What is the lowest level basic role that gives you permissions to change resource state?
+
+	Editor
+
+-------
+
+Which storage class is designed for long term storage has a 365 day minimum storage agreement, and a lower storage price as compared to other storage types?
+
+	Archive storage
+
+-------
+
+Which serverless option is based on developing and executing small snippets of code?
+
+	Cloud Functions
+
+-------
+
+Which services are based on logic implemented in containers? (Pick two).
+
+	Google Kubernetes Engine
+
+	Cloud Run
+
+-------
+
+Which data storage service is a unique globally available, horizontally scalable database with relational semantics?
+
+	Cloud Spanner
+
+-------
+
+What GKE object implements an http(s) load balancer?
+
+	Ingress
+	(It is an http(s) load balancer based on upstream services you specify in your configuration file)
+
+-------
+
+Which Cloud Run autoscaling setting should you set if you want to limit cost?
+
+	Max instances
+
+-------
+
+You are authenticating an application to service APIs. Both resources are internal to the Google Cloud environment. What type of credentials should you use?
+
+	Temporary credentials
+
+-------
+
+What kind of account is meant for machine-to-machine communication in Google Cloud?
+
+	Service account
+	(Service accounts are designed to provide permissions for machine-to machine or service-to-service communications in Google Cloud.)
