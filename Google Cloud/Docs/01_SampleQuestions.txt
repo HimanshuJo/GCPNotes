@@ -311,17 +311,19 @@ You need to create a copy of a custom Compute Engine virtual machine (VM) to fac
 
 	-------
 
-	The correct answer is A. Navigate to Cloud Logging and view the application logs.
+	Bard:
 
-		When an application writes logs to disk, Cloud Logging can automatically collect and centralize those logs for easy access and analysis. This makes it the most efficient way to diagnose application errors and identify the root cause of the problem.
+		The correct answer is A. Navigate to Cloud Logging and view the application logs.
 
-	Option B, connecting to the instance's serial console, is a less efficient approach as it requires manually accessing the instance and manually reading the logs. It also doesn't provide a central repository for logs to be stored and analyzed.
+			When an application writes logs to disk, Cloud Logging can automatically collect and centralize those logs for easy access and analysis. This makes it the most efficient way to diagnose application errors and identify the root cause of the problem.
 
-	Option C, configuring a Health Check on the instance, is used to monitor the instance's health and determine whether it is functioning correctly. It doesn't directly address the issue of analyzing application logs to identify errors.
+		Option B, connecting to the instance's serial console, is a less efficient approach as it requires manually accessing the instance and manually reading the logs. It also doesn't provide a central repository for logs to be stored and analyzed.
 
-	Option D, installing and configuring the Cloud Logging Agent, is an alternative method of collecting logs from the instance. However, it is still necessary to view the logs in Cloud Logging to analyze the errors.
+		Option C, configuring a Health Check on the instance, is used to monitor the instance's health and determine whether it is functioning correctly. It doesn't directly address the issue of analyzing application logs to identify errors.
 
-	Therefore, the most effective way to diagnose application errors in this scenario is to navigate to Cloud Logging and view the application logs. This provides a centralized and easily searchable repository of logs for efficient analysis.
+		Option D, installing and configuring the Cloud Logging Agent, is an alternative method of collecting logs from the instance. However, it is still necessary to view the logs in Cloud Logging to analyze the errors.
+
+		Therefore, the most effective way to diagnose application errors in this scenario is to navigate to Cloud Logging and view the application logs. This provides a centralized and easily searchable repository of logs for efficient analysis.
 
 -------
 

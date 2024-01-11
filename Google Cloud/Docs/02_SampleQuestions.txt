@@ -744,6 +744,34 @@ You are developing a financial trading application that will be used globally. D
 		
 		Option C, "Use Cloud Spanner for data storage," is the most suitable choice for a financial trading application with global deployment, relational data storage, and the need for low-latency access to the exact identical state of the data.
 
+	-------
+
+	Bard:
+
+		The correct answer is Use Cloud Spanner for data storage.
+
+			This approach provides a highly consistent, scalable, and globally-distributed relational database that is well-suited for the requirements of the financial trading application. Cloud Spanner offers several advantages for this use case:
+
+			Global consistency: 
+
+				Cloud Spanner ensures that all clients have the exact identical state of the data, even when the application is deployed in multiple regions. This is essential for a financial trading application, where data accuracy is crucial.
+
+			Scalability: 
+
+				Cloud Spanner can automatically scale up or down to meet the changing demands of the application. This ensures that the application can handle peak traffic without experiencing performance bottlenecks.
+
+			Relational data structure: 
+
+				Cloud Spanner supports a relational data structure, which is well-suited for storing and querying financial data. This allows for efficient data analysis and reporting.
+
+		Option 1, using Cloud Bigtable for data storage, is not a suitable option for this use case. Cloud Bigtable is a NoSQL database that is not designed for transactional workloads or low latency requirements.
+
+		Option 2, using Cloud SQL for data storage, is a relational database but is not globally-distributed. This means that clients in different regions would not have access to the same data, which is not feasible for a financial trading application.
+
+		Option 3, using Firestore for data storage, is a NoSQL database that is not as scalable or performant as Cloud Spanner. It is also not designed for global distribution, which would not meet the requirements of the application.
+
+		Therefore, the most recommended approach is to use Cloud Spanner for data storage. This will provide the application with the necessary consistency, scalability, and relational data structure to meet the demands of the financial trading application.
+
 -------
 
 * You are monitoring an application and receive user feedback that a specific error is spiking. You notice that the error is caused by a Service Account having insufficient permissions. You are able to solve the problem but want to be notified if the problem recurs. What should you do? [Question 172]
@@ -792,6 +820,22 @@ You are developing a financial trading application that will be used globally. D
 		
 		Option C, "Create a custom log-based metric for the specific error to be used in an Alerting Policy," is the most suitable choice for monitoring and receiving notifications about a specific error related to Service Account permissions.
 
+	-------
+
+	Bard:
+
+		The correct answer is Create a custom log-based metric for the specific error to be used in an Alerting Policy.
+
+			This approach provides the most efficient and effective way to monitor for the recurring error and receive timely notifications. By creating a custom log-based metric for the specific error, you can establish an alerting policy that triggers notifications when the metric exceeds a specified threshold.
+
+		Option 1, filtering logs in the Log Viewer, is not a scalable solution for continuous monitoring and alerting. Manually filtering logs is time-consuming and inefficient, and it doesn't provide real-time insights or notifications.
+
+		Option 2, exporting logs to BigQuery and creating a Data Studio dashboard, is a valuable approach for analyzing historical log data. However, it doesn't provide real-time monitoring capabilities or automated notifications.
+
+		Option 3, granting Project Owner access to the Service Account, is not a suitable solution for addressing the underlying issue of insufficient permissions. Granting excessive permissions can compromise security and increase the risk of unauthorized access.
+
+		Therefore, creating a custom log-based metric for the specific error and establishing an alerting policy is the most efficient and effective approach. This method ensures that you are proactively notified of the error's recurrence, allowing you to take timely corrective actions to prevent service disruptions.
+
 -------
 
 ** You are working with a Cloud SQL MySQL database at your company. You need to retain a month-end copy of the database for three years for audit purposes. What should you do? [Question 171]
@@ -838,60 +882,129 @@ You are developing a financial trading application that will be used globally. D
 		
 		Option B, "Save the automatic first-of-the-month backup for three years. Store the backup file in an Archive class Cloud Storage bucket," is the most suitable choice for retaining a month-end copy of a Cloud SQL MySQL database for three years for audit purposes.
 
+	-------
+
+	Bard:
+
+		The correct answer is Set up an export job for the first of the month. Write the export file to an Archive class Cloud Storage bucket.
+
+			This approach provides the most efficient and cost-effective way to retain month-end database backups for three years. Exporting the database to a Cloud Storage bucket ensures that you have a complete copy of the data for audit purposes.
+
+		Option 1, saving the automatic first-of-the-month backup for three years, is not recommended as it can lead to storage costs exceeding the necessary retention period. Archive class Cloud Storage is the most cost-effective storage option for long-term archival purposes.
+
+		Option 2, setting up an on-demand backup for the first of the month, is not as efficient as using an export job. Export jobs can be scheduled to run automatically on the first of the month, ensuring that you have a consistent backup each month.
+
+		Option 3, converting the automatic first-of-the-month backup to an export file and then storing it in a Coldline class Cloud Storage bucket, is not recommended as it involves additional processing steps. It's more efficient to directly export the database to an Archive class bucket.
+
+		Therefore, setting up an export job for the first of the month and writing the export file to an Archive class Cloud Storage bucket is the most suitable approach. This ensures that you have a complete copy of the month-end database backups for audit purposes while minimizing storage costs.
+
 -------
 
 * You received a JSON file that contained a private key of a Service Account in order to get access to several resources in a Google Cloud project. You downloaded and installed the Cloud SDK and want to use this private key for authentication and authorization when performing gcloud commands. What should you do? [Question 170]
 	
 	Use the command gcloud auth login and point it to the private key.
 	
-	Use the command gcloud auth activate-service-account and point it to the private key. [✔️ and ChatGPT Suggested]
+	Use the command gcloud auth activate-service-account and point it to the private key. [ChatGPT Suggested]
 	
 	Place the private key file in the installation directory of the Cloud SDK and rename it to credentials.json.
 	
 	Place the private key file in your home directory and rename it to GOOGLE_APPLICATION_CREDENTIALS.
-	[ChatGPT Suggested]
-
--------
-
-* Your auditor wants to view your organization's use of data in Google Cloud. The auditor is most interested in auditing who accessed data in Cloud Storage buckets. You need to help the auditor access the data they need. What should you do? [Question 169]
-	
-	Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage. [✔️]
-	
-	Assign the appropriate permissions, and then create a Data Studio report on Admin Activity Audit Logs.
-	
-	Assign the appropriate permissions, and the use Cloud Monitoring to review metrics.
-
-	Use the export logs API to provide the Admin Activity Audit Logs in the format they want. [Suggested]
+	[Bard and ChatGPT Suggested] [✔️]
 
 	-------
 
-	To help the auditor access the data they need, the most appropriate option is:
+	Option B (Use the command gcloud auth activate-service-account and point it to the private key): This is the correct command to activate a service account with a private key for authentication and authorization when using gcloud commands.
 
-		Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage.
+	Explanation:
 
-	Here's why:
+		Option A (Use the command gcloud auth login and point it to the private key): The gcloud auth login command is used for user account authentication, not service account authentication. It interacts with the user's browser for interactive login.
 
-		Assign the appropriate permissions, and then create a Data Studio report on Admin Activity Audit Logs.
+		Option C (Place the private key file in the installation directory of the Cloud SDK and rename it to credentials.json): Placing the private key directly in the installation directory and renaming it to credentials.json is not the standard approach for service account authentication. The recommended method is to specify the path to the private key using the gcloud auth activate-service-account command.
 
-			Admin Activity Audit Logs primarily focus on actions related to changes in the configuration and settings of Google Cloud resources. It might not provide the detailed information about data access in Cloud Storage that the auditor is specifically interested in.
-		
-			Assign the appropriate permissions, and then use Cloud Monitoring to review metrics.
+		Option D (Place the private key file in your home directory and rename it to GOOGLE_APPLICATION_CREDENTIALS): The GOOGLE_APPLICATION_CREDENTIALS environment variable is used to specify the path to the service account key file. While this is a valid option, it doesn't involve renaming the file to GOOGLE_APPLICATION_CREDENTIALS; rather, you set the environment variable to the path of the private key file.
 
-			Cloud Monitoring is more focused on monitoring and alerting based on metrics, and it might not provide the detailed data access information that Data Access Logs can offer.
-		
-			Use the export logs API to provide the Admin Activity Audit Logs in the format they want.
+	In summary, Option B is the correct and standard way to activate a service account with a private key for gcloud commands.
 
-			Exporting logs via API can be done, but this might involve additional steps for the auditor, and the Admin Activity Audit Logs may not contain the granular details about data access in Cloud Storage.
-		
-	Why Option is Recommended:
+	-------
 
-		Turning on Data Access Logs for Cloud Storage buckets allows logging of detailed information about who accessed the data, including the identity of the user, the action performed, and the object affected.
-		
-		Building a query in the log viewer with the appropriate filters allows the auditor to extract the specific data access information they need.
+	Bard:
+
+		The correct answer is D. Place the private key file in your home directory and rename it to GOOGLE_APPLICATION_CREDENTIALS.
+
+			To use a service account private key for authentication and authorization when performing gcloud commands, you can place the private key file in your home directory and rename it to GOOGLE_APPLICATION_CREDENTIALS. This will automatically load the private key when you run gcloud commands.
+
+		The other options are incorrect:
+
+			A. Use the command gcloud auth login and point it to the private key. This command is used to login to Google Cloud with a user account, not to authenticate with a service account.
+
+			B. Use the command gcloud auth activate-service-account and point it to the private key. This command is used to activate a service account, but it does not automatically load the private key. You would still need to call the gcloud auth login command or set the environment variable GOOGLE_APPLICATION_CREDENTIALS.
+
+			C. Place the private key file in the installation directory of the Cloud SDK and rename it to credentials.json. This will also work, but it is not the recommended way to do it. The GOOGLE_APPLICATION_CREDENTIALS environment variable is more secure because it is not exposed to the filesystem.
+
+		Therefore, the best way to use a service account private key for authentication and authorization with gcloud commands is to place the private key file in your home directory and rename it to GOOGLE_APPLICATION_CREDENTIALS.
+
+-------
+
+* Your auditor wants to view your organization's use of data in Google Cloud. The auditor is most interested in auditing who accessed data in Cloud Storage buckets. You need to help the auditor access the data they need. What should you do?
+[Question 169]
 	
-	Conclusion:
-		
-		Option A, "Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage," is the most suitable choice for providing the auditor with detailed information about who accessed data in Cloud Storage buckets.
+	A. Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage. [✔️]
+	
+	B. Assign the appropriate permissions, and then create a Data Studio report on Admin Activity Audit Logs.
+	
+	C. Assign the appropriate permissions, and the use Cloud Monitoring to review metrics.
+
+	D. Use the export logs API to provide the Admin Activity Audit Logs in the format they want. [Suggested]
+
+	-------
+
+	Option A (Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage): This is the recommended approach for auditing who accessed data in Cloud Storage buckets. Enabling Data Access Logs allows you to track and review operations performed on Cloud Storage objects, and you can use the log viewer to filter and query the logs.
+
+	Explanation:
+
+		Option A (Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage): Enabling Data Access Logs for Cloud Storage buckets will provide detailed audit logs capturing who accessed the data. Using the log viewer, you can build queries to filter and analyze these logs specifically for Cloud Storage operations.
+
+		Option B (Assign the appropriate permissions, and then create a Data Studio report on Admin Activity Audit Logs): Admin Activity Audit Logs are more focused on administrative actions and changes in Google Cloud, and they may not provide the level of detail needed for tracking data access in Cloud Storage.
+
+		Option C (Assign the appropriate permissions, and then use Cloud Monitoring to review metrics): Cloud Monitoring is more focused on metrics and performance data, and it may not provide the granular details required for auditing who accessed data in Cloud Storage.
+
+		Option D (Use the export logs API to provide the Admin Activity Audit Logs in the format they want): While exporting logs can be done using the export logs API, Admin Activity Audit Logs might not capture the specific data access details needed for Cloud Storage operations.
+
+	In summary, Option A is the recommended approach for auditing data access in Cloud Storage by enabling Data Access Logs and using the log viewer for detailed queries and analysis.
+
+	-------
+
+	Bard:
+
+		The most appropriate approach to help the auditor access the data they need is A. Turn on Data Access Logs for the buckets they want to audit, and then build a query in the log viewer that filters on Cloud Storage.
+
+		This approach offers several advantages:
+
+			Focused Auditing: 
+
+				Turning on Data Access Logs for specific buckets provides a granular view of data access activities within those buckets, aligning with the auditor's specific interest.
+
+			Direct Access to Logs: 
+
+				Building a query in the log viewer enables the auditor to directly access and analyze the audit logs related to data access, facilitating in-depth scrutiny.
+
+			Flexibility and Customization: 
+
+				The log viewer allows for flexible filtering and data manipulation, enabling the auditor to tailor the analysis to their specific requirements.
+
+			Real-time Data: 
+
+				Data Access Logs are continuously updated, ensuring that the auditor has access to the most recent data access activities.
+
+		The other options are less suitable for this task:
+
+			Option B: Creating a Data Studio report on Admin Activity Audit Logs would provide broader information about user activity, but it may not be as focused on data access specifically within Cloud Storage buckets as the auditor needs.
+
+			Option C: Using Cloud Monitoring to review metrics would not provide the granular level of detail about data access activities that the auditor requires.
+
+			Option D: Exporting Admin Activity Audit Logs would provide the auditor with the raw data, but it would require them to manually analyze and process the logs, which could be time-consuming and error-prone.
+
+		Therefore, option A, which focuses on Data Access Logs specifically for the buckets of interest and enables direct query and analysis in the log viewer, is the most efficient and effective solution for assisting the auditor in their data access auditing task.
 
 -------
 
@@ -940,9 +1053,26 @@ Your company developed a mobile game that is deployed on Google Cloud. Gamers ar
 		
 		Option D, "Configure an External Network load balancer in front of the application servers," is the most suitable choice for exposing the game backend over a single IP address and handling UDP traffic in a scalable manner.
 
+	-------
+
+	Bard:
+
+		The correct answer is Configure an External Network load balancer in front of the application servers.
+
+			An External Network load balancer is the most suitable choice for exposing game servers over a single IP address while handling UDP packets from the game clients. It efficiently distributes traffic across the game servers, ensuring low latency and responsiveness.
+
+		Option 1, configuring an SSL Proxy load balancer, is not recommended for UDP traffic. SSL Proxy load balancers are designed for TCP and HTTPS traffic, not for UDP.
+
+		Option 2, configuring an Internal UDP load balancer, is not suitable for exposing the game servers to the public internet. Internal load balancers are intended for traffic within the Google Cloud network, not for public access.
+
+		Option 3, configuring an External HTTP(s) load balancer, can be used for HTTP traffic, but it's not optimized for UDP traffic. UDP packets require a different handling approach than HTTP packets.
+
+		Therefore, configuring an External Network load balancer in front of the application servers is the most appropriate solution. It handles UDP traffic efficiently, exposes the game servers over a single IP address, and allows for scaling the game backend across multiple VMs.
+
 -------
 
-* Your web application has been running successfully on Cloud Run for Anthos. You want to evaluate an updated version of the application with a specific percentage of your production users (canary deployment). What should you do? [Question 166]
+* Your web application has been running successfully on Cloud Run for Anthos. You want to evaluate an updated version of the application with a specific percentage of your production users (canary deployment). What should you do? 
+[Question 166]
 	
 	Create a new service with the new version of the application. Split traffic between this version and the version that is currently running. [Suggested]
 	
@@ -986,6 +1116,22 @@ Your company developed a mobile game that is deployed on Google Cloud. Gamers ar
 		
 		Option B, "Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running," is the most suitable choice for canary deployment on Cloud Run for Anthos.
 
+	-------
+
+	Bard:
+
+		The correct answer is Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running.
+
+			This approach provides a more controlled and efficient way to evaluate the updated version of the application with a specific percentage of users. By creating a new revision, you can isolate the new version from the production traffic and gradually increase the traffic to the new revision based on performance and user feedback.
+
+		Option 1, creating a new service with the new version of the application, does not allow for controlled traffic splitting. Both versions would be exposed to the same traffic, making it difficult to evaluate the new version effectively.
+
+		Option 2, adding an HTTP Load Balancer in front of both services, also does not allow for controlled traffic splitting. The HTTP Load Balancer would evenly distribute traffic between the two services, making it challenging to assess the performance of the new version.
+
+		Option 3, creating a new revision with the new version of the application and adding an HTTP Load Balancer in front of both revisions, is an inefficient approach. It would require managing traffic splitting at the load balancer level, which can be complex and error-prone.
+
+		Therefore, creating a new revision and using traffic splitting to gradually introduce the new version to production users is the most suitable method for a canary deployment. This approach allows for a controlled and efficient evaluation of the updated application, ensuring minimal impact on existing users.
+
 -------
 
 You are running a data warehouse on BigQuery. A partner company is offering a recommendation engine based on the data in your data warehouse. The partner company is also running their application on Google Cloud. They manage the resources in their own project, but they need access to the BigQuery dataset in your project. You want to provide the partner company with access to the dataset. What should you do?
@@ -1001,37 +1147,41 @@ You are running a data warehouse on BigQuery. A partner company is offering a re
 
 	-------
 
-	To provide the partner company with access to the BigQuery dataset in your project, the recommended option is:
+	D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project.
 
-		D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project.
-
-	Here's why:
-
-		A. Create a Service Account in your own project, and grant this Service Account access to BigQuery in your project.
-
-			This option would give the Service Account in your project access to BigQuery, but you want to grant access to the partner company's application, which is managed in their project.
+	Explanation:
 		
-		B. Create a Service Account in your own project, and ask the partner to grant this Service Account access to BigQuery in their project.
+		In a scenario where another project (partner's project) needs access to a BigQuery dataset in your project, it's best to have the partner create a Service Account in their own project.
 
-			The partner company should have control over the service accounts in their project, and granting access should be performed on their end.
+		The partner can then share the Service Account email address with you, and you can grant the necessary permissions (read or specific roles) on your BigQuery dataset to that Service Account.
 		
-		C. Ask the partner to create a Service Account in their project, and have them give the Service Account access to BigQuery in their project.
+		This way, the access control is managed on the dataset owner's (your) side, and the partner retains control over the Service Account and its permissions in their own project.
 
-			This option is close, but you want to provide access to your BigQuery dataset, which requires actions on your side, not the partner's.
+		It follows the principle of least privilege, as you grant access only to the specific dataset and don't provide more permissions than necessary.
+
+	Other Options:
+
+		Option A and Option B suggest creating a Service Account in your own project. However, in this scenario, it's more appropriate to have the partner manage their own Service Account for access to your dataset.
 		
-		D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project.
+		Option C suggests the partner creating a Service Account in their project and giving it access to BigQuery in their project. However, in this scenario, the access needs to be granted to your dataset, so they should have access to your project's dataset.
 
-			This is the recommended option. It allows the partner company to have control over their service accounts and grant access to the specific dataset in your project.
-		
-	Why Option D is Recommended:
+	-------
 
-		The partner company should have control over the service accounts in their project.
-		
-		Granting access to the BigQuery dataset in your project should be performed by the partner company, and they can do so by creating a service account in their project.
+	Bard:
 
-	Conclusion:
-	
-		Option D, "Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project," is the most suitable choice for providing access to the BigQuery dataset in your project to the partner company.
+		The correct answer is D. Ask the partner to create a Service Account in their project, and grant their Service Account access to the BigQuery dataset in your project.
+
+			This approach is the most secure and recommended way to grant access to your BigQuery dataset to an external partner. By creating a Service Account in their own project, you can tightly control the permissions granted to the partner, ensuring that they only have access to the data they need to perform their tasks.
+
+		The other options are less secure:
+
+			A. Create a Service Account in your own project, and grant this Service Account access to BigQuery in your project. This option would give the partner too much access to your data, as they would be able to see and potentially modify all of the data in your project.
+
+			B. Create a Service Account in your own project, and ask the partner to grant this Service Account access to BigQuery in their project. This option would require the partner to give you their project credentials, which is not a secure practice.
+
+			C. Ask the partner to create a Service Account in their project, and have them give the Service Account access to BigQuery in their project. This option is not the most secure, as the partner would still have full control over the Service Account.
+
+		Therefore, the best approach is to have the partner create a Service Account in their project and grant you access to the BigQuery dataset in their project. This will give you the necessary access to the data while still maintaining a secure separation of permissions.
 
 -------
 
@@ -1078,6 +1228,22 @@ You have experimented with Google Cloud using your own credit card and expensed 
 	Conclusion:
 		
 		Option D, "Change the billing account of your projects to the billing account of your company," is the most appropriate choice for streamlining the billing process and charging the costs of your projects to your company's monthly invoice.
+
+	-------
+
+	Bard:
+
+		The correct answer is Change the billing account of your projects to the billing account of your company.
+
+			This approach ensures that your company's billing account is directly associated with the usage of Google Cloud resources, enabling your company to receive the corresponding invoices.
+
+		Option 1, granting the financial team the IAM role of Billing Account User on the billing account linked to your credit card, is not sufficient. While it provides the financial team with access to billing information, it does not transfer the ownership of the billing account to the company.
+
+		Option 2, setting up BigQuery billing export and granting your financial department IAM access to query the data, is a useful step for analyzing billing data. However, it does not address the underlying issue of billing ownership.
+
+		Option 3, creating a ticket with Google Billing Support to ask them to send the invoice to your company, is not the most efficient way to manage billing. It involves manual intervention from Google support and may not be scalable for long-term use.
+
+		Therefore, changing the billing account of your projects to the billing account of your company is the most appropriate solution. This ensures that your company is directly responsible for the billing costs and receives the corresponding invoices, streamlining the billing process and simplifying expense reporting.
 
 -------
 
@@ -1126,6 +1292,32 @@ You have experimented with Google Cloud using your own credit card and expensed 
 		
 		Option B, "Deploy the container on Cloud Run (fully managed), and set the minimum number of instances to zero," is the most suitable choice for ensuring no costs are incurred outside of the hours the application is used.
 
+	-------
+
+	Bard:
+
+		The best option to deploy your containerized web application while ensuring no costs are incurred outside of business hours is to use App Engine flexible environment with manual scaling and set the value instances to zero in the app.yaml.
+
+			This approach allows you to have complete control over the number of instances running your application, ensuring that no instances are running when the application is not in use, thereby preventing unnecessary billing charges.
+
+		Here's a breakdown of each option and why it's not recommended:
+
+			Option 1: Deploying the container on Cloud Run for Anthos and setting the minimum number of instances to zero is not recommended because Cloud Run for Anthos is a managed service that automatically scales based on traffic. Setting the minimum number of instances to zero would disable autoscaling altogether, which could lead to performance issues during peak traffic hours.
+
+			Option 2: Deploying the container on Cloud Run (fully managed) and setting the minimum number of instances to zero is also not recommended for the same reason as Option 1. Cloud Run (fully managed) also utilizes autoscaling, and disabling autoscaling could affect the application's performance during busy periods.
+
+			Option 3: Deploying the container on App Engine flexible environment with autoscaling and setting the value min_instances to zero in the app.yaml is not the most efficient option because autoscaling can still incur charges even when there is no traffic.
+
+		Benefits of deploying on App Engine flexible environment with manual scaling:
+
+			Cost-effectiveness: You only pay for the instances that you specify, and no charges are incurred when there are no instances running.
+
+			Flexibility: You have full control over the number of instances running your application, allowing you to adjust the scaling as needed based on traffic patterns.
+
+			Simple management: Manual scaling is a more straightforward approach compared to managing autoscaling policies.
+
+		By deploying your application on App Engine flexible environment with manual scaling and setting the value instances to zero in the app.yaml, you can ensure that your application is only running when it is needed, minimizing unnecessary billing charges and optimizing your application's resource utilization.
+
 -------
 
 * Your company has embraced a hybrid cloud strategy where some of the applications are deployed on Google Cloud. A Virtual Private Network (VPN) tunnel connects your Virtual Private Cloud (VPC) in Google Cloud with your company's on-premises network. Multiple applications in Google Cloud need to connect to an on-premises database server, and you want to avoid having to change the IP configuration in all of your applications when the IP of the database changes. What should you do? [Question 162]
@@ -1172,6 +1364,24 @@ You have experimented with Google Cloud using your own credit card and expensed 
 	Conclusion:
 		
 		Option B, "Create a private zone on Cloud DNS, and configure the applications with the DNS name," is the most suitable choice for avoiding the need to change the IP configuration in all applications when the IP of the database changes.
+
+	-------
+
+	Bard:
+
+		The best approach to avoid having to change the IP configuration in all of your applications when the IP of the database changes is to create a private zone on Cloud DNS, and configure the applications with the DNS name.
+
+			This approach allows you to manage the database's DNS record centrally, and applications can simply resolve the DNS name to connect to the database. This eliminates the need to update the IP configuration in each application whenever the database's IP changes.
+
+		Here's a breakdown of why the other options are not recommended:
+
+			Option 1: Configuring Cloud NAT for all subnets of your VPC is not recommended because it would expose all of your Google Cloud applications to the public internet. This could pose a security risk, as malicious actors could potentially exploit the NAT configuration to gain access to your applications.
+
+			Option 2: Configuring the IP of the database as custom metadata for each instance and querying the metadata server is not recommended because it would require updating the metadata configuration in each instance whenever the database's IP changes. This could be tedious and prone to errors.
+
+			Option 3: Querying the Compute Engine internal DNS from the applications to retrieve the IP of the database is not recommended because it would require the applications to be aware of the database's IP address. This could be difficult to manage if the database's IP changes frequently.
+
+		By creating a private zone on Cloud DNS, you can centralize the management of the database's DNS record and ensure that applications can consistently connect to the database without the need for manual updates. This approach is more secure, efficient, and scalable for a hybrid cloud deployment.
 
 -------
 
@@ -1772,13 +1982,13 @@ You have an application that uses Cloud Spanner as a database backend to keep cu
 
 		Here's a detailed breakdown of why each option is right or wrong:
 
-		Option A: Creating a Dataflow job to copy data from Cloud Bigtable and Cloud Storage is inefficient for an ad hoc request. Dataflow jobs are designed for batch processing and may take time to complete, especially for large datasets. Additionally, copying data from two separate sources would require additional steps.
+			Option A: Creating a Dataflow job to copy data from Cloud Bigtable and Cloud Storage is inefficient for an ad hoc request. Dataflow jobs are designed for batch processing and may take time to complete, especially for large datasets. Additionally, copying data from two separate sources would require additional steps.
 
-		Option B: Creating a Dataflow job to copy data from Cloud Bigtable and Cloud Spanner would be even less efficient. Cloud Spanner is a fully managed relational database, and its data can be directly loaded into BigQuery using external tables. Copying the data to Cloud Storage first would be unnecessary and add processing overhead.
+			Option B: Creating a Dataflow job to copy data from Cloud Bigtable and Cloud Spanner would be even less efficient. Cloud Spanner is a fully managed relational database, and its data can be directly loaded into BigQuery using external tables. Copying the data to Cloud Storage first would be unnecessary and add processing overhead.
 
-		Option C: Creating a Cloud Dataproc cluster and running a Spark job to extract data from Cloud Bigtable and Cloud Storage would be more complex and time-consuming compared to using BigQuery's built-in capabilities. Spark is a powerful processing framework, but it's not specifically optimized for joining data from different sources. Additionally, setting up and managing a Dataproc cluster would be unnecessary for a single ad hoc query.
+			Option C: Creating a Cloud Dataproc cluster and running a Spark job to extract data from Cloud Bigtable and Cloud Storage would be more complex and time-consuming compared to using BigQuery's built-in capabilities. Spark is a powerful processing framework, but it's not specifically optimized for joining data from different sources. Additionally, setting up and managing a Dataproc cluster would be unnecessary for a single ad hoc query.
 
-		Option D: Using BigQuery's external tables feature to load data from Cloud Storage and Cloud Spanner directly into BigQuery, and then joining the tables using the user fields and applying appropriate filters is the most efficient and straightforward approach for an ad hoc request. BigQuery is designed for large-scale data analysis, and its built-in query capabilities make it ideal for joining data from different sources. This approach eliminates the need for additional data copying or processing steps.
+			Option D: Using BigQuery's external tables feature to load data from Cloud Storage and Cloud Spanner directly into BigQuery, and then joining the tables using the user fields and applying appropriate filters is the most efficient and straightforward approach for an ad hoc request. BigQuery is designed for large-scale data analysis, and its built-in query capabilities make it ideal for joining data from different sources. This approach eliminates the need for additional data copying or processing steps.
 
 		Therefore, creating separate BigQuery external tables and joining them using the BigQuery console is the most efficient way to address the ad hoc request for joining data from Cloud Spanner and Cloud Bigtable for specific users.
 
@@ -1786,7 +1996,7 @@ You have an application that uses Cloud Spanner as a database backend to keep cu
 
 ** Your existing application running in Google Kubernetes Engine (GKE) consists of multiple pods running on four GKE n1-standard-2 nodes. You need to deploy additional pods requiring n2-highmem-16 nodes without any downtime. What should you do? [Question 34]
 	
-	Use gcloud container clusters upgrade. Deploy the new services. [Bard Suggested]
+	Use gcloud container clusters upgrade. Deploy the new services. [Bard Suggested] [✔️]
 	
 	Create a new Node Pool and specify machine type n2-highmem-16. Deploy the new pods. [✔️]
 	
@@ -1800,15 +2010,15 @@ You have an application that uses Cloud Spanner as a database backend to keep cu
 
 		The correct answer is A. Use gcloud container clusters upgrade. Deploy the new services.
 
-		This is the most appropriate solution for adding pods to an existing application running on GKE without any downtime. The gcloud container clusters upgrade command allows you to upgrade an existing cluster to a new machine type, such as n2""highmem""16, without disrupting running applications. This means that you can add the new pods to the existing cluster without having to take it offline.
+			This is the most appropriate solution for adding pods to an existing application running on GKE without any downtime. The gcloud container clusters upgrade command allows you to upgrade an existing cluster to a new machine type, such as n2""highmem""16, without disrupting running applications. This means that you can add the new pods to the existing cluster without having to take it offline.
 
 		Here's a breakdown of why the other options are not as suitable:
 
-		Option B: Creating a new Node Pool and specifying machine type n2""highmem""16 would require manually migrating the pods to the new node pool. This could cause downtime during the migration process.
+			Option B: Creating a new Node Pool and specifying machine type n2""highmem""16 would require manually migrating the pods to the new node pool. This could cause downtime during the migration process.
 
-		Option C: Creating a new cluster with n2""highmem""16 nodes and redeploying the pods would require deleting the old cluster and recreating the application. This would be time-consuming and could also cause downtime.
+			Option C: Creating a new cluster with n2""highmem""16 nodes and redeploying the pods would require deleting the old cluster and recreating the application. This would be time-consuming and could also cause downtime.
 
-		Option D: Creating a new cluster with both n1""standard""2 and n2""highmem""16 nodes would make it more complex to manage the two different machine types. It would also not be necessary to have both machine types running at the same time.
+			Option D: Creating a new cluster with both n1""standard""2 and n2""highmem""16 nodes would make it more complex to manage the two different machine types. It would also not be necessary to have both machine types running at the same time.
 
 		Therefore, using gcloud container clusters upgrade to upgrade the existing cluster to n2""highmem""16 nodes and deploying the new pods is the most efficient and reliable way to add pods to an existing application running on GKE without any downtime.
 
@@ -1869,7 +2079,7 @@ You have a Compute Engine instance hosting an application used between 9 AM and 
 
 	Bard:
 
-		The correct answer is B.1. In the Cloud Console, go to the Compute Engine Disks page and select your instance's disk. 2. In the Snapshot Schedule section, select Create Schedule and configure the following parameters: - Schedule frequency: Daily - Start time: 1:00 AM ג€” 2:00 AM - Autodelete snapshots after: 30 days Most Voted.
+		The correct answer is B.1. In the Cloud Console, go to the Compute Engine Disks page and select your instance's disk. 2. In the Snapshot Schedule section, select Create Schedule and configure the following parameters: - Schedule frequency: Daily - Start time: 1:00 AM - 2:00 AM - Autodelete snapshots after: 30 days.
 
 		Here's a detailed breakdown of why each option is right or wrong:
 
@@ -1909,13 +2119,13 @@ Your team maintains the infrastructure for your organization. The current infras
 
 		Here's a detailed explanation of why each option is right or wrong:
 
-		Option A: Storing Deployment Manager templates in Cloud Storage is not recommended, as it doesn't provide version control or collaboration capabilities. Cloud Storage is primarily used for storing static data, while Deployment Manager templates are intended to manage infrastructure configuration changes.
+			Option A: Storing Deployment Manager templates in Cloud Storage is not recommended, as it doesn't provide version control or collaboration capabilities. Cloud Storage is primarily used for storing static data, while Deployment Manager templates are intended to manage infrastructure configuration changes.
 
-		Option B: Using Deployment Manager templates and storing them in Cloud Source Repositories is the most recommended approach for sharing infrastructure change proposals. Deployment Manager templates provide a declarative way to define infrastructure configurations, and Cloud Source Repositories offer version control, collaboration, and auditing features. This allows the team to review, discuss, and collaborate on the proposed changes in a central location.
+			Option B: Using Deployment Manager templates and storing them in Cloud Source Repositories is the most recommended approach for sharing infrastructure change proposals. Deployment Manager templates provide a declarative way to define infrastructure configurations, and Cloud Source Repositories offer version control, collaboration, and auditing features. This allows the team to review, discuss, and collaborate on the proposed changes in a central location.
 
-		Option C: Applying the changes in a development environment and saving the output from gcloud compute instances list in a shared Storage bucket is not an effective way to share infrastructure change proposals. It doesn't provide a structured and maintainable way to describe the proposed changes, and it lacks version control and collaboration capabilities.
+			Option C: Applying the changes in a development environment and saving the output from gcloud compute instances list in a shared Storage bucket is not an effective way to share infrastructure change proposals. It doesn't provide a structured and maintainable way to describe the proposed changes, and it lacks version control and collaboration capabilities.
 
-		Option D: Applying the changes in a development environment, saving the output from gcloud compute instances list in Cloud Source Repositories, and then sharing the repository doesn't fully address the issue. It's still not a structured approach to describe the proposed changes, and it doesn't provide the same level of collaboration and version control as using Deployment Manager templates.
+			Option D: Applying the changes in a development environment, saving the output from gcloud compute instances list in Cloud Source Repositories, and then sharing the repository doesn't fully address the issue. It's still not a structured approach to describe the proposed changes, and it doesn't provide the same level of collaboration and version control as using Deployment Manager templates.
 
 		In summary, utilizing Deployment Manager templates in Cloud Source Repositories is the most suitable option for sharing infrastructure change proposals. It provides a structured, version-controlled, and collaborative platform for defining and reviewing proposed changes, ensuring a more organized and efficient workflow for the team.
 
@@ -1934,23 +2144,39 @@ Your company has workloads running on Compute Engine and on-premises. The Google
 
 	-------
 
-	ChatGPT:
-
 	A. Create the instance without a public IP address.
 
-	Explanation:
+		Explanation:
 
-		To ensure that no public Internet traffic can be routed to a Compute Engine instance, you should create the instance without a public IP address. This means the instance will only have an internal IP address and won't be accessible from the public Internet.
+			To ensure that no public Internet traffic can be routed to a Compute Engine instance, you should create the instance without a public IP address. This means the instance will only have an internal IP address and won't be accessible from the public Internet.
 
 	Options B, C, and D do not directly address the requirement of preventing public Internet traffic to the instance:
 
-	Option B (Create the instance with Private Google Access enabled) allows the instance to access Google services without a public IP, but it doesn't prevent inbound public traffic.
+		Option B (Create the instance with Private Google Access enabled) allows the instance to access Google services without a public IP, but it doesn't prevent inbound public traffic.
 
-	Option C (Create a deny-all egress firewall rule on the VPC network) would affect outbound traffic, not inbound traffic, and might disrupt the instance's ability to communicate with the Internet if needed.
+		Option C (Create a deny-all egress firewall rule on the VPC network) would affect outbound traffic, not inbound traffic, and might disrupt the instance's ability to communicate with the Internet if needed.
 
-	Option D (Create a route on the VPC to route all traffic to the instance over the VPN tunnel) is about routing, but it doesn't prevent public Internet traffic. It would be more about controlling the path for the traffic but wouldn't stop public traffic from reaching the instance if it had a public IP.
+		Option D (Create a route on the VPC to route all traffic to the instance over the VPN tunnel) is about routing, but it doesn't prevent public Internet traffic. It would be more about controlling the path for the traffic but wouldn't stop public traffic from reaching the instance if it had a public IP.
 
 	By creating the instance without a public IP address (Option A), you are ensuring that the instance is only reachable within the internal network and won't accept public Internet traffic.
+
+	-------
+
+	Bard:
+
+		The correct answer is Create the instance without a public IP address.
+
+			This is the most secure way to ensure that no public Internet traffic can be routed to the instance. By not assigning a public IP address, the instance will not have any external connectivity. This means that it cannot be directly accessed from the Internet, and any traffic that needs to reach the instance will have to pass through the VPN tunnel.
+
+		The other options are not correct for the following reasons:
+
+			Creating the instance with Private Google Access enabled will allow the instance to communicate with other Google Cloud services, such as Google Kubernetes Engine (GKE) and Google Cloud Storage (GCS). However, it will not prevent the instance from being accessed from the public Internet.
+
+			Creating a deny-all egress firewall rule on the VPC network will prevent the instance from making any outbound connections to the Internet. However, it will not prevent incoming traffic from reaching the instance.
+
+			Creating a route on the VPC to route all traffic to the instance over the VPN tunnel will ensure that all traffic that is destined for the instance will pass through the VPN tunnel. However, it will not prevent the instance from being accessed from the public Internet.
+
+		Therefore, the most secure way to ensure that no public Internet traffic can be routed to the instance is to create it without a public IP address.
 
 -------
 
@@ -2121,7 +2347,7 @@ You are developing a new application and are looking for a Jenkins installation 
 
 ** Your company runs one batch process in an on-premises server that takes around 30 hours to complete. The task runs monthly, can be performed offline, and must be restarted if interrupted. You want to migrate this workload to the cloud while minimizing cost. What should you do? [Question 136]
 	
-	Migrate the workload to a Compute Engine Preemptible VM. [Bard Suggested]
+	Migrate the workload to a Compute Engine Preemptible VM. [Bard Suggested] [✔️]
 	
 	Migrate the workload to a Google Kubernetes Engine cluster with Preemptible nodes. [ChatGPT Suggested]
 	
@@ -2310,7 +2536,7 @@ An application generates daily reports in a Compute Engine Virtual Machine (VM).
 
 -------
 
-You have deployed an application on a single Compute Engine instance. The application writes logs to disk. Users start reporting errors with the application. You want to diagnose the problem. What should you do?
+You have deployed an application on a single Compute Engine instance. The application writes logs to disk. Users start reporting errors with the application. You want to diagnose the problem. What should you do? [Question 231]
 	
 	Navigate to Cloud Logging and view the application logs.
 	
@@ -2320,9 +2546,41 @@ You have deployed an application on a single Compute Engine instance. The applic
 	
 	Install and configure the Cloud Logging Agent and view the logs from Cloud Logging. [✔️]
 
+	-------
+
+	Bard:
+
+		The best approach to diagnose the problem of application errors in a Compute Engine instance that writes logs to disk is to install and configure the Cloud Logging Agent and view the logs from Cloud Logging.
+
+		This approach provides several advantages:
+
+			Centralized logging: 
+
+				Cloud Logging centralizes logs from across your Google Cloud resources, making it easier to identify and analyze application errors.
+
+			Enhanced visibility: 
+
+				Cloud Logging Agent collects logs from the application's process memory, providing more comprehensive information beyond those written to disk.
+
+			Real-time monitoring: 
+
+				Cloud Logging Agent sends logs to Cloud Logging in real time, allowing you to monitor the application's health and identify errors promptly.
+
+			Integration with monitoring tools: 
+
+				Cloud Logging integrates with other Google Cloud monitoring tools, enabling you to correlate logs with other metrics and events.
+
+		Option 1, navigating to Cloud Logging and viewing the application logs, may not provide the full set of logs, as only logs written to disk will be visible.
+
+		Option 2, connecting to the instance's serial console and reading the application logs, is not as efficient or scalable as using Cloud Logging.
+
+		Option 3, configuring a Health Check on the instance, could help identify if the instance is unhealthy, but it won't provide information about the specific application errors.
+
+		Therefore, the most effective way to diagnose application errors in a Compute Engine instance is to install and configure the Cloud Logging Agent, which will provide centralized, comprehensive, and real-time log analysis of the application's behavior.
+
 -------
 
-You need to create a copy of a custom Compute Engine Virtual Machine (VM) to facilitate an expected increase in application traffic due to a business acquisition. What should you do?
+You need to create a copy of a custom Compute Engine Virtual Machine (VM) to facilitate an expected increase in application traffic due to a business acquisition. What should you do? [Question 131]
 	
 	Create a Compute Engine snapshot of your base VM. Create your images from that snapshot.
 	
@@ -2382,7 +2640,7 @@ You need to create a copy of a custom Compute Engine Virtual Machine (VM) to fac
 
 -------
 
-You manage an App Engine Service that aggregates and visualizes data from BigQuery. The application is deployed with the default App Engine Service account. The data that needs to be visualized resides in a different project managed by another team. You do not have access to this project, but you want your application to be able to read data from the BigQuery dataset. What should you do?
+You manage an App Engine Service that aggregates and visualizes data from BigQuery. The application is deployed with the default App Engine Service account. The data that needs to be visualized resides in a different project managed by another team. You do not have access to this project, but you want your application to be able to read data from the BigQuery dataset. What should you do? [Question 130]
 	
 	Ask the other team to grant your default App Engine Service account the role of BigQuery Job User.
 	
@@ -2416,80 +2674,79 @@ You manage an App Engine Service that aggregates and visualizes data from BigQue
 
 			Granting a newly created service account from the other team the role of BigQuery Job User in your project: This introduces additional complexity, and it's usually better to grant permissions directly to the service account associated with the resource that needs access (in this case, the default App Engine service account).
 
+	-------
+
+	Bard:
+
+		The correct answer is Ask the other team to grant your default App Engine Service account the role of BigQuery Data Viewer.
+
+			The default App Engine Service account is the service account that is used by your App Engine application to interact with Google Cloud resources. By granting your default App Engine Service account the role of BigQuery Data Viewer, you will allow your application to read data from the BigQuery dataset in the other team's project. This is the most secure way to grant access to the dataset, as it only allows your application to read data from the dataset, and not to modify it in any way.
+
+		The other options are not correct for the following reasons:
+
+			Granting your default App Engine Service account the role of BigQuery Job User would allow your application to run BigQuery jobs, which could potentially modify the dataset.
+			
+			Ensuring that the default App Engine Service account has the role of BigQuery Data Viewer in your project would not allow your application to read data from the dataset in the other team's project.
+			
+			Granting a newly created service account from the other team the role of BigQuery Job User in your project would not allow your application to read data from the dataset, as it would not have access to the dataset in the other team's project.
+		
+		Therefore, the best approach is to ask the other team to grant your default App Engine Service account the role of BigQuery Data Viewer. This will allow your application to read data from the dataset without granting it any unnecessary permissions.
+
 -------
 
-Your Dataproc cluster runs in a single Virtual Private Cloud (VPC) network in a single subnet with range 172.16.20.128/25. There are no private IP addresses available in the VPC network. You want to add new VMs to communicate with your cluster using the minimum number of steps. What should you do?
+Your Dataproc cluster runs in a single Virtual Private Cloud (VPC) network in a single subnet with range 172.16.20.128/25. There are no private IP addresses available in the VPC network. You want to add new VMs to communicate with your cluster using the minimum number of steps. What should you do? [Question 129]
 	
-	Modify the existing subnet range to 172.16.20.0/24. [✔️]
+	Modify the existing subnet range to 172.16.20.0/24.
 	
 	Create a new Secondary IP Range in the VPC and configure the VMs to use that range.
  	
- 	Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network.
+ 	Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network. [✔️]
 	
 	Create a new VPC network for the VMs with a subnet of 172.32.0.0/16. Enable VPC network Peering between the Dataproc VPC network and the VMs VPC network. Configure a custom Route exchange.
 
 	-------
 
-	Correct Option
+	A. Modify the existing subnet range to 172.16.20.0/24.
 
-		Option 1: Modify the existing subnet range to 172.16.20.0/24.
+		Modifying the existing subnet range might cause disruptions to the existing resources and is generally not recommended. Changing the subnet range would also affect the Dataproc cluster, and it may not be the most efficient solution.
 
-			When you create a subnet in Google Cloud, you define a specific range of IP addresses. In this case, the existing subnet range is 172.16.20.128/25, which allows for 128 addresses. However, if there is a need for more IP addresses, you can modify the subnet range to expand the address space.
+	B. Create a new Secondary IP Range in the VPC and configure the VMs to use that range.
 
-			Steps:
+		This option involves adding a secondary IP range to the existing subnet. While this can provide additional IP addresses, it may not be the most scalable solution, and it doesn't guarantee that the VMs will get unique IP addresses, especially if the original subnet is fully utilized.
 
-				Navigate to the Google Cloud Console.
-				
-				Go to the VPC network section.
-				
-				Locate the subnet (in this case, the subnet with the range 172.16.20.128/25).
-				
-				Edit the subnet configuration.
-				
-				Change the IP range to 172.16.20.0/24 or any suitable range that meets your needs.
-				
-				Save the changes.
-			
-			Considerations:
+	C. Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network.
 
-				Ensure that the new IP range doesn't overlap with other existing subnets in the VPC.
-				Update any dependent configurations or firewall rules that might be impacted by the IP address change.
-			
-			Advantages:
+		This option is a valid approach. Creating a new VPC network for the VMs and enabling VPC peering allows communication between the Dataproc cluster VPC and the VMs' VPC. This solution provides isolation and allows for independent scaling of resources.
 
-				It's a straightforward solution that doesn't involve creating additional resources.
-				
-				It efficiently expands the IP address space within the existing VPC.
-			
-			Drawbacks:
+	D. Create a new VPC network for the VMs with a subnet of 172.32.0.0/16. Enable VPC network Peering between the Dataproc VPC network and the VMs VPC network. Configure a custom Route exchange.
 
-				If there are dependencies or services relying on the existing IP range, you need to update those configurations.
+		While this option technically could work, it introduces a new VPC network with a different subnet. This may add unnecessary complexity, and VPC peering alone (Option C) should be sufficient for achieving the desired communication.
 
-	Incorrect Options
+	Conclusion:
+		
+		Option C, "Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network," seems to be the most straightforward and scalable solution. It allows for independent scaling of resources, provides isolation, and enables communication between the Dataproc cluster and the new VMs' VPC.
 
-		Option 2: Create a new Secondary IP Range in the VPC and configure the VMs to use that range.
+	-------
 
-			Secondary IP ranges are typically used for scenarios where you want to assign additional IP addresses to existing VM instances within a subnet. It doesn't expand the subnet's primary IP address space.
-			
-			It doesn't solve the issue of IP address exhaustion within the existing subnet, which is the primary concern in this scenario.
+	Bard:
 
-		Option 3: Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network.
+		The correct answer is C. Create a new VPC network for the VMs. Enable VPC Peering between the VMs' VPC network and the Dataproc cluster VPC network.
 
-			Creating a new VPC network for the VMs and setting up VPC Peering introduces additional complexity.
-			
-			It might be an over-engineered solution for the specific problem of IP address exhaustion within the existing VPC.
-			
-			It involves managing multiple VPC networks and setting up and maintaining peering connections.
+			This is the most efficient and straightforward way to add new VMs to communicate with your cluster. By creating a new VPC network for the VMs, you can isolate the new VMs from the Dataproc cluster's network and control access between them. Then, you can enable VPC Peering between the two VPC networks to allow the VMs to communicate with the Dataproc cluster.
 
-		Option 4: Create a new VPC network for the VMs with a subnet of 172.32.0.0/16. Enable VPC network Peering between the Dataproc VPC network and the VMs VPC network. Configure a custom Route exchange.
+		The other options are not as suitable for this scenario:
 
-			Similar to Option 3, this involves creating a new VPC network and setting up VPC Peering, introducing unnecessary complexity.
-			
-			Configuring custom route exchanges adds further complexity and may not be necessary for simply addressing IP address exhaustion.
+			A. Modifying the existing subnet range to 172.16.20.0/24 would exhaust the available private IP addresses in the VPC network.
+
+			B. Creating a new Secondary IP Range in the VPC would not provide enough private IP addresses for the new VMs.
+
+			D. Creating a new VPC network for the VMs with a subnet of 172.32.0.0/16 would require configuring a custom Route exchange, which is more complex than simply enabling VPC Peering.
+
+		Therefore, creating a new VPC network for the VMs and enabling VPC Peering with the Dataproc cluster's VPC network is the most effective way to add new VMs and maintain network isolation.
 
 -------
 
-You have an application on a general-purpose Compute Engine instance that is experiencing excessive disk read throttling on its Zonal SSD Persistent Disk. The application primarily reads large files from disk. The disk size is currently 350 GB. You want to provide the maximum amount of throughput while minimizing costs. What should you do?
+You have an application on a general-purpose Compute Engine instance that is experiencing excessive disk read throttling on its Zonal SSD Persistent Disk. The application primarily reads large files from disk. The disk size is currently 350 GB. You want to provide the maximum amount of throughput while minimizing costs. What should you do? [Question 128]
 	
 	Increase the size of the disk to 1 TB.
 	
@@ -2497,7 +2754,7 @@ You have an application on a general-purpose Compute Engine instance that is exp
 	
 	Migrate to use a Local SSD on the instance. [✔️]
 	
-	Migrate to use a Regional SSD on the instance.
+	Migrate to use a Regional SSD on the instance. [Bard Suggested] [✔️]
 
 	-------
 
@@ -2531,11 +2788,30 @@ You have an application on a general-purpose Compute Engine instance that is exp
 			
 			Regional SSDs may also be more expensive than Local SSDs.
 
+	-------
+
+	Bard:
+
+		The correct answer is D. Migrate to use a Regional SSD on the instance.
+
+			Regional SSDs provide higher throughput than Zonal SSDs, and they are also more resilient to failures. This makes them a better choice for applications that experience excessive disk read throttling.
+
+		The other options are not as suitable for this scenario:
+
+			A. Increasing the size of the disk to 1 TB will not necessarily increase the throughput of the disk. The throughput of a Zonal SSD is limited by the performance of the underlying hardware, and increasing the disk size will not change the performance of the hardware.
+		
+			B. Increasing the allocated CPU to the instance will not help to improve disk read throughput. The CPU is not the bottleneck for disk read operations. The bottleneck is the storage hardware itself.
+			
+			C. Migrating to use a Local SSD on the instance will not provide the same level of throughput as a Regional SSD. Local SSDs are designed for low-latency access, not high throughput.
+		
+		Therefore, the best option is to migrate to use a Regional SSD on the instance. This will provide the maximum amount of throughput while minimizing costs.
+
 -------
 
 You have an application that receives SSL-encrypted TCP traffic on port 443. Clients for this application are located all over the world. You want to minimize latency for the clients. Which load balancing option should you use?
+[Question 127]
 	
-	HTTPS Load Balancer.
+	HTTPS Load Balancer. [Bard and ChatGPT Suggested] [✔️]
 	
 	Network Load Balancer.
 	
@@ -2543,9 +2819,48 @@ You have an application that receives SSL-encrypted TCP traffic on port 443. Cli
 	
 	Internal TCP/UDP Load Balancer. Add a firewall rule allowing ingress traffic from 0.0.0.0/0 on the target instances.
 
+	-------
+
+	A. HTTPS Load Balancer
+
+		Explanation:
+
+		The HTTPS Load Balancer is designed for SSL-encrypted traffic on port 443 and provides global load balancing, which helps minimize latency for clients distributed worldwide.
+		
+		It can distribute incoming HTTPS traffic across multiple backend instances and locations to optimize performance and ensure high availability.
+		
+		HTTPS Load Balancer supports SSL termination at the load balancer, allowing the load balancer to offload SSL processing from the backend instances.
+		
+		This is suitable for applications that receive SSL-encrypted traffic, especially when low latency is a priority for clients around the world.
+
+	B. Network Load Balancer: Network Load Balancer operates at the transport layer (Layer 4) and doesn't handle SSL termination. It's suitable for non-HTTP(S) traffic and may not be the best choice for SSL-encrypted applications.
+
+	C. SSL Proxy Load Balancer: SSL Proxy Load Balancer handles SSL termination but does not support global load balancing. It's designed for SSL-terminated traffic but may not provide optimal latency for clients distributed worldwide.
+
+	D. Internal TCP/UDP Load Balancer: This is used for load balancing internal TCP/UDP traffic and is not suitable for handling global SSL-encrypted traffic from clients worldwide.
+
+	-------
+
+	Bard:
+
+		The correct answer is A. HTTPS Load Balancer.
+
+			An HTTPS Load Balancer is specifically designed to handle SSL-encrypted traffic on port 443. It provides a secure and efficient way to distribute traffic to application servers.
+
+		The other options are not as suitable for this scenario:
+
+			B. Network Load Balancer can handle both TCP and UDP traffic, but it is not optimized for SSL-encrypted traffic. It would need to decrypt the traffic before forwarding it to the application servers, which can add latency.
+
+			C. SSL Proxy Load Balancer is a type of proxy that can terminate SSL connections and forward the decrypted traffic to the application servers. However, it is not as efficient as an HTTPS Load Balancer because it requires additional processing to terminate and re-encrypt the traffic.
+
+			D. Internal TCP/UDP Load Balancer is designed for traffic within a private network. It would not be able to accept traffic from clients on the public internet. Additionally, it would require a firewall rule to allow ingress traffic from 0.0.0.0/0, which is a security risk.
+
+		Therefore, an HTTPS Load Balancer is the most suitable option for this scenario because it is designed to handle SSL-encrypted traffic on port 443 efficiently and securely.
+
 -------
 
 You have designed a solution on Google Cloud that uses multiple Google Cloud products. Your company has asked you to estimate the costs of the solution. You need to provide estimates for the monthly total cost. What should you do?
+[Question 15]
 
 	For each Google Cloud product in the solution, review the pricing details on the products pricing page. Use the pricing calculator to total the monthly costs for each Google Cloud product. [✔️]
 	
@@ -2597,7 +2912,7 @@ You have designed a solution on Google Cloud that uses multiple Google Cloud pro
 
 -------
 
-Your company publishes large files on an Apache web server that runs on a Compute Engine instance. The Apache web server is not the only application running in the project. You want to receive an email when the egress network costs for the server exceed 100 dollars for the current month as measured by Google Cloud. What should you do?
+Your company publishes large files on an Apache web server that runs on a Compute Engine instance. The Apache web server is not the only application running in the project. You want to receive an email when the egress network costs for the server exceed 100 dollars for the current month as measured by Google Cloud. What should you do? [Question 14]
 	
 	Set up a budget alert on the project with an amount of 100 dollars, a threshold of 100%, and notification type of email.
 	
@@ -2607,17 +2922,40 @@ Your company publishes large files on an Apache web server that runs on a Comput
 	
 	Use the Cloud Logging Agent to export the Apache web server logs to Cloud Logging. Create a Cloud Function that uses BigQuery to parse the HTTP response log data in Cloud Logging for the current month and sends an email if the size of all HTTP responses, multiplied by current Google Cloud egress prices, totals over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly.
 
+	-------
+
+	A. Set up a budget alert on the project with an amount of 100 dollars, a threshold of 100%, and notification type of "email."
+
+		This option involves setting up a budget alert directly on the project. However, budget alerts in GCP may not be real-time and could have a delay. Also, budget alerts are usually for monitoring overall project spending and may not provide detailed insights into specific resources like egress costs for the Apache web server.
+
+	B. Set up a budget alert on the billing account with an amount of 100 dollars, a threshold of 100%, and notification type of "email."
+
+		This option is more appropriate than Option A. Setting up a budget alert on the billing account would give a broader view of the costs, and it's likely to capture egress costs effectively. However, it still might not be real-time and could have some delay.
+
+	C. Export the billing data to BigQuery. Create a Cloud Function that uses BigQuery to sum the egress network costs of the exported billing data for the Apache web server for the current month and sends an email if it is over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly.
+
+		This option provides a more detailed and customizable solution. Exporting billing data to BigQuery allows for more granular analysis of costs. The Cloud Function can perform specific calculations for the Apache web server's egress costs, and it can run hourly for near-real-time monitoring.
+
+	D. Use the Stackdriver Logging Agent to export the Apache web server logs to Stackdriver Logging. Create a Cloud Function that uses BigQuery to parse the HTTP response log data in Stackdriver for the current month and sends an email if the size of all HTTP responses, multiplied by current GCP egress prices, totals over 100 dollars. Schedule the Cloud Function using Cloud Scheduler to run hourly.
+
+		This option involves monitoring Apache web server logs, but it may not be the most straightforward way to monitor egress costs. It introduces additional complexity by parsing logs and calculating costs based on HTTP response size. It might not be as accurate and reliable as directly analyzing billing data.
+
+	Conclusion:
+		
+		Option C seems to be the most appropriate choice. Exporting billing data to BigQuery allows for detailed analysis, and scheduling a Cloud Function hourly provides a near-real-time monitoring solution. Option B is a reasonable alternative, but it might not be as detailed and customizable as Option C. Options A and D, while addressing monitoring, have limitations and complexities that make them less suitable for this specific use case.
+
 -------
 
 You have an application that uses Cloud Spanner as a backend database. The application has a very predictable traffic pattern. You want to automatically scale up or down the number of Spanner nodes depending on traffic. What should you do?
+[Question 13]
 	
-	Create a cron job that runs on a scheduled basis to review Cloud Monitoring metrics, and then resize the Spanner instance accordingly.
+	A. Create a cron job that runs on a scheduled basis to review stackdriver monitoring metrics, and then resize the Spanner instance accordingly.
 	
-	Create a Cloud Monitoring alerting policy to send an alert to oncall SRE emails when Cloud Spanner CPU exceeds the threshold. SREs would scale resources up or down accordingly.
+	B. Create a Stackdriver alerting policy to send an alert to oncall SRE emails when Cloud Spanner CPU exceeds the threshold. SREs would scale resources up or down accordingly.
 	
-	Create a Cloud Monitoring alerting policy to send an alert to Google Cloud Support email when Cloud Spanner CPU exceeds your threshold. Google support would scale resources up or down accordingly.
+	C. Create a Stackdriver alerting policy to send an alert to Google Cloud Support email when Cloud Spanner CPU exceeds your threshold. Google support would scale resources up or down accordingly.
 	
-	Create a Cloud Monitoring alerting policy to send an alert to webhook when Cloud Spanner CPU is over or under your threshold. Create a Cloud Function that listens to HTTP and resizes Spanner resources accordingly. [✔️]
+	D. Create a Stackdriver alerting policy to send an alert to webhook when Cloud Spanner CPU is over or under your threshold. Create a Cloud Function that listens to HTTP and resizes Spanner resources accordingly. [✔️]
 
 	-------
 
@@ -2723,9 +3061,25 @@ You have an application that uses Cloud Spanner as a backend database. The appli
 
 			Option C (Alerting for Google Cloud Support to scale): Suitable for organizations relying on external support for infrastructure management.
 
+	-------
+
+	Bard:
+
+		The best approach to automatically scale up or down the number of Spanner nodes depending on traffic using a predictable pattern is to create a Stackdriver alerting policy to send an alert to webhook when Cloud Spanner CPU is over or under your threshold. Create a Cloud Function that listens to HTTP and resizes Spanner resources accordingly.
+
+			This approach utilizes Stackdriver's alerting capabilities to trigger a webhook notification when CPU thresholds are met, and then employs a Cloud Function to programmatically resize the Spanner instance in response to traffic fluctuations.
+
+		Option A, creating a cron job to manually review metrics and manually resize instances, is not a scalable or efficient solution for dynamic scaling.
+
+		Option B, relying on on-call SREs to manually scale instances upon receiving alerts, introduces delays and potential human errors.
+
+		Option C, involving Google Cloud Support in resource scaling, is not practical and may not provide the desired level of responsiveness.
+
+		Therefore, the most appropriate approach is to utilize Stackdriver's alerting capabilities to trigger a webhook notification, which is then handled by a Cloud Function to automatically resize the Spanner instance in accordance with traffic trends.
+
 -------
 
-You have a Compute Engine instance hosting a production application. You want to receive an email if the instance consumes more than 90% of its CPU resources for more than 15 minutes. You want to use Google services. What should you do?
+You have a Compute Engine instance hosting a production application. You want to receive an email if the instance consumes more than 90% of its CPU resources for more than 15 minutes. You want to use Google services. What should you do? [Question 123]
 	
 	1. Create a consumer Gmail account. 2. Write a script that monitors the CPU usage. 3. When the CPU usage exceeds the threshold, have that script send an email using the Gmail account and smtp.gmail.com on port 25 as SMTP server.
 	
@@ -2737,93 +3091,66 @@ You have a Compute Engine instance hosting a production application. You want to
 
 	-------
 
-	Option 1 (Gmail account and custom script):
+	B. Create a Stackdriver Workspace, and associate your Google Cloud Platform (GCP) project with it. Create an Alerting Policy in Stackdriver that uses the threshold as a trigger condition. Configure your email address in the notification channel.
 
-		Reasoning:
+		Recommended: This option leverages Google Cloud's native monitoring and alerting service, Stackdriver, to set up alerting policies based on CPU usage. It allows you to receive email notifications when the specified threshold is breached.
+		
+	A. Create a consumer Gmail account. Write a script that monitors the CPU usage. When the CPU usage exceeds the threshold, have that script send an email using the Gmail account and smtp.gmail.com on port 25 as SMTP server.
 
-			This option involves creating a Gmail account and using a custom script to monitor CPU usage. When the threshold is exceeded, the script sends an email using the Gmail account.
-		
-		Considerations:
-			
-			This solution involves external services (Gmail) and might not be as integrated with Google Cloud.
-			
-			Using Gmail for automated alerts might not be the most reliable or scalable solution.
-		
-		Benefits:
-			
-			Simplicity: Easy to set up with basic scripting.
-			
-			Low Cost: Gmail accounts are free.
-			
-	Option 2 (Stackdriver Alerting Policy):
+		Not recommended: Using a personal Gmail account for automated alerting is not best practice, and using SMTP to send emails is less integrated and potentially less reliable than using a native monitoring service.
 
-		Reasoning:
-		
-			This option involves creating a Stackdriver Workspace, associating the GCP project, and setting up an Alerting Policy based on CPU threshold conditions.
-		
-		Considerations:
-		
-			Stackdriver is a native Google Cloud service, providing better integration and reliability.
-			
-			Alerting policies in Stackdriver are specifically designed for monitoring and alerting within Google Cloud.
-		
-		Benefits:
-			
-			Native Integration: Utilizes a Google Cloud service for monitoring and alerting.
-			
-			Centralized Management: Alerts are managed within the Google Cloud environment.
-		
-	Option 3 (Stackdriver Custom Metric and Uptime Check):
+	C. Create a Stackdriver Workspace, and associate your GCP project with it. Write a script that monitors the CPU usage and sends it as a custom metric to Stackdriver. Create an uptime check for the instance in Stackdriver.
 
-		Reasoning:
-			
-			This option involves creating a Stackdriver Workspace, writing a script to monitor CPU usage and send it as a custom metric to Stackdriver, and creating an uptime check for the instance.
-		
-		Considerations:
-			
-			Custom metrics in Stackdriver offer flexibility in defining specific monitoring criteria.
-			
-			Uptime checks can complement CPU monitoring by providing additional insights into the instance's availability.
-		
-		Benefits:
-			
-			Flexibility: Custom metrics allow for tailored monitoring.
-			
-			Comprehensive Monitoring: Combines CPU usage with uptime checks for a more comprehensive view.
-	
-	Option 4 (Stackdriver Logging-based metric and Alerting Policy):
+		Not the most direct solution: While Stackdriver can be used to create custom metrics and alerts, setting up an uptime check might not directly address the CPU usage monitoring requirement.
 
-		Reasoning:
-			
-			This option involves creating a logs-based metric in Stackdriver Logging to extract CPU usage and creating an Alerting Policy based on this metric.
-		
-		Considerations:
-			
-			Stackdriver Logging-based metrics provide a way to extract information from logs and use them for monitoring.
-			
-			This option uses a regular expression to extract CPU usage information from logs.
-		
-		Benefits:
-			
-			Utilizes Logs for Monitoring: Extracts information from logs to create custom metrics.
-			
-			Alerting Flexibility: Custom alerts can be created based on logs data.
-		
-	In summary:
+	D. In Stackdriver Logging, create a logs-based metric to extract the CPU usage by using this regular expression: CPU Usage: ([0-9] {1,3})%. In Stackdriver Monitoring, create an Alerting Policy based on this metric. Configure your email address in the notification channel.
 
-		Option 1 (Gmail account and custom script): Least integrated with Google Cloud services and may not be the most reliable solution.
-		
-		Option 2 (Stackdriver Alerting Policy): Most integrated and straightforward solution using native Google Cloud services.
-		
-		Option 3 (Stackdriver Custom Metric and Uptime Check): Offers flexibility and a more comprehensive monitoring approach.
-		
-		Option 4 (Stackdriver Logging-based metric and Alerting Policy): Uses logs data for monitoring, providing an alternative approach.
-		
-		Given the Google Cloud context and the requirement for monitoring a Compute Engine instance, Option 2 (Stackdriver Alerting Policy) is the recommended choice for its native integration and reliability within the Google Cloud ecosystem.
+	Not as direct: This option involves creating a logs-based metric, which might be less straightforward than setting up an alert directly based on resource metrics.
+
+	Therefore, option B is the most appropriate choice for setting up email alerts based on CPU usage in a Google Cloud project. It utilizes native Google Cloud services for monitoring and alerting.
+
+	-------
+
+	Bard:
+
+		The most appropriate approach to receive an email if the instance consumes more than 90% of its CPU resources for more than 15 minutes using Google services is B. 1. Create a Stackdriver Workspace, and associate your Google Cloud Platform (GCP) project with it. 2. Create an Alerting Policy in Stackdriver that uses the threshold as a trigger condition. 3. Configure your email address in the notification channel.
+
+		This approach offers several advantages:
+
+			Centralized Monitoring: 
+
+				Stackdriver Monitoring provides a centralized platform for monitoring CPU usage and other instance metrics.
+
+			Real-time alerting: 
+
+				Stackdriver Monitoring's alerting functionality triggers an email notification when the CPU usage exceeds the threshold, ensuring prompt action.
+
+			Threshold-based alerting: 
+
+				Specifying a threshold of 90% CPU usage for more than 15 minutes allows for targeted alerting and avoids unnecessary notifications.
+
+			Comprehensive monitoring: 
+
+				Stackdriver Monitoring provides a holistic view of the instance's health and performance, enabling proactive identification of potential issues.
+
+			Integrated notification: 
+
+				Stackdriver seamlessly integrates with Gmail to send email notifications, streamlining the alerting process.
+
+		The other options are less suitable for this task:
+
+			Option A: Using a consumer Gmail account for alerting is not recommended due to security concerns and lack of scalability.
+
+			Option C: Sending custom metrics to Stackdriver and relying on uptime checks for alerting are less efficient and less granular than using Stackdriver Monitoring's alerting capabilities.
+
+			Option D: Creating a logs-based metric and alerting on it requires additional complexity and may not provide the same level of flexibility as using Stackdriver Monitoring directly.
+
+		Therefore, option B, which leverages Stackdriver Monitoring's built-in alerting functionality to monitor CPU usage and trigger email notifications when the threshold is exceeded, is the most effective and secure approach for this scenario.
 
 -------
 
 Your company is moving from an on-premises environment to Google Cloud. You have multiple development teams that use Cassandra environments as backend databases. They all need a development environment that is isolated from other Cassandra instances. You want to move to Google Cloud quickly and with minimal support effort. What should you do?
+[Question 122]
 	
 	1. Build an instruction guide to install Cassandra on Google Cloud. 2. Make the instruction guide accessible to your developers.
 	
@@ -2831,82 +3158,34 @@ Your company is moving from an on-premises environment to Google Cloud. You have
 	
 	1. Build a Cassandra Compute Engine instance and take a snapshot of it. 2. Use the snapshot to create instances for your developers.
 	
-	1. Build a Cassandra Compute Engine instance and take a snapshot of it. 2. Upload the snapshot to Cloud Storage and make it accessible to your developers. 3. Build instructions to create a Compute Engine instance from the snapshot so that developers can do it themselves.
+	1. Build a Cassandra Compute Engine instance and take a snapshot of it. 2. Upload the snapshot to Cloud Storage and make it accessible to your developers. 3. Build instructions to create a Compute Engine instance from the snapshot so that developers can do it themselves. [Bard Suggested] [✔️]
 
 	-------
 
-	Option 1 (Instruction guide):
+	Bard:
 
-		Reasoning:
-			
-			This option involves creating an instruction guide for installing Cassandra on Google Cloud and making it accessible to developers.
-		
-		Considerations:
-		
-			Developers might need to follow the guide step-by-step, which could be time-consuming.
-		
-		Benefits:
-		
-			Control: Provides control over the installation process.
-			
-			Documentation: Ensures developers have clear instructions.
-		
-	Option 2 (Cloud Marketplace):
+		The best approach to provide isolated Cassandra development environments for multiple teams with minimal support effort is to build a Cassandra Compute Engine instance and take a snapshot of it. Upload the snapshot to Cloud Storage and make it accessible to your developers. Build instructions to create a Compute Engine instance from the snapshot so that developers can do it themselves.
 
-		Reasoning:
-			
-			This option involves advising developers to go to Cloud Marketplace and launch a Cassandra image for their development work.
-		
-		Considerations:
-			
-			Cloud Marketplace offers pre-configured solutions, simplifying the setup process.
-		
-		Benefits:
-		
-			Quick Deployment: Developers can quickly deploy Cassandra without manual installation steps.
-			
-			Standardized Images: Cloud Marketplace images are often pre-configured and tested.
+		This approach offers several advantages:
 
-	Option 3 (Compute Engine instance and snapshot):
+			Ease of use: 
 
-		Reasoning:
-			
-			This option involves building a Cassandra Compute Engine instance, taking a snapshot of it, and using the snapshot to create instances for developers.
-		
-		Considerations:
-			
-			Creating instances from snapshots might require additional manual steps.
-		
-		Benefits:
-			
-			Replication: Allows for replicating a pre-configured Cassandra environment.
-			
-			Control: Provides control over the initial instance setup.
+				Developers can simply download the snapshot and create a new Cassandra instance in a few clicks without having to manually install and configure Cassandra.
 
-	Option 4 (Compute Engine instance, snapshot, Cloud Storage, and instructions):
+			Isolation: 
 
-		Reasoning:
-			
-			This option involves building a Cassandra Compute Engine instance, taking a snapshot, uploading the snapshot to Cloud Storage, and providing instructions for developers to create instances from the snapshot.
-		
-		Considerations:
-			
-			Developers might need to follow the instructions to create instances.
-		
-		Benefits:
-			
-			Flexibility: Developers can create instances as needed.
-			
-			Documentation: Provides clear instructions for the process.
+				Each developer gets their own isolated Cassandra instance, ensuring that their data and configurations are separate from other teams.
 
-	In summary:
+			Scalability: 
 
-		Option 1 (Instruction guide): Provides control but might be time-consuming for developers.
-		
-		Option 2 (Cloud Marketplace): Quick deployment with standardized images from Cloud Marketplace.
-		
-		Option 3 (Compute Engine instance and snapshot): Replicates a pre-configured environment but might involve additional manual steps.
-		
-		Option 4 (Compute Engine instance, snapshot, Cloud Storage, and instructions): Offers flexibility with clear documentation for developers.
-		
-		Given the goal of moving to Google Cloud quickly and with minimal support effort, Option 2 (Cloud Marketplace) is the recommended choice. It allows developers to quickly deploy Cassandra without the need for manual installation steps, leveraging pre-configured images from Cloud Marketplace. This approach minimizes support effort and accelerates the transition to Google Cloud.
+				Developers can easily scale their Cassandra instances up or down based on their needs.
+
+			Minimal support: 
+
+				Once the initial setup is complete, developers can handle the creation and management of their Cassandra instances themselves, minimizing the need for support from IT staff.
+
+		Option A is not recommended because building and maintaining custom instruction guides can be time-consuming and error-prone.
+
+		Option B is not recommended because relying on Cloud Marketplace images may not provide the level of customization and control needed for development environments.
+
+		Option C is not recommended because creating and managing individual snapshots for each developer can be cumbersome and inefficient.

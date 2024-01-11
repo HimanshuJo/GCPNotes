@@ -1,16 +1,45 @@
-Your managed instance group raised an alert stating that new instance creation has failed to create new instances. You need to maintain the number of running instances specified by the template to be able to process expected application traffic. What should you do?
+Your managed instance group raised an alert stating that new instance creation has failed to create new instances. You need to maintain the number of running instances specified by the template to be able to process expected application traffic. What should you do? [Question 121]
 	
 	A. Create an instance template that contains valid syntax which will be used by the instance group. Delete any persistent disks with the same name as instance names. [✔️]
 	
 	B. Create an instance template that contains valid syntax that will be used by the instance group. Verify that the instance name and persistent disk name values are not the same in the template.
 	
 	C. Verify that the instance template being used by the instance group contains valid syntax. Delete any persistent disks with the same name as instance names. Set the disks.autoDelete property to true in the instance template.
+	[Bard Suggested] [✔️]
 	
 	D. Delete the current instance template and replace it with a new instance template. Verify that the instance name and persistent disk name values are not the same in the template. Set the disks.autoDelete property to true in the instance template.
 
+	-------
+
+	Bard:
+
+		The correct answer is C. Verify that the instance template being used by the instance group contains valid syntax. Delete any persistent disks with the same name as instance names. Set the disks.autoDelete property to true in the instance template.
+
+			When a managed instance group (MIG) encounters an error during new instance creation, it's crucial to identify the root cause to resolve the issue and ensure the MIG can scale properly. Here's a breakdown of the options and why they are or are not the best approach:
+
+		Option A:
+
+			Creating an instance template with valid syntax: This is a necessary step for ensuring the MIG can successfully create instances based on the defined template. However, it doesn't address the specific error of instance creation failure.
+		
+		Option B:
+
+			Verifying instance name and persistent disk name uniqueness: This is an important check to avoid potential collisions between instance names and persistent disk names. However, it doesn't address the error directly.
+		
+		Option C:
+
+			Verifying template syntax and deleting conflicting disk names: This step is essential to ensure the template is valid and that there are no duplicate names between instances and persistent disks.
+
+			Setting 'disks.autoDelete' to true: This option ensures that persistent disks are automatically deleted when the associated instance is terminated, preventing orphaned disks.
+
+		Option D:
+
+			Deleting the current template and creating a new one: While this may seem drastic, it's not always necessary. If the template is valid and there are no conflicting names, simply modifying the existing template may resolve the issue.
+		
+		Therefore, the most comprehensive and effective approach is to verify the template's syntax, ensure unique instance and disk names, and enable auto-deletion for persistent disks. This combination will help prevent potential conflicts and ensure the MIG can successfully create and manage instances.
+
 -------
 
-You need to manage multiple Google Cloud projects in the fewest steps possible. You want to configure the Google Cloud SDK command line interface (CLI) so that you can easily manage multiple projects. What should you do?
+You need to manage multiple Google Cloud projects in the fewest steps possible. You want to configure the Google Cloud SDK command line interface (CLI) so that you can easily manage multiple projects. What should you do? [Question 9]
 	
 	1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects. [✔️]
 	
@@ -66,9 +95,25 @@ You need to manage multiple Google Cloud projects in the fewest steps possible. 
 		
 		Options 1 and 2 are better choices as they advocate creating separate configurations for each project, providing a clean and organized way to manage multiple Google Cloud projects. Option 1, however, is more straightforward and recommended as it involves activating pre-existing configurations rather than using gcloud init each time you switch projects.
 
+	-------
+
+	Bard:
+
+		The correct answer is 1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
+
+			This option is the most efficient way to manage multiple Google Cloud projects with the Google Cloud SDK CLI. By creating a separate configuration for each project, you can easily switch between projects without having to modify your default configuration.
+
+		Option 2 is incorrect because using gcloud init to update the configuration values when you need to work with a non-default project is not as efficient as creating separate configurations. This is because you would need to run gcloud init every time you switch between projects, which can be time-consuming.
+
+		Option 3 is incorrect because using the default configuration for one project and activating the appropriate configuration when you work with each of your assigned Google Cloud projects can be confusing and error-prone. It is easy to forget to activate the correct configuration, which can lead to commands being executed in the wrong project.
+
+		Option 4 is incorrect because using gcloud init to update the configuration values when you need to work with a non-default project does not allow you to easily switch between projects. This is because you would need to run gcloud init every time you switch between projects, which can be time-consuming.
+
+		Therefore, the best approach to manage multiple Google Cloud projects with the Google Cloud SDK CLI is to create a separate configuration for each project and activate the appropriate configuration when you work with each project. This will allow you to easily and efficiently manage your projects without having to worry about making mistakes.
+
 -------
 
-* Your organization has strict requirements to control access to Google Cloud projects. You need to enable your Site Reliability Engineers (SREs) to approve requests from the Google Cloud support team when an SRE opens a support case. You want to follow Google-recommended practices. What should you do?
+* Your organization has strict requirements to control access to Google Cloud projects. You need to enable your Site Reliability Engineers (SREs) to approve requests from the Google Cloud support team when an SRE opens a support case. You want to follow Google-recommended practices. What should you do? [Question 100]
 	
 	A. Add your SREs to roles/iam.roleAdmin role.
 	
@@ -78,15 +123,34 @@ You need to manage multiple Google Cloud projects in the fewest steps possible. 
 	
 	D. Add your SREs to a group and then add this group to roles/accessapproval.approver role. [✔️]
 
+	-------
+
+	Bard:
+
+		The correct answer is D. Add your SREs to a group and then add this group to roles/accessapproval.approver role.
+
+			This is the most secure and recommended way to enable your Site Reliability Engineers (SREs) to approve requests from the Google Cloud (GCP) support team when an SRE opens a support case.
+
+		The roles/iam.roleAdmin role provides full administrative privileges over the IAM (Identity and Access Management) system, which is too broad for granting access approval permissions. The roles/accessapproval.approver role specifically grants the ability to approve requests within Access Approval, which is a more secure and controlled way to manage access to GCP resources.
+
+		By creating a group and adding your SREs to that group, you can easily manage their access permissions centrally. You can then add the group to the roles/accessapproval.approver role to grant all SREs in the group the ability to approve requests. This approach provides granular control over access permissions and ensures that only authorized individuals can approve requests.
+
+		Option A, adding SREs directly to the roles/iam.roleAdmin role, is not recommended as it grants excessive privileges that could lead to security risks.
+
+		Option B, adding SREs directly to the roles/accessapproval.approver role, is also not recommended as it can make it difficult to manage access permissions for a large number of SREs. Using a group provides a more scalable and manageable approach.
+
+		Therefore, the best practice to enable your SREs to approve requests from the GCP support team is to create a group, add your SREs to the group, and then add the group to the roles/accessapproval.approver role. This approach provides granular control over access permissions, simplifies management, and aligns with Google's recommended practices.
+
 -------
 
 You are configuring service accounts for an application that spans multiple projects. Virtual machines (VMs) running in the web-applications project need access to BigQuery datasets in crm-databases-proj. You want to follow Google-recommended practices to give access to the service account in the web-applications project. What should you do?
+[Question 116]
 	
-	A. Give גproject owner for web-applications appropriate roles to crm-databases-proj.
+	A. Give project owner for web-applications appropriate roles to crm-databases-proj.
 	
-	B. Give גproject owner role to crm-databases-proj and the web-applications project.
+	B. Give project owner role to crm-databases-proj and the web-applications project.
 	
-	C. Give גproject owner role to crm-databases-proj and bigquery.dataViewer role to web-applications.
+	C. Give project owner role to crm-databases-proj and bigquery.dataViewer role to web-applications.
 	
 	D. Give bigquery.dataViewer role to crm-databases-proj and appropriate roles to web-applications. [✔️]
 
@@ -126,6 +190,22 @@ You are configuring service accounts for an application that spans multiple proj
 	Conclusion:
 		
 		Option D is the recommended choice as it aligns with the principle of least privilege by providing the minimum necessary permissions for each project. It ensures that the web-applications project only gets read-only access to the BigQuery datasets, and the crm-databases-proj project receives the required role for BigQuery data access.
+
+	-------
+
+	Bard:
+
+		The correct answer is D. Give bigquery.dataViewer role to crm-databases-proj and appropriate roles to web-applications.
+
+			This option provides the most secure and granular access control for the application's service accounts. By granting the bigquery.dataViewer role to the crm-databases-proj project, you allow the VMs running in the web-applications project to only access the BigQuery datasets they need, minimizing the potential for unauthorized access.
+
+		Option A, granting the project owner role to the web-applications project, is not recommended as it provides excessive privileges that could lead to security risks. This option grants full administrative access to the project, which could be misused by unauthorized individuals.
+
+		Option B, granting the project owner role to both crm-databases-proj and the web-applications project, is also not recommended for similar reasons. This option grants excessive privileges to both projects, increasing the risk of unauthorized access and resource manipulation.
+
+		Option C, granting the bigquery.dataViewer role to crm-databases-proj and the project owner role to web-applications, is not as secure as option D. While it allows the VMs to access the BigQuery datasets, it also grants the web-applications service account excessive privileges over the web-applications project. This could lead to unauthorized access and manipulation of project resources.
+
+		Therefore, the best practice to provide access to the BigQuery datasets for the application's VMs is to grant the bigquery.dataViewer role to the crm-databases-proj project and appropriate roles to web-applications. This approach ensures that the VMs only have access to the necessary data while maintaining granular control over access permissions.
 
 -------
 
@@ -181,9 +261,24 @@ Your company has a large quantity of unstructured data in different file formats
 		
 		Option B is the recommended approach for handling large quantities of unstructured data for ETL transformations, especially when the goal is to make the data accessible for processing by a Dataflow job. Cloud Storage is a scalable and cost-effective solution for storing and managing such data.
 
+	-------
+
+	Bard:
+
+		The correct answer is B. Upload the data to Cloud Storage using the gsutil command line tool.
+
+			Cloud Storage is a highly scalable, durable, and cost-effective object storage service that is well-suited for storing unstructured data. Dataflow jobs can easily access data in Cloud Storage, making it a convenient and efficient way to make unstructured data available for processing.
+
+		Option A, uploading the data to BigQuery using the bq command line tool, is not suitable for unstructured data. BigQuery is designed for structured data, and uploading unstructured data to BigQuery can be inefficient and complex.
+
+		Options C and D, uploading the data to Cloud SQL or Cloud Spanner using the import function in the console, are not appropriate for unstructured data. Cloud SQL and Cloud Spanner are relational databases designed for structured data, and uploading unstructured data to these databases would be inefficient and not well-suited for ETL transformations.
+
+		Therefore, the best approach to make unstructured data accessible for Dataflow processing is to upload it to Cloud Storage using the gsutil command line tool. Cloud Storage provides a scalable, durable, and cost-effective solution for storing and accessing unstructured data, making it a natural choice for ETL pipelines that involve processing large volumes of unstructured data.
+
 -------
 
 * You need to manage multiple Google Cloud Platform (GCP) projects in the fewest steps possible. You want to configure the Google Cloud SDK command line interface (CLI) so that you can easily manage multiple GCP projects. What should you?
+[Question 9]
 	
 	A. 1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned GCP projects. [✔️]
 	
@@ -195,49 +290,70 @@ Your company has a large quantity of unstructured data in different file formats
 
 	-------
 
-	The most appropriate option is:
+	Create a configuration for each project you need to manage. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
 
-	A. 1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned GCP projects.
+		Reasoning: 
 
-	Now, let's analyze and discuss the other options:
-
-	Option B:
+			This option suggests creating a separate configuration for each project and then activating the appropriate configuration when needed. This is a standard and recommended practice for managing multiple projects.
 		
-		1. Create a configuration for each project you need to manage. 2. Use gcloud init to update the configuration values when you need to work with a non-default project.
+		Issues: 
 
-		Issues:
+			None apparent. This approach allows you to isolate configurations for different projects.
 
-			While creating a configuration for each project is good, using gcloud init every time you need to switch projects is less efficient than activating pre-existing configurations. It requires more manual steps and is prone to human error.
-	
-	Option C:
+	Create a configuration for each project you need to manage. Use gcloud init to update the configuration values when you need to work with a non-default project.
+
+		Reasoning: 
+
+			Similar to option 1, this approach involves creating separate configurations for each project. However, using gcloud init to update configuration values is not as efficient as activating a pre-existing configuration.
 		
-		1. Use the default configuration for one project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned GCP projects.
+		Issues: 
 
-		Issues:
+			Using gcloud init every time you switch projects might be less convenient compared to activating pre-configured settings.
+			
+	Use the default configuration for one project you need to manage. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
 
-			Relying on the default configuration means you may need to manually set configurations each time you switch projects. It's less organized and can lead to mistakes, especially in a multi-project environment.
-	
-	Option D:
+		Reasoning: 
+
+			This option suggests using the default configuration for one project and activating the appropriate configuration as needed. While this can work, it's generally better to have dedicated configurations for each project.
 		
-		1. Use the default configuration for one project you need to manage. 2. Use gcloud init to update the configuration values when you need to work with a non-default project.
+		Issues: 
 
-		Issues:
-
-			Similar to Option C, relying on the default configuration is not the best practice, especially for managing multiple projects. Using gcloud init every time introduces manual steps and is less efficient.
-	
-	In-Depth Analysis:
+			The default configuration may not have the necessary settings for all projects, potentially leading to errors or misconfigurations.
 		
-		Options A and B involve creating separate configurations for each project, but Option A is preferred as it emphasizes activating pre-existing configurations over using gcloud init each time.
+	Use the default configuration for one project you need to manage. Use gcloud init to update the configuration values when you need to work with a non-default project.
 
-		Options C and D rely on the default configuration, which is generally not recommended for managing multiple projects due to potential misconfigurations and lack of organization.
+		Reasoning: 
+
+			This option involves using the default configuration and updating it with gcloud init when needed. Similar to option 3, it might not be as efficient or organized as having separate configurations for each project.
+		
+		Issues: 
+
+			Using the default configuration may lead to misconfigurations when working with multiple projects.
 
 	Conclusion:
 		
-		Option A is the recommended choice as it aligns with best practices, providing a clean and organized way to manage multiple Google Cloud projects. Activating pre-existing configurations reduces the risk of errors and ensures a smoother transition between projects.
+		Options 1 and 2 are better choices as they advocate creating separate configurations for each project, providing a clean and organized way to manage multiple Google Cloud projects. Option 1, however, is more straightforward and recommended as it involves activating pre-existing configurations rather than using gcloud init each time you switch projects.
+
+	-------
+
+	Bard:
+
+		The correct answer is 1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
+
+			This option is the most efficient way to manage multiple Google Cloud projects with the Google Cloud SDK CLI. By creating a separate configuration for each project, you can easily switch between projects without having to modify your default configuration.
+
+		Option 2 is incorrect because using gcloud init to update the configuration values when you need to work with a non-default project is not as efficient as creating separate configurations. This is because you would need to run gcloud init every time you switch between projects, which can be time-consuming.
+
+		Option 3 is incorrect because using the default configuration for one project and activating the appropriate configuration when you work with each of your assigned Google Cloud projects can be confusing and error-prone. It is easy to forget to activate the correct configuration, which can lead to commands being executed in the wrong project.
+
+		Option 4 is incorrect because using gcloud init to update the configuration values when you need to work with a non-default project does not allow you to easily switch between projects. This is because you would need to run gcloud init every time you switch between projects, which can be time-consuming.
+
+		Therefore, the best approach to manage multiple Google Cloud projects with the Google Cloud SDK CLI is to create a separate configuration for each project and activate the appropriate configuration when you work with each project. This will allow you to easily and efficiently manage your projects without having to worry about making mistakes.
 
 -------
 
 * You have designed a solution on Google Cloud Platform (GCP) that uses multiple GCP products. Your company has asked you to estimate the costs of the solution. You need to provide estimates for the monthly total cost. What should you do?
+[Question 15]
 	
 	A. For each GCP product in the solution, review the pricing details on the products pricing page. Use the pricing calculator to total the monthly costs for each GCP product. [✔️]
 	
@@ -289,9 +405,43 @@ Your company has a large quantity of unstructured data in different file formats
 		
 		Option A is the most accurate and reliable method for estimating monthly costs on Google Cloud Platform. It allows you to customize estimates based on your specific usage patterns and configurations for each GCP product.
 
+	-------
+
+	Bard:
+
+		The most appropriate approach to estimate the costs of a GCP solution that uses multiple GCP products is A. For each GCP product in the solution, review the pricing details on the products pricing page. Use the pricing calculator to total the monthly costs for each GCP product.
+
+		This approach offers several advantages:
+
+			Accuracy: 
+
+				Estimating costs based on pricing details and the pricing calculator provides a reliable and accurate assessment of monthly costs.
+
+			Granularity: 
+
+				Evaluating each GCP product individually ensures that all potential costs are considered and accounted for.
+
+			Scalability: 
+
+				This approach can be easily adapted to different pricing models and usage scenarios.
+
+			Cost-Effectiveness: 
+
+				Estimating costs before provisioning resources helps avoid unexpected expenses.
+
+		The other options are less suitable for this task:
+
+			Option B: Creating a Google Sheet summarizing expected costs is a manual process that may not capture all potential costs or accurately reflect real-world usage patterns.
+
+			Option C: Provisioning the solution and waiting for a week to generate billing data is time-consuming and may not provide accurate estimates for fluctuating costs.
+
+			Option D: Using Stackdriver to determine provisioned and used resource amounts is not sufficient for estimating costs without considering pricing details and usage patterns.
+
+		Therefore, option A, which involves using the pricing calculator to estimate monthly costs based on product pricing details, is the most efficient and accurate method for this scenario.
+
 -------
 
-* An application generates daily reports in a Compute Engine Virtual Machine (VM). The VM is in the project corp-iot-insights. Your team operates only in the project corp-aggregate-reports and needs a copy of the daily exports in the bucket corp-aggregate-reports-storage. You want to configure access so that the daily reports from the VM are available in the bucket corp-aggregate-reports-storage and use as few steps as possible while following Google-recommended practices. What should you do?
+* An application generates daily reports in a Compute Engine Virtual Machine (VM). The VM is in the project corp-iot-insights. Your team operates only in the project corp-aggregate-reports and needs a copy of the daily exports in the bucket corp-aggregate-reports-storage. You want to configure access so that the daily reports from the VM are available in the bucket corp-aggregate-reports-storage and use as few steps as possible while following Google-recommended practices. What should you do? [Question 133]
 	
 	Move both projects under the same folder. [Suggested]
 
@@ -337,9 +487,23 @@ Your company has a large quantity of unstructured data in different file formats
 		
 		Granting the VM Service Account the role Storage Object Creator on the corp-aggregate-reports-storage bucket is the recommended approach for secure and least-privileged access.
 
+	-------
+
+	Bard:
+
+		The correct answer is B. Grant the VM Service Account the role Storage Object Creator on corp-aggregate-reports-storage. This is the most secure and efficient way to grant the necessary permissions to the VM while adhering to Google's recommended practices.
+
+		Option A, moving both projects under the same folder, would unnecessarily complicate the organization and not directly address the access issue.
+
+		Option C, creating a Shared VPC network between both projects, would introduce additional complexity and potential security risks. It's not necessary to grant the entire Shared VPC network access to the bucket. Instead, it's more secure to grant specific permissions to the VM Service Account, which is directly associated with the VM.
+
+		Option D, making corp-aggregate-reports-storage public and creating a folder to share with the IoT team, is a less secure approach as it exposes the bucket to unauthorized access. Additionally, creating a pseudo-randomized folder suffix doesn't provide effective security measures.
+
+		Therefore, granting the VM Service Account the role Storage Object Creator on corp-aggregate-reports-storage is the most appropriate and secure solution to manage access to the daily reports from the VM. This approach minimizes the number of steps, adheres to Google's recommended practices, and provides granular control over permissions.
+
 -------
 
-You built an application on your development laptop that uses Google Cloud services. Your application uses Application Default Credentials for authentication and works fine on your development laptop. You want to migrate this application to a Compute Engine virtual machine (VM) and set up authentication using Google- recommended practices and minimal changes. What should you do?
+You built an application on your development laptop that uses Google Cloud services. Your application uses Application Default Credentials for authentication and works fine on your development laptop. You want to migrate this application to a Compute Engine virtual machine (VM) and set up authentication using Google- recommended practices and minimal changes. What should you do? [Question 134]
 	
 	A. Assign appropriate access for Google services to the service account used by the Compute Engine VM. [Most Voted]
 	
@@ -395,10 +559,26 @@ You built an application on your development laptop that uses Google Cloud servi
 		
 		Creating a service account with appropriate access for Google services and configuring the application to use this service account is the recommended and secure approach for authenticating an application running on a Compute Engine VM with Google Cloud services.
 
+	-------
+
+	Bard:
+
+		The correct answer is A. Assign appropriate access for Google services to the service account used by the Compute Engine VM.
+
+			Using Application Default Credentials on a Compute Engine VM is not recommended as it exposes the service account credentials to the VM environment, making them vulnerable to security breaches. Instead, it's preferable to create a dedicated service account for the VM and assign it the necessary permissions to access Google Cloud services. This approach provides better isolation and security for the service account credentials.
+
+		Option B, creating a service account and configuring the application directly, is technically correct but involves more changes to the application's code. Using the VM Service Account simplifies the process by leveraging the pre-existing service account associated with the VM.
+
+		Option C, storing service account credentials in a config file, is not secure as it exposes the credentials to the application's deployment environment. This could allow unauthorized access to the service account and the resources it controls.
+
+		Option D, storing user account credentials in a config file, is even more insecure as it grants the application direct access to the user's Google Cloud account. This poses a significant security risk, making it a major violation of Google's recommended practices.
+
+		Therefore, the most secure and recommended approach is to assign appropriate access for Google services to the service account used by the Compute Engine VM. This approach maintains the application's functionality while preserving the security of the service account credentials.
+
 -------
 
 You have downloaded and installed the gcloud command line interface (CLI) and have authenticated with your Google Account. Most of your Compute Engine instances in your project run in the europe-west1-d zone. You want to avoid having to specify this zone with each CLI command when managing these instances.
-What should you do?
+What should you do? [Question 138]
 	
 	A. Set the europe-west1-d zone as the default zone using the gcloud config subcommand. [✔️]
 	
@@ -446,9 +626,27 @@ What should you do?
 		
 		Setting the default zone using the gcloud config subcommand is the correct and recommended approach to avoid specifying the zone with each gcloud CLI command when managing Compute Engine instances.
 
+	-------
+
+	Bard:
+
+		The most appropriate approach to set the europe-west1-d zone as the default zone using the gcloud config subcommand is A. Set the europe-west1-d zone as the default zone using the gcloud config subcommand.
+
+			This approach involves utilizing the gcloud config set command to specify the default zone for all subsequent CLI commands related to Compute Engine instances. This eliminates the need to explicitly mention the zone with each command, making it more convenient for managing instances in that region.
+
+		The other options are less suitable for this task:
+
+			Option B: Setting the zone in the Compute Engine Settings page only applies to the web interface, not to CLI commands.
+
+			Option C: Creating a default.conf file in the CLI installation directory is an outdated method that may not work with the latest version of gcloud.
+
+			Option D: Creating a Metadata entry on the Compute Engine page with the specified key and value will not affect the default zone for CLI commands.
+
+		Therefore, option A, which involves setting the default zone using the gcloud config subcommand, is the most efficient and reliable method for managing Compute Engine instances in the specified zone without explicitly specifying the zone with each command.
+
 -------
 
-The core business of your company is to rent out construction equipment at large scale. All the equipment that is being rented out has been equipped with multiple sensors that send event information every few seconds. These signals can vary from engine status, distance traveled, fuel level, and more. Customers are billed based on the consumption monitored by these sensors. You expect high throughput `" up to thousands of events per hour per device `" and need to retrieve consistent data based on the time of the event. Storing and retrieving individual signals should be atomic. What should you do?
+The core business of your company is to rent out construction equipment at large scale. All the equipment that is being rented out has been equipped with multiple sensors that send event information every few seconds. These signals can vary from engine status, distance traveled, fuel level, and more. Customers are billed based on the consumption monitored by these sensors. You expect high throughput `" up to thousands of events per hour per device `" and need to retrieve consistent data based on the time of the event. Storing and retrieving individual signals should be atomic. What should you do? [Question 139]
 	
 	A. Create a file in Cloud Storage per device and append new data to that file.
 	
@@ -509,6 +707,22 @@ The core business of your company is to rent out construction equipment at large
 		Conclusion:
 			
 			Ingesting the data into Cloud Bigtable and creating a row key based on the event timestamp is the most appropriate option for the described use case with high throughput and atomic storage and retrieval requirements.
+
+	-------
+
+	Bard:
+
+		The correct answer is **D. Ingest the data into Cloud Bigtable. Create a row key based on the event timestamp. **
+
+			Cloud Bigtable is a highly scalable, durable, and low-latency NoSQL database that is well-suited for handling high-throughput applications with stringent data consistency requirements. Storing and retrieving individual signals as separate rows in Cloud Bigtable with a row key based on the event timestamp ensures atomicity and consistency. This means that each event is recorded and retrieved as an individual unit, guaranteeing that no data is lost or corrupted.
+
+			The high throughput of up to thousands of events per hour per device necessitates a database that can handle massive amounts of data efficiently. Cloud Bigtable's distributed architecture and high-performance data storage capabilities make it ideal for handling this level of data ingress and retrieval.
+
+		Options A and B, using Cloud Storage or Cloud Filestore, are not suitable for this scenario due to their limited scalability and performance characteristics. Storing and retrieving event data in individual files would lead to performance bottlenecks and potentially data loss at high throughputs.
+
+		Option C, using Datastore, while providing ACID (Atomicity, Consistency, Isolation, Durability) guarantees, is not as well-suited for high-throughput scenarios as Cloud Bigtable. Additionally, storing device-specific event data in entity groups within Datastore might not offer the granularity required for efficient data retrieval based on event timestamps.
+
+		Therefore, ingesting the data into Cloud Bigtable with a row key based on the event timestamp is the most appropriate solution for handling the high throughput of sensor event data from construction equipment and ensuring atomicity and consistency for billing purposes.
 
 -------
 
@@ -574,8 +788,7 @@ You have a Compute Engine instance hosting an application used between 9 AM and 
 
 -------
 
-* A colleague handed over a Google Cloud Platform project for you to maintain. As part of a security checkup, you want to review who has been granted the Project
-Owner role. What should you do?
+* A colleague handed over a Google Cloud Platform project for you to maintain. As part of a security checkup, you want to review who has been granted the Project Owner role. What should you do? [Question 148]
 	
 	A. In the console, validate which SSH keys have been stored as project-wide keys. [Suggested]
 	
@@ -631,9 +844,26 @@ Owner role. What should you do?
 			
 			Using the gcloud projects get-iam-policy command is the most appropriate and direct method to review IAM role assignments, including the Project Owner role, for a Google Cloud Platform project.
 
+	-------
+
+	Bard:
+
+		The correct answer is D. Use the command gcloud projects get "iam" policy to view the current role assignments.
+
+			This command directly retrieves the IAM policy for the project, which includes all the role assignments for all users and service accounts. By inspecting this policy, you can easily identify who has been granted the Project Owner role.
+
+		The other options are not appropriate for this task:
+
+			Option A checks for project-wide SSH keys, which is not related to role assignments.
+
+			Option B focuses on Identity-Aware Proxy (IAP), which is used for access control to web applications.
+
+			Option C enables audit logs, which is useful for tracking access events but doesn't provide immediate information about role assignments.
+
 -------
 
 * You are running multiple VPC-native Google Kubernetes Engine clusters in the same subnet. The IPs available for the nodes are exhausted, and you want to ensure that the clusters can grow in nodes when needed. What should you do?
+[Question 149]
 	
 	A. Create a new subnet in the same region as the subnet being used. [Suggested chatGPT]
 	
@@ -661,9 +891,26 @@ Owner role. What should you do?
 			
 			It introduces additional complexity and might not be necessary for the described scenario.
 
+	-------
+
+	Bard:
+
+		The correct answer is D. Expand the CIDR range of the relevant subnet for the cluster.
+
+			This approach is the most straightforward and efficient way to address the issue of exhausted IP addresses. By expanding the CIDR range of the subnet, you effectively increase the pool of available IP addresses for the GKE clusters. This will allow the clusters to continue growing in nodes without running out of IP addresses.
+
+		The other options are not suitable for this situation:
+
+			Option A creates a new subnet in the same region, which doesn't address the issue of exhausted IP addresses in the existing subnet.
+
+			Option B adds an alias IP range to the subnet, which can be used to supplement the IP addresses, but it doesn't provide a permanent solution as the alias IP range can also become exhausted.
+
+			Option C creates a new VPC and sets up VPC peering with the existing VPC. This approach is more complex and can introduce additional administrative overhead. It also doesn't directly address the issue of exhausted IP addresses in the existing subnet.
+
 -------
 
 You are storing sensitive information in a Cloud Storage bucket. For legal reasons, you need to be able to record all requests that read any of the stored data. You want to make sure you comply with these requirements. What should you do?
+[Question 155]
 	
 	A. Enable the Identity Aware Proxy API on the project.
 	
@@ -722,6 +969,24 @@ You are storing sensitive information in a Cloud Storage bucket. For legal reaso
 		Conclusion:
 			
 			Enabling Data Access audit logs for the Cloud Storage API is the recommended and appropriate solution for recording all requests that read sensitive data from a Cloud Storage bucket for legal compliance.
+
+	-------
+
+	Bard:
+
+		The correct answer is D. Enable Data Access audit logs for the Cloud Storage API.
+
+			Enabling Data Access audit logs for the Cloud Storage API is the most effective way to record all requests that read sensitive information stored in the bucket. This will provide a detailed record of all access to the bucket, allowing you to comply with legal requirements and track potential unauthorized access attempts.
+
+		The other options are not suitable for this situation:
+
+			Option A, enabling the Identity Aware Proxy API, is intended for controlling access to web applications, not for auditing data access.
+
+			Option B, scanning the bucket using the Data Loss Prevention API, is used to identify potentially sensitive data within the bucket, not for recording access events.
+
+			Option C, allowing only a single Service Account access to read the data, can restrict access but doesn't provide a complete audit trail of all access attempts.
+
+		Therefore, enabling Data Access audit logs for the Cloud Storage API is the most appropriate solution for ensuring that all requests to read sensitive data are recorded and logged, meeting the legal requirements for compliance.
 
 -------
 
