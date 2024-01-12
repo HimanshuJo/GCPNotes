@@ -1,1 +1,25 @@
-This is question 31.
+You want to send and consume Cloud Pub/Sub messages from your App Engine application. The Cloud Pub/Sub API is currently disabled. You will use a service account to authenticate your application to the API. You want to make sure your application can use Cloud Pub/Sub. What should you do?
+	
+	A. Enable the Cloud Pub/Sub API in the API Library on the GCP Console. [✔️]
+	
+	B. Rely on the automatic enablement of the Cloud Pub/Sub API when the Service Account accesses it.
+	
+	C. Use Deployment Manager to deploy your application. Rely on the automatic enablement of all APIs used by the application being deployed.
+	
+	D. Grant the App Engine Default service account the role of Cloud Pub/Sub Admin. Have your application enable the API on the first connection to Cloud Pub/ Sub.
+
+-------
+
+Bard:
+
+	The correct answer is A. Enable the Cloud Pub/Sub API in the API Library on the GCP Console.
+
+		This is the most straightforward and reliable approach to ensure that your App Engine application can use Cloud Pub/Sub. By enabling the API in the API Library, you're explicitly making the API available to your project and its resources, including your App Engine application.
+
+	Option B, relying on the automatic enablement of the Cloud Pub/Sub API when the Service Account accesses it, is not recommended. Automatic enablement is not always reliable and can lead to unexpected delays or errors in application initialization.
+
+	Option C, using Deployment Manager to deploy your application and relying on the automatic enablement of all APIs used by the application being deployed, may not be sufficient. Deployment Manager automates the process of deploying the application, but it may not always enable all necessary APIs.
+
+	Option D, granting the App Engine Default service account the role of Cloud Pub/Sub Admin and having your application enable the API on the first connection to Cloud Pub/Sub, is not recommended. Providing the service account with the Cloud Pub/Sub Admin role grants excessive privileges that may not be necessary for your application. Additionally, enabling the API on the first connection to Cloud Pub/Sub is not a reliable approach and may not always succeed.
+
+	Therefore, the most secure and consistent method is to explicitly enable the Cloud Pub/Sub API in the API Library before deploying or running your App Engine application. This ensures that your application has access to the API and can establish connections without encountering any issues.

@@ -1,1 +1,25 @@
-This is question 26.
+You need to set up permissions for a set of Compute Engine instances to enable them to write data into a particular Cloud Storage bucket. You want to follow Google-recommended practices. What should you do?
+	
+	A. Create a service account with an access scope. Use the access scope 'https://www.googleapis.com/auth/devstorage.write_only'.
+	
+	B. Create a service account with an access scope. Use the access scope 'https://www.googleapis.com/auth/cloud-platform'.
+	
+	C. Create a service account and add it to the IAM role 'storage.objectCreator' for that bucket. [✔️]
+	
+	D. Create a service account and add it to the IAM role 'storage.objectAdmin' for that bucket.
+
+-------
+
+Bard:
+
+	The correct answer is C. Create a service account and add it to the IAM role 'storage.objectCreator' for that bucket.
+
+		This is the recommended approach for granting a set of Compute Engine instances write access to a specific Cloud Storage bucket. By creating a service account and assigning it to the 'storage.objectCreator' role, you're granting the instances the necessary permissions to write objects to the bucket.
+
+	Option A, creating a service account with the access scope 'https://www.googleapis.com/auth/devstorage.write_only', provides too much access. The 'https://www.googleapis.com/auth/devstorage.write_only' scope grants the ability to write to any Cloud Storage bucket, which could be a security risk.
+
+	Option B, creating a service account with the access scope 'https://www.googleapis.com/auth/cloud-platform', grants the service account extensive privileges, including the ability to manage billing and IAM roles. This is not necessary for simply writing objects to a bucket.
+
+	Option D, creating a service account and adding it to the IAM role 'storage.objectAdmin' for that bucket, provides too much access. The 'storage.objectAdmin' role grants the ability to manage all objects in the bucket, including deleting and modifying existing objects. This is not necessary for simply writing objects to the bucket.
+
+	Therefore, the recommended approach is to create a service account and assign it to the 'storage.objectCreator' role for the specific bucket. This allows the instances to write objects to the bucket while limiting their access to the necessary permissions.

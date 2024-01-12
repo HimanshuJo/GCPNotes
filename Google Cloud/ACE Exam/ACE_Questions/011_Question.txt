@@ -1,1 +1,27 @@
-This is question 11.
+You need a dynamic way of provisioning VMs on Compute Engine. The exact specifications will be in a dedicated configuration file. You want to follow Google's recommended practices. Which method should you use?
+	
+	A. Deployment Manager [✔️]
+	
+	B. Cloud Composer
+	
+	C. Managed Instance Group
+	
+	D. Unmanaged Instance Group
+
+-------
+
+Bard:
+
+	The correct answer is A. Deployment Manager.
+
+		Deployment Manager is the recommended tool for provisioning VMs on Compute Engine dynamically. It allows you to define the desired state of your infrastructure in a declarative configuration file, and it will take care of provisioning and managing the VMs for you. This is a more efficient and reliable approach than using other methods, such as Cloud Composer or unmanaged instance groups.
+
+	The other options are not suitable for dynamic provisioning of VMs:
+
+		Option B, Cloud Composer, is a workflow orchestration platform that can be used to provision VMs, but it is not as efficient or reliable as Deployment Manager.
+
+		Option C, Managed Instance Group, is a managed service for managing groups of VMs, but it is not designed for dynamic provisioning.
+
+		Option D, Unmanaged Instance Group, is a manual way of provisioning VMs, and it is not suitable for dynamic provisioning.
+
+	Therefore, Deployment Manager is the most appropriate tool for dynamically provisioning VMs on Compute Engine. It provides a declarative and efficient way to manage your infrastructure, and it aligns with Google's recommended practices.

@@ -1,1 +1,29 @@
-This is question 20.
+You created an instance of SQL Server 2017 on Compute Engine to test features in the new version. You want to connect to this instance using the fewest number of steps. What should you do?
+	
+	A. Install a RDP client on your desktop. Verify that a firewall rule for port 3389 exists.
+	
+	B. Install a RDP client in your desktop. Set a Windows username and password in the GCP Console. Use the credentials to log in to the instance. [✔️]
+	
+	C. Set a Windows password in the GCP Console. Verify that a firewall rule for port 22 exists. Click the RDP button in the GCP Console and supply the credentials to log in.
+	
+	D. Set a Windows username and password in the GCP Console. Verify that a firewall rule for port 3389 exists. Click the RDP button in the GCP Console, and supply the credentials to log in. [Bard Suggested] [✔️]
+
+-------
+
+Bard:
+
+	The correct answer is D. Set a Windows username and password in the GCP Console. Verify that a firewall rule for port 3389 exists. Click the RDP button in the GCP Console, and supply the credentials to log in.
+
+		This is the most straightforward and efficient approach to connect to the SQL Server 2017 instance on Compute Engine. By setting the Windows username and password in the GCP Console, you're configuring the instance to accept RDP connections using those credentials.
+
+		Next, you need to verify that a firewall rule for port 3389 exists. This port is commonly used for RDP connections, and you need to ensure that it's open for incoming traffic from your local machine.
+
+		Finally, you can simply click the RDP button in the GCP Console and supply the credentials you set previously. This will launch the RDP client on your local machine and connect to the SQL Server 2017 instance.
+
+	Option A, installing an RDP client on your desktop and verifying the firewall rule, is a necessary step but not sufficient. You also need to set the Windows username and password in the GCP Console.
+
+	Option B, setting a Windows password in the GCP Console and verifying the firewall rule for port 22, is incorrect. The RDP protocol typically uses port 3389, not 22. Port 22 is commonly used for SSH connections.
+
+	Option C, setting a Windows password in the GCP Console, verifying the firewall rule for port 22, clicking the RDP button in the GCP Console, and supplying the credentials to log in, is also incorrect. It also involves using port 22 for RDP connections, which is not the standard practice.
+
+	Therefore, the most efficient approach is to set the Windows username and password in the GCP Console, verify the firewall rule for port 3389, and use the RDP button in the GCP Console to initiate the connection.

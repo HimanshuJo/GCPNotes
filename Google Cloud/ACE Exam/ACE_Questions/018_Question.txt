@@ -1,1 +1,35 @@
-This is question 18.
+You need to set up a policy so that videos stored in a specific Cloud Storage Regional bucket are moved to Coldline after 90 days, and then deleted after one year from their creation. How should you set up the policy?
+	
+	A. Use Cloud Storage Object Lifecycle Management using Age conditions with SetStorageClass and Delete actions. Set the SetStorageClass action to 90 days and the Delete action to 275 days (365-90) [✔️]
+	
+	B. Use Cloud Storage Object Lifecycle Management using Age conditions with SetStorageClass and Delete actions. Set the SetStorageClass action to 90 days and the Delete action to 365 days.
+	
+	C. Use gsutil rewrite and set the Delete action to 275 days (365-90).
+	
+	D. Use gsutil rewrite and set the Delete action to 365 days.
+
+-------
+
+Bard:
+
+	The correct answer is A. Use Cloud Storage Object Lifecycle Management using Age conditions with SetStorageClass and Delete actions. Set the SetStorageClass action to 90 days and the Delete action to 275 days (365-90).
+
+		Cloud Storage Object Lifecycle Management (LCM) is the recommended approach for managing object storage policies in GCP. It allows you to define rules that automatically transition or delete objects based on specific conditions. In this case, you need to implement two rules:
+
+		Transition objects to Coldline storage after 90 days: 
+
+			This rule will move objects from standard storage to Coldline storage after 90 days, reducing their storage costs.
+
+		Delete objects after one year: 
+
+			This rule will permanently delete objects from the bucket after one year, ensuring that they don't continue to occupy storage space.
+
+		Setting the Delete action to 275 days (365-90) ensures that objects are first transitioned to Coldline after 90 days, and then deleted after one year from their creation. This is the most efficient way to manage storage costs while maintaining access to objects for the required period.
+
+		Option B suggests using Cloud Storage Object Lifecycle Management (LCM) to transition objects to Coldline storage after 90 days and then delete them after 365 days. This approach is flawed because it doesn't account for the 90-day transition period between storage classes.
+
+			Setting the Delete action to 375 days would effectively bypass the Coldline storage phase, leading to continued storage costs in standard storage for the entire one-year period. This is not the most cost-effective approach, as it could unnecessarily incur additional storage charges.
+
+		Option C and Option D, using gsutil rewrite to set the Delete action to 275 days or 365 days, respectively, would result in deleting objects too early. This is because they don't account for the 90-day transition period to Coldline storage.
+
+		Therefore, the correct approach is to use Cloud Storage Object Lifecycle Management to implement two rules: transition objects to Coldline storage after 90 days and delete objects after one year. This will ensure that objects are stored in the most cost-effective storage class for their designated lifetime.

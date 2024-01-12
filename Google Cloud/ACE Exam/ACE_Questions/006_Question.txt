@@ -1,1 +1,27 @@
-This is question 6.
+Your company uses Cloud Storage to store application backup files for disaster recovery purposes. You want to follow Google's recommended practices. Which storage option should you use?
+	
+	A. Multi-Regional Storage
+	
+	B. Regional Storage
+	
+	C. Nearline Storage
+	
+	D. Coldline Storage [✔️]
+
+-------
+
+Bard:
+
+	The correct answer is D. Coldline Storage.
+
+		For disaster recovery purposes, it is recommended to use Coldline Storage for application backup files. This is because Coldline Storage offers the lowest storage cost among the four options, which is important for infrequently accessed backup data. Additionally, Coldline Storage is designed for long-term storage, ensuring that your backup data is readily available in case of a disaster.
+
+	The other options are not suitable for disaster recovery purposes:
+
+		Option A, Multi-Regional Storage, is designed for storing data that needs to be replicated across multiple regions for high availability. However, this is not necessary for backup data, as it is typically accessed infrequently and does not require low latency.
+
+		Option B, Regional Storage, is the most common and widely used storage option in Cloud Storage. It offers a good balance of cost, performance, and durability for most use cases. However, for disaster recovery purposes, it is more cost-effective to use Coldline Storage.
+
+		Option C, Nearline Storage, is a good option for storing data that is accessed occasionally but needs to be retrieved within a few hours. However, it is not as cost-effective as Coldline Storage for long-term storage.
+
+	Therefore, Coldline Storage is the most suitable option for storing application backup files for disaster recovery purposes. It offers the lowest storage cost, is designed for long-term storage, and is readily available in case of a disaster.

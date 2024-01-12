@@ -1,1 +1,25 @@
-This is question 30.
+You are creating a Google Kubernetes Engine (GKE) cluster with a cluster autoscaler feature enabled. You need to make sure that each node of the cluster will run a monitoring pod that sends container metrics to a third-party monitoring solution. What should you do?
+	
+	A. Deploy the monitoring pod in a StatefulSet object.
+	
+	B. Deploy the monitoring pod in a DaemonSet object. [✔️]
+	
+	C. Reference the monitoring pod in a Deployment object.
+	
+	D. Reference the monitoring pod in a cluster initializer at the GKE cluster creation time.
+
+-------
+
+Bard:
+
+	The correct answer is B. Deploy the monitoring pod in a DaemonSet object.
+
+		A DaemonSet ensures that a copy of the monitoring pod is deployed on all nodes in the cluster, regardless of whether or not they are currently running any applications. This is necessary to ensure that the monitoring pod is always running on each node, even when the cluster autoscaler adds or removes nodes.
+
+		A StatefulSet is not appropriate for this scenario because it is designed for managing stateful applications that require persistent storage. A monitoring pod does not require persistent storage, so it would be more efficient to use a DaemonSet.
+
+		A Deployment is also not appropriate for this scenario because it is designed for managing stateless applications that can be replicated across multiple pods. A monitoring pod should only run on one pod per node, so it would be more efficient to use a DaemonSet.
+
+		Finally, a cluster initializer is not appropriate for this scenario because it is designed for running scripts or configuration changes before the cluster is created. A monitoring pod is a Kubernetes object that can be deployed using the standard Kubernetes API, so it does not need to be run as a cluster initializer.
+
+		Therefore, the best approach is to deploy the monitoring pod in a DaemonSet object to ensure that it is running on all nodes in the cluster, even when the cluster autoscaler adds or removes nodes.

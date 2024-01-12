@@ -1,1 +1,25 @@
-This is question 7.
+Several employees at your company have been creating projects with Cloud Platform and paying for it with their personal credit cards, which the company reimburses. The company wants to centralize all these projects under a single, new billing account. What should you do?
+	
+	A. Contact cloud-billing@google.com with your bank account details and request a corporate billing account for your company.
+	
+	B. Create a ticket with Google Support and wait for their call to share your credit card details over the phone.
+	
+	C. In the Google Platform Console, go to the Resource Manage and move all projects to the root Organization.
+	
+	D. In the Google Cloud Platform Console, create a new billing account and set up a payment method. [✔️]
+
+-------
+
+Bard:
+
+	The correct answer is D. In the Google Cloud Platform Console, create a new billing account and set up a payment method.
+
+		This is the most appropriate approach to centralize all the projects under a single, new billing account. By creating a new billing account, you can assign all the existing projects to this account and manage the billing for all of them from a single location. This will also simplify the process of reimbursing employees for their personal credit card expenses.
+
+	The other options are not suitable for this situation:
+
+		Option A, contacting cloud-billing@google.com with bank account details, is not the most straightforward way to create a corporate billing account. The Google Cloud Platform Console provides a user-friendly interface for creating and managing billing accounts.
+
+		Option B, creating a ticket with Google Support and waiting for a call, is a more time-consuming and indirect approach. Creating a new billing account and setting up a payment method directly through the console is more efficient.
+
+		Option C, moving all projects to the root organization, is not sufficient to centralize billing. Moving projects to the root organization only affects their organizational structure, not their billing management.

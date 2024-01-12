@@ -1,1 +1,28 @@
-This is question 4.
+You want to configure autohealing for network load balancing for a group of Compute Engine instances that run in multiple zones, using the fewest possible steps.
+You need to configure re-creation of VMs if they are unresponsive after 3 attempts of 10 seconds each. What should you do?
+	
+	A. Create an HTTP load balancer with a backend configuration that references an existing instance group. Set the health check to healthy (HTTP)
+	
+	B. Create an HTTP load balancer with a backend configuration that references an existing instance group. Define a balancing mode and set the maximum RPS to 10.
+	
+	C. Create a managed instance group. Set the Autohealing health check to healthy (HTTP). [✔️]
+	
+	D. Create a managed instance group. Verify that the autoscaling setting is on.
+
+-------
+
+Bard:
+
+	The correct answer is C. Create a managed instance group. Set the Autohealing health check to healthy (HTTP).
+
+		This approach is the most streamlined way to configure autohealing for network load balancing for a group of Compute Engine instances that run in multiple zones.
+
+		By creating a managed instance group, you can easily manage the group of instances as a single entity. Setting the Autohealing health check to healthy (HTTP) will trigger the recreation of VMs if they become unresponsive, ensuring that the load balancer always routes traffic to healthy instances.
+
+	Option A, creating an HTTP load balancer with a backend configuration that references an existing instance group and setting the health check to healthy (HTTP), also does not fully address autohealing. Autohealing requires additional configuration on the managed instance group to trigger instance recreation.
+
+	Option B, creating an HTTP load balancer with a backend configuration that references an existing instance group, defines a balancing mode, and sets the maximum RPS to 10, is not sufficient for enabling autohealing.
+
+	Option D, creating a managed instance group and verifying that the autoscaling setting is on, is not relevant to autohealing. Autohealing is a feature of managed instance groups that is independent of autoscaling.
+
+	Therefore, creating a managed instance group and setting the Autohealing health check to healthy (HTTP) is the most direct and efficient approach to enabling autohealing for network load balancing with managed instance groups.

@@ -1,1 +1,23 @@
-This is question 28.
+You are the project owner of a GCP project and want to delegate control to colleagues to manage buckets and files in Cloud Storage. You want to follow Google- recommended practices. Which IAM roles should you grant your colleagues?
+	
+	A. Project Editor [Bard Suggested] [✔️] 
+	
+	B. Storage Admin [✔️]
+	
+	C. Storage Object Admin
+	
+	D. Storage Object Creator
+
+-------
+
+The correct answer is A. Project Editor.
+
+	This is the most appropriate IAM role to grant your colleagues for managing buckets and files in Cloud Storage. The Project Editor role grants users the ability to create, manage, and delete buckets, upload and download files, and configure ACLs for buckets and objects. This role provides sufficient permissions for managing Cloud Storage resources without granting excessive privileges.
+
+Option B, Storage Admin Most Voted, is not a valid IAM role.
+
+Option C, Storage Object Admin, provides too much access. The Storage Object Admin role grants users the ability to manage all aspects of bucket and object access, including granting and revoking access permissions, changing ACLs, and even deleting objects. This level of access is not necessary for simply managing buckets and files.
+
+Option D, Storage Object Creator, provides less access than the Project Editor role. The Storage Object Creator role grants users the ability to create and upload objects to buckets, but they cannot manage other aspects of bucket and object access. This role is not sufficient for the delegation of full bucket and file management.
+
+Therefore, granting your colleagues the Project Editor role is the most appropriate approach for managing buckets and files in Cloud Storage while maintaining a secure and controlled environment.

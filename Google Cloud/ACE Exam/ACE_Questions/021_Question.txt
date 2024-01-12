@@ -1,1 +1,24 @@
-This is question 21.
+You have one GCP account running in your default region and zone and another account running in a non-default region and zone. You want to start a new Compute Engine instance in these two Google Cloud Platform accounts using the command line interface. What should you do?
+	
+	A. Create two configurations using gcloud config configurations create [NAME]. Run gcloud config configurations activate [NAME] to switch between accounts when running the commands to start the Compute Engine instances.
+	[✔️]
+	
+	B. Create two configurations using gcloud config configurations create [NAME]. Run gcloud configurations list to start the Compute Engine instances.
+	
+	C. Activate two configurations using gcloud configurations activate [NAME]. Run gcloud config list to start the Compute Engine instances.
+	
+	D. Activate two configurations using gcloud configurations activate [NAME]. Run gcloud configurations list to start the Compute Engine instances.
+
+-------
+
+The correct answer is A. Create two configurations using gcloud config configurations create [NAME]. Run gcloud config configurations activate [NAME] to switch between accounts when running the commands to start the Compute Engine instances.
+
+	This is the most appropriate approach to start Compute Engine instances in two different GCP accounts using the command-line interface (CLI). By creating separate configurations, you can switch between them using the gcloud config configurations activate [NAME] command, enabling you to execute instance creation commands specific to each account.
+
+Option B, creating configurations and then running gcloud config list, is not sufficient for starting instances. You need to activate the appropriate configuration before executing commands related to that account.
+
+Option C, activating configurations and then running gcloud config list, also doesn't suffice. The gcloud config list command only displays the current configuration, not the actual instance creation commands.
+
+Option D, activating configurations and then listing them again, is redundant and doesn't achieve the desired outcome of starting instances. You need to switch between configurations and execute instance creation commands specific to each account.
+
+Therefore, the recommended approach is to create separate configurations using gcloud config configurations create [NAME], activate them using gcloud config configurations activate [NAME], and then execute the instance creation commands specific to each account. This ensures that you're working with the appropriate credentials and region/zone for each instance creation process.

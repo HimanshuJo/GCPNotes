@@ -1,1 +1,33 @@
-This is question 29.
+You have an object in a Cloud Storage bucket that you want to share with an external company. The object contains sensitive data. You want access to the content to be removed after four hours. The external company does not have a Google account to which you can grant specific user-based access privileges. You want to use the most secure method that requires the fewest steps. What should you do?
+	
+	A. Create a signed URL with a four-hour expiration and share the URL with the company. [✔️]
+	
+	B. Set object access to 'public' and use object lifecycle management to remove the object after four hours.
+	
+	C. Configure the storage bucket as a static website and furnish the object's URL to the company. Delete the object from the storage bucket after four hours.
+	
+	D. Create a new Cloud Storage bucket specifically for the external company to access. Copy the object to that bucket. Delete the bucket after four hours have passed.
+
+-------
+
+The most secure and efficient method for sharing the object with the external company is to create a signed URL with a four-hour expiration and share the URL with the company. This method provides the following advantages:
+
+	Security: 
+
+		A signed URL is a cryptographically signed URL that provides temporary access to an object. Once the expiration time has passed, the URL becomes invalid and the object can no longer be accessed. This ensures that the sensitive data is only accessible for a limited time.
+
+	Ease of Use: 
+
+		Sharing a signed URL is a straightforward process that does not require the external company to have a Google account. Simply create the signed URL, copy it, and provide it to the company.
+
+	Reduced Administrative Overhead: 
+
+		Creating and deleting a new bucket specifically for the external company would involve additional administrative overhead. The signed URL method eliminates this need.
+
+Option B, setting object access to 'public' and using object lifecycle management to remove the object after four hours, is not secure. Public access means that anyone with the URL to the object can access it, regardless of whether they have a Google account. This could potentially expose sensitive data to unauthorized users.
+
+Option C, configuring the storage bucket as a static website and furnishing the object's URL to the company, is not as secure as the signed URL method. While the object would be inaccessible after four hours, the URL to the static website could potentially be indexed by search engines, making it accessible to more users than intended.
+
+Option D, creating a new Cloud Storage bucket specifically for the external company to access, copies the sensitive data to another location, which increases the risk of data exposure. Additionally, deleting the bucket after four hours would involve additional administrative steps.
+
+Therefore, the best approach for sharing the object with the external company is to create a signed URL with a four-hour expiration and share the URL with the company. This method provides the most secure and efficient way to grant temporary access to the sensitive data while minimizing administrative overhead.

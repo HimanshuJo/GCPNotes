@@ -1,1 +1,25 @@
-This is question 16.
+You need a dynamic way of provisioning VMs on Compute Engine. The exact specifications will be in a dedicated configuration file. You want to follow Google's recommended practices. Which method should you use?
+	
+	A. Deployment Manager [✔️]
+	
+	B. Cloud Composer
+	
+	C. Managed Instance Group
+	
+	D. Unmanaged Instance Group
+
+-------
+
+Bard:
+
+	The recommended approach for dynamically provisioning VMs on Compute Engine using a dedicated configuration file is to utilize Deployment Manager (A).
+
+		Deployment Manager is a powerful tool for managing infrastructure resources in the Google Cloud Platform (GCP). It allows you to define infrastructure configurations in a declarative manner using templates, which are written in either YAML or Jinja2. These templates can be versioned and stored in a Git repository, making it easy to maintain and deploy infrastructure changes.
+
+		Deployment Manager is particularly well-suited for provisioning VMs dynamically because you can specify the exact specifications of the VMs in the template. This includes the machine type, operating system, disk size, and other relevant parameters. Additionally, Deployment Manager can handle the creation, updating, and deletion of VMs as needed.
+
+	Cloud Composer (B) is a workflow orchestration platform that uses Apache Airflow to manage complex workflows. It's not a direct tool for provisioning VMs, but you could use it to orchestrate a process that involves provisioning VMs. However, this would be more complex and less efficient than using Deployment Manager directly.
+
+	Managed Instance Group (C) and Unmanaged Instance Group (D) are both mechanisms for managing groups of VMs in the GCP. They allow you to automatically scale the number of VMs based on certain criteria, such as CPU utilization or load. However, they don't provide the same level of flexibility as Deployment Manager for dynamically provisioning VMs based on specific configurations.
+
+	Therefore, the recommended choice for dynamically provisioning VMs with a dedicated configuration file is Deployment Manager (A). It provides a declarative and flexible approach to infrastructure management, making it well-suited for this task.

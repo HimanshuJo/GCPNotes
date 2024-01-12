@@ -1,1 +1,9 @@
-This is question 23.
+You are building a pipeline to process time-series data. Which Google Cloud Platform services should you put in boxes 1,2,3, and 4?
+
+	A. Cloud Pub/Sub, Cloud Dataflow, Cloud Datastore, BigQuery
+	
+	B. Firebase Messages, Cloud Pub/Sub, Cloud Spanner, BigQuery
+	
+	C. Cloud Pub/Sub, Cloud Storage, BigQuery, Cloud Bigtable
+	
+	D. Cloud Pub/Sub, Cloud Dataflow, Cloud Bigtable, BigQuery [✔️]

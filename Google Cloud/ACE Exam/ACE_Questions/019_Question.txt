@@ -1,1 +1,26 @@
-This is question 19.
+You have a Linux VM that must connect to Cloud SQL. You created a service account with the appropriate access rights. You want to make sure that the VM uses this service account instead of the default Compute Engine service account. What should you do?
+	
+	A. When creating the VM via the web console, specify the service account under the 'Identity and API Access' section.
+	[✔️]
+	
+	B. Download a JSON Private Key for the service account. On the Project Metadata, add that JSON as the value for the key compute-engine-service- account.
+	
+	C. Download a JSON Private Key for the service account. On the Custom Metadata of the VM, add that JSON as the value for the key compute-engine- service-account.
+	
+	D. Download a JSON Private Key for the service account. After creating the VM, ssh into the VM and save the JSON under ~/.gcloud/compute-engine-service- account.json.
+
+-------
+
+Bard:
+
+	The correct answer is A. When creating the VM via the web console, specify the service account under the 'Identity and API Access' section.
+
+		This is the most straightforward and recommended approach to ensure that the VM uses the specified service account for connecting to Cloud SQL. When you specify the service account during VM creation, you're associating that service account with the VM's identity. This allows the VM to authenticate itself to Cloud SQL using the service account's credentials.
+
+	Option B, adding the JSON Private Key to the Project Metadata, is not a recommended approach. The Project Metadata is intended for storing configurations and settings that can be used by multiple VMs or services. It's not the best place to store sensitive information like service account keys.
+
+	Option C, adding the JSON Private Key to the Custom Metadata of the VM, is also not a recommended approach. The Custom Metadata is stored in cleartext within the VM's configuration. While it's less visible than the Project Metadata, it's still less secure than storing the key in a dedicated file and using environment variables to access it.
+
+	Option D, downloading the JSON Private Key and saving it to the VM, is the least secure approach. Storing the key in a file on the VM makes it accessible to anyone who can gain physical access to the VM. This could potentially compromise the security of the service account and the applications that use it.
+
+	Therefore, the best practice is to specify the service account during VM creation using the 'Identity and API Access' section. This ensures that the VM uses the specified service account securely and consistently.
