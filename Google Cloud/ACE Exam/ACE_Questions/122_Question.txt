@@ -1,1 +1,39 @@
-This is question 122.
+Your company is moving from an on-premises environment to Google Cloud. You have multiple development teams that use Cassandra environments as backend databases. They all need a development environment that is isolated from other Cassandra instances. You want to move to Google Cloud quickly and with minimal support effort. What should you do?
+	
+	1. Build an instruction guide to install Cassandra on Google Cloud. 2. Make the instruction guide accessible to your developers.
+	
+	1. Advise your developers to go to Cloud Marketplace. 2. Ask the developers to launch a Cassandra image for their development work. [✔️]
+	
+	1. Build a Cassandra Compute Engine instance and take a snapshot of it. 2. Use the snapshot to create instances for your developers.
+	
+	1. Build a Cassandra Compute Engine instance and take a snapshot of it. 2. Upload the snapshot to Cloud Storage and make it accessible to your developers. 3. Build instructions to create a Compute Engine instance from the snapshot so that developers can do it themselves. [Bard Suggested] [✔️]
+
+-------
+
+Bard:
+
+	The best approach to provide isolated Cassandra development environments for multiple teams with minimal support effort is to build a Cassandra Compute Engine instance and take a snapshot of it. Upload the snapshot to Cloud Storage and make it accessible to your developers. Build instructions to create a Compute Engine instance from the snapshot so that developers can do it themselves.
+
+	This approach offers several advantages:
+
+		Ease of use: 
+
+			Developers can simply download the snapshot and create a new Cassandra instance in a few clicks without having to manually install and configure Cassandra.
+
+		Isolation: 
+
+			Each developer gets their own isolated Cassandra instance, ensuring that their data and configurations are separate from other teams.
+
+		Scalability: 
+
+			Developers can easily scale their Cassandra instances up or down based on their needs.
+
+		Minimal support: 
+
+			Once the initial setup is complete, developers can handle the creation and management of their Cassandra instances themselves, minimizing the need for support from IT staff.
+
+	Option A is not recommended because building and maintaining custom instruction guides can be time-consuming and error-prone.
+
+	Option B is not recommended because relying on Cloud Marketplace images may not provide the level of customization and control needed for development environments.
+
+	Option C is not recommended because creating and managing individual snapshots for each developer can be cumbersome and inefficient.

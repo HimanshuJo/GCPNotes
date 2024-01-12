@@ -1,1 +1,71 @@
-This is question 9.
+You need to manage multiple Google Cloud projects in the fewest steps possible. You want to configure the Google Cloud SDK command line interface (CLI) so that you can easily manage multiple projects. What should you do?
+	
+	1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects. [✔️]
+	
+	1. Create a configuration for each project you need to manage. 2. Use gcloud init to update the configuration values when you need to work with a non-default project.
+	
+	1. Use the default configuration for one project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
+	
+	1. Use the default configuration for one project you need to manage. 2. Use gcloud init to update the configuration values when you need to work with a non-default project.
+
+-------
+
+Create a configuration for each project you need to manage. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
+
+	Reasoning: 
+
+		This option suggests creating a separate configuration for each project and then activating the appropriate configuration when needed. This is a standard and recommended practice for managing multiple projects.
+	
+	Issues: 
+
+		None apparent. This approach allows you to isolate configurations for different projects.
+
+Create a configuration for each project you need to manage. Use gcloud init to update the configuration values when you need to work with a non-default project.
+
+	Reasoning: 
+
+		Similar to option 1, this approach involves creating separate configurations for each project. However, using gcloud init to update configuration values is not as efficient as activating a pre-existing configuration.
+	
+	Issues: 
+
+		Using gcloud init every time you switch projects might be less convenient compared to activating pre-configured settings.
+		
+Use the default configuration for one project you need to manage. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
+
+	Reasoning: 
+
+		This option suggests using the default configuration for one project and activating the appropriate configuration as needed. While this can work, it's generally better to have dedicated configurations for each project.
+	
+	Issues: 
+
+		The default configuration may not have the necessary settings for all projects, potentially leading to errors or misconfigurations.
+	
+Use the default configuration for one project you need to manage. Use gcloud init to update the configuration values when you need to work with a non-default project.
+
+	Reasoning: 
+
+		This option involves using the default configuration and updating it with gcloud init when needed. Similar to option 3, it might not be as efficient or organized as having separate configurations for each project.
+	
+	Issues: 
+
+		Using the default configuration may lead to misconfigurations when working with multiple projects.
+
+Conclusion:
+	
+	Options 1 and 2 are better choices as they advocate creating separate configurations for each project, providing a clean and organized way to manage multiple Google Cloud projects. Option 1, however, is more straightforward and recommended as it involves activating pre-existing configurations rather than using gcloud init each time you switch projects.
+
+-------
+
+Bard:
+
+	The correct answer is 1. Create a configuration for each project you need to manage. 2. Activate the appropriate configuration when you work with each of your assigned Google Cloud projects.
+
+		This option is the most efficient way to manage multiple Google Cloud projects with the Google Cloud SDK CLI. By creating a separate configuration for each project, you can easily switch between projects without having to modify your default configuration.
+
+	Option 2 is incorrect because using gcloud init to update the configuration values when you need to work with a non-default project is not as efficient as creating separate configurations. This is because you would need to run gcloud init every time you switch between projects, which can be time-consuming.
+
+	Option 3 is incorrect because using the default configuration for one project and activating the appropriate configuration when you work with each of your assigned Google Cloud projects can be confusing and error-prone. It is easy to forget to activate the correct configuration, which can lead to commands being executed in the wrong project.
+
+	Option 4 is incorrect because using gcloud init to update the configuration values when you need to work with a non-default project does not allow you to easily switch between projects. This is because you would need to run gcloud init every time you switch between projects, which can be time-consuming.
+
+	Therefore, the best approach to manage multiple Google Cloud projects with the Google Cloud SDK CLI is to create a separate configuration for each project and activate the appropriate configuration when you work with each project. This will allow you to easily and efficiently manage your projects without having to worry about making mistakes.

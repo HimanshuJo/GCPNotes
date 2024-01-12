@@ -1,1 +1,43 @@
-This is question 149.
+You are running multiple VPC-native Google Kubernetes Engine clusters in the same subnet. The IPs available for the nodes are exhausted, and you want to ensure that the clusters can grow in nodes when needed. What should you do?
+	
+	A. Create a new subnet in the same region as the subnet being used. [Suggested chatGPT]
+	
+	B. Add an alias IP range to the subnet used by the GKE clusters.
+	
+	C. Create a new VPC, and set up VPC peering with the existing VPC.
+	
+	D. Expand the CIDR range of the relevant subnet for the cluster. [✔️]
+
+-------
+
+Option A: Create a new subnet in the same region as the subnet being used.
+	
+	Issues:
+
+		Creating a new subnet might involve migration efforts, and it may not be the most straightforward solution.
+		
+		It does not address the immediate need to expand the IP range of the existing subnet for the clusters.
+
+Option C: Create a new VPC, and set up VPC peering with the existing VPC.
+	
+	Issues:
+
+		While VPC peering allows communication between different VPCs, it is not the optimal solution for expanding IP ranges within the same VPC.
+		
+		It introduces additional complexity and might not be necessary for the described scenario.
+
+-------
+
+Bard:
+
+	The correct answer is D. Expand the CIDR range of the relevant subnet for the cluster.
+
+		This approach is the most straightforward and efficient way to address the issue of exhausted IP addresses. By expanding the CIDR range of the subnet, you effectively increase the pool of available IP addresses for the GKE clusters. This will allow the clusters to continue growing in nodes without running out of IP addresses.
+
+	The other options are not suitable for this situation:
+
+		Option A creates a new subnet in the same region, which doesn't address the issue of exhausted IP addresses in the existing subnet.
+
+		Option B adds an alias IP range to the subnet, which can be used to supplement the IP addresses, but it doesn't provide a permanent solution as the alias IP range can also become exhausted.
+
+		Option C creates a new VPC and sets up VPC peering with the existing VPC. This approach is more complex and can introduce additional administrative overhead. It also doesn't directly address the issue of exhausted IP addresses in the existing subnet.

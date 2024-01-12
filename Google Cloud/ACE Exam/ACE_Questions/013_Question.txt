@@ -1,1 +1,129 @@
-This is question 13.
+You have an application that uses Cloud Spanner as a backend database. The application has a very predictable traffic pattern. You want to automatically scale up or down the number of Spanner nodes depending on traffic. What should you do?
+	
+	A. Create a cron job that runs on a scheduled basis to review stackdriver monitoring metrics, and then resize the Spanner instance accordingly.
+	
+	B. Create a Stackdriver alerting policy to send an alert to oncall SRE emails when Cloud Spanner CPU exceeds the threshold. SREs would scale resources up or down accordingly.
+	
+	C. Create a Stackdriver alerting policy to send an alert to Google Cloud Support email when Cloud Spanner CPU exceeds your threshold. Google support would scale resources up or down accordingly.
+	
+	D. Create a Stackdriver alerting policy to send an alert to webhook when Cloud Spanner CPU is over or under your threshold. Create a Cloud Function that listens to HTTP and resizes Spanner resources accordingly. [✔️]
+
+-------
+
+Option D (Cloud Monitoring alerting policy with a Cloud Function):
+
+	Reasoning:
+
+		This option involves creating a Cloud Monitoring alerting policy to send an alert to a webhook when Cloud Spanner CPU is over or under the specified threshold.
+		
+		A Cloud Function is then created to listen to the HTTP webhook and resize the Spanner resources accordingly.
+	
+	Steps:
+
+		Create a Cloud Monitoring alerting policy based on CPU thresholds for Cloud Spanner.
+		
+		Configure the alerting policy to send alerts to a webhook.
+		
+		Create a Cloud Function that listens to the HTTP webhook.
+		
+		Implement logic in the Cloud Function to resize the Cloud Spanner resources based on the alert.
+	
+	Considerations:
+
+		This approach allows for automated scaling based on specific metrics, such as CPU usage.
+		
+		The Cloud Function provides flexibility to execute custom logic for resizing resources.
+	
+	Benefits:
+
+		Automation: The solution automates the scaling process based on predefined conditions.
+		
+		Flexibility: The Cloud Function can accommodate custom logic if needed.
+	
+	Drawbacks:
+
+		Complexity: Implementing a Cloud Function introduces additional complexity compared to some other solutions.
+		
+		Maintenance: Regular monitoring and maintenance of the Cloud Function may be required.
+		
+		In summary, Option D is suitable for automated scaling based on Cloud Monitoring alerts. It provides flexibility and customization options, but it comes with the trade-off of increased complexity. The choice may depend on the organization's preference for automation and the level of customization required for the scaling process.
+
+Other Options:
+
+	Option A (Cron job for scheduled resizing):
+
+		Reasoning:
+		
+			This option suggests creating a cron job that runs on a scheduled basis to review Cloud Monitoring metrics and resize the Spanner instance accordingly.
+		
+		Considerations:
+		
+			Creating a cron job adds an automated scheduling element, but it lacks the real-time responsiveness that an alerting policy can provide.
+			
+			This method may not be suitable for handling sudden spikes or drops in traffic since it relies on a scheduled execution.
+		
+		Benefits:
+		
+			Simplicity: The approach is straightforward and involves scheduled tasks.
+			
+			Predictability: Resource adjustments are made at predefined intervals.
+		
+	Option B (Alerting policy for SREs to manually scale):
+
+		Reasoning:
+			
+			This option involves creating a Cloud Monitoring alerting policy to send alerts to on-call SRE emails when Cloud Spanner CPU exceeds the threshold. SREs would then manually scale resources.
+		
+		Considerations:
+		
+			Manual intervention is required, and scaling decisions depend on human response time.
+			
+			It may be suitable for scenarios where real-time automated scaling is not critical, and human decision-making is preferred.
+		
+		Benefits:
+			
+			Human Control: SREs have direct control over resource scaling decisions.
+			
+			Adjustability: Manual scaling allows for adjustments based on context and considerations.
+		
+	Option C (Alerting policy for Google Cloud Support to scale):
+
+		Reasoning:
+			
+			This option involves creating a Cloud Monitoring alerting policy to send alerts to Google Cloud Support email when Cloud Spanner CPU exceeds the threshold. Google support would then manually scale resources.
+		
+		Considerations:
+		
+			Similar to Option B, this approach relies on manual intervention by Google Cloud Support.
+			
+			It might be suitable for organizations that rely on external support for infrastructure management.
+		
+		Benefits:
+			
+			External Expertise: Involves Google Cloud Support in the scaling process.
+			
+			Access to Support Resources: Utilizes support resources for making scaling decisions.
+	
+	In summary:
+
+		Option A (Scheduled resizing): Suitable for predictable, periodic adjustments but may not be responsive to real-time changes.
+
+		Option B (Alerting for manual scaling): Suitable when human intervention is acceptable, and real-time scaling is not critical.
+
+		Option C (Alerting for Google Cloud Support to scale): Suitable for organizations relying on external support for infrastructure management.
+
+-------
+
+Bard:
+
+	The best approach to automatically scale up or down the number of Spanner nodes depending on traffic using a predictable pattern is to create a Stackdriver alerting policy to send an alert to webhook when Cloud Spanner CPU is over or under your threshold. Create a Cloud Function that listens to HTTP and resizes Spanner resources accordingly.
+
+		This approach utilizes Stackdriver's alerting capabilities to trigger a webhook notification when CPU thresholds are met, and then employs a Cloud Function to programmatically resize the Spanner instance in response to traffic fluctuations.
+
+	Option A, creating a cron job to manually review metrics and manually resize instances, is not a scalable or efficient solution for dynamic scaling.
+
+	Option B, relying on on-call SREs to manually scale instances upon receiving alerts, introduces delays and potential human errors.
+
+	Option C, involving Google Cloud Support in resource scaling, is not practical and may not provide the desired level of responsiveness.
+
+	Therefore, the most appropriate approach is to utilize Stackdriver's alerting capabilities to trigger a webhook notification, which is then handled by a Cloud Function to automatically resize the Spanner instance in accordance with traffic trends.

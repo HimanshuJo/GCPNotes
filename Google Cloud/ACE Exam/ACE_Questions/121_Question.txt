@@ -1,1 +1,38 @@
-This is question 121.
+Your managed instance group raised an alert stating that new instance creation has failed to create new instances. You need to maintain the number of running instances specified by the template to be able to process expected application traffic. What should you do?
+	
+	A. Create an instance template that contains valid syntax which will be used by the instance group. Delete any persistent disks with the same name as instance names. [✔️]
+	
+	B. Create an instance template that contains valid syntax that will be used by the instance group. Verify that the instance name and persistent disk name values are not the same in the template.
+	
+	C. Verify that the instance template being used by the instance group contains valid syntax. Delete any persistent disks with the same name as instance names. Set the disks.autoDelete property to true in the instance template.
+	[Bard Suggested] [✔️]
+	
+	D. Delete the current instance template and replace it with a new instance template. Verify that the instance name and persistent disk name values are not the same in the template. Set the disks.autoDelete property to true in the instance template.
+
+-------
+
+Bard:
+
+	The correct answer is C. Verify that the instance template being used by the instance group contains valid syntax. Delete any persistent disks with the same name as instance names. Set the disks.autoDelete property to true in the instance template.
+
+		When a managed instance group (MIG) encounters an error during new instance creation, it's crucial to identify the root cause to resolve the issue and ensure the MIG can scale properly. Here's a breakdown of the options and why they are or are not the best approach:
+
+	Option A:
+
+		Creating an instance template with valid syntax: This is a necessary step for ensuring the MIG can successfully create instances based on the defined template. However, it doesn't address the specific error of instance creation failure.
+	
+	Option B:
+
+		Verifying instance name and persistent disk name uniqueness: This is an important check to avoid potential collisions between instance names and persistent disk names. However, it doesn't address the error directly.
+	
+	Option C:
+
+		Verifying template syntax and deleting conflicting disk names: This step is essential to ensure the template is valid and that there are no duplicate names between instances and persistent disks.
+
+		Setting 'disks.autoDelete' to true: This option ensures that persistent disks are automatically deleted when the associated instance is terminated, preventing orphaned disks.
+
+	Option D:
+
+		Deleting the current template and creating a new one: While this may seem drastic, it's not always necessary. If the template is valid and there are no conflicting names, simply modifying the existing template may resolve the issue.
+	
+	Therefore, the most comprehensive and effective approach is to verify the template's syntax, ensure unique instance and disk names, and enable auto-deletion for persistent disks. This combination will help prevent potential conflicts and ensure the MIG can successfully create and manage instances.

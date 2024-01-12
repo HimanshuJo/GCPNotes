@@ -5,9 +5,9 @@ What should you do?
 	
 	B. Increase the allocated CPU to the instance.
 	
-	C. Migrate to use a Local SSD on the instance.
+	C. Migrate to use a Local SSD on the instance. [✔️]
 	
-	D. Migrate to use a Regional SSD on the instance. [✔️]
+	D. Migrate to use a Regional SSD on the instance. [Bard Suggested][✔️]
 
 	-------
 

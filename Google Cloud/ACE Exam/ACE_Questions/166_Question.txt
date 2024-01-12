@@ -1,1 +1,60 @@
-This is question 166.
+Your web application has been running successfully on Cloud Run for Anthos. You want to evaluate an updated version of the application with a specific percentage of your production users (canary deployment). What should you do? 
+[Question 166]
+	
+	Create a new service with the new version of the application. Split traffic between this version and the version that is currently running. [Suggested]
+	
+	Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running. [✔️]
+	
+	Create a new service with the new version of the application. Add HTTP Load Balancer in front of both services.
+	
+	Create a new revision with the new version of the application. Add HTTP Load Balancer in front of both revisions.
+
+-------
+
+For canary deployment on Cloud Run for Anthos, the most appropriate option is:
+
+	B. Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running.
+
+Here's why:
+
+	A. Create a new service with the new version of the application. Split traffic between this version and the version that is currently running.
+
+		In Cloud Run for Anthos, revisions are used to manage versions of your services. Creating a new revision with the new version and splitting traffic is more appropriate than creating a completely new service.
+	
+	B. Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running.
+
+		This is the correct option. It allows you to create a new revision of the existing service with the updated version and then gradually split traffic between the old and new revisions to perform a canary deployment.
+	
+	C. Create a new service with the new version of the application. Add an HTTP Load Balancer in front of both services.
+
+		While using an HTTP Load Balancer can be part of a deployment strategy, creating a new service for canary deployment is not the standard practice in Cloud Run for Anthos.
+	
+	D. Create a new revision with the new version of the application. Add an HTTP Load Balancer in front of both revisions.
+
+		Using an HTTP Load Balancer in front of both revisions is an option, but creating a new service is unnecessary. Revisions within the same service can be used for versioning and canary deployment.
+	
+Why Option B is Recommended:
+
+	Creating a new revision within the existing service allows for versioning and canary deployment.
+	
+	Splitting traffic between revisions provides a controlled rollout to a percentage of users, facilitating testing and monitoring.
+
+Conclusion:
+	
+	Option B, "Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running," is the most suitable choice for canary deployment on Cloud Run for Anthos.
+
+-------
+
+Bard:
+
+	The correct answer is Create a new revision with the new version of the application. Split traffic between this version and the version that is currently running.
+
+		This approach provides a more controlled and efficient way to evaluate the updated version of the application with a specific percentage of users. By creating a new revision, you can isolate the new version from the production traffic and gradually increase the traffic to the new revision based on performance and user feedback.
+
+	Option 1, creating a new service with the new version of the application, does not allow for controlled traffic splitting. Both versions would be exposed to the same traffic, making it difficult to evaluate the new version effectively.
+
+	Option 2, adding an HTTP Load Balancer in front of both services, also does not allow for controlled traffic splitting. The HTTP Load Balancer would evenly distribute traffic between the two services, making it challenging to assess the performance of the new version.
+
+	Option 3, creating a new revision with the new version of the application and adding an HTTP Load Balancer in front of both revisions, is an inefficient approach. It would require managing traffic splitting at the load balancer level, which can be complex and error-prone.
+
+	Therefore, creating a new revision and using traffic splitting to gradually introduce the new version to production users is the most suitable method for a canary deployment. This approach allows for a controlled and efficient evaluation of the updated application, ensuring minimal impact on existing users.

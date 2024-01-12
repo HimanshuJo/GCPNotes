@@ -1,1 +1,27 @@
-This is question 141.
+You created several resources in multiple Google Cloud projects. All projects are linked to different billing accounts. To better estimate future charges, you want to have a single visual representation of all costs incurred. You want to include new cost data as soon as possible. What should you do?
+	
+	Configure Billing Data Export to BigQuery and visualize the data in Data Studio. [✔️]
+	
+	Visit the Cost Table page to get a CSV export and visualize it using Data Studio.
+	
+	Fill all resources in the Pricing Calculator to get an estimate of the monthly cost.
+	
+	Use the Reports view in the Cloud Billing Console to view the desired cost information.
+
+-------
+
+Bard:
+
+	The correct answer is A. Configure Billing Data Export to BigQuery and visualize the data in Data Studio.
+
+		This approach provides the most comprehensive and up-to-date view of your overall Google Cloud costs across multiple projects and billing accounts. By configuring billing data export to BigQuery, you can store your billing data in a centralized location, enabling you to easily query, analyze, and visualize it using Data Studio. This offers several benefits:
+
+		Real-time Data Access: Data Studio can access the latest billing data from BigQuery, ensuring that you always have an accurate representation of your current costs.
+
+		Detailed Cost Analysis: Data Studio provides powerful tools for analyzing and visualizing your billing data. You can create charts, graphs, and dashboards to track cost trends, identify cost outliers, and understand the breakdown of your spending across different projects and resources.
+
+		Centralized View: By consolidating your billing data into a single location, you can get a holistic view of your overall cloud usage and costs, regardless of the projects or billing accounts involved.
+
+	Option B, exporting the Cost Table to CSV, would involve manual data extraction and processing, which could be time-consuming and error-prone. Option C, using the Pricing Calculator, only provides estimates based on selected configurations, and it doesn't provide a comprehensive view of your actual costs. Option D, using the Reports view in the Cloud Billing Console, offers limited data visualization capabilities and may not be suitable for complex analysis.
+
+	Therefore, configuring billing data export to BigQuery and visualizing the data in Data Studio is the most effective approach to effectively manage your Google Cloud costs across multiple projects and billing accounts.

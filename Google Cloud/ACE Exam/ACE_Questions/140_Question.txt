@@ -1,1 +1,29 @@
-This is question 140.
+You are asked to set up application performance monitoring on Google Cloud projects A, B, and C as a single pane of glass. You want to monitor CPU, memory, and disk. What should you do?
+	
+	Enable API and then share charts from project A, B, and C.
+	
+	Enable API and then give the metrics.reader role to projects A, B, and C.
+	
+	Enable API and then use default dashboards to view all projects in sequence.
+	
+	Enable API, create a workspace under project A, and then add projects B and C. [✔️]
+
+-------
+
+Bard:
+
+	The correct answer is D. Enable API, create a workspace under project A, and then add projects B and C.
+
+		This approach provides a centralized view of application performance metrics across multiple projects while ensuring proper permissions and data ownership. By enabling the Cloud Monitoring API, you allow other projects to access and use monitoring data.
+
+		Creating a workspace in project A serves as a central hub for consolidating metrics from projects B and C. This workspace can then be used to create dashboards, alerts, and other visualizations that effectively monitor CPU, memory, and disk usage across all three projects.
+
+		Adding projects B and C to the workspace grants them read-only access to the metrics collected within the workspace. This ensures that project A retains ownership of the data while allowing other projects to analyze and monitor their performance without modifying the data.
+
+	Option A, sharing charts from project A, B, and C, would require manual synchronization and maintenance of charts across multiple projects, making it inefficient and error-prone.
+
+	Option B, granting the metrics.reader role to projects A, B, and C, would allow unrestricted access to monitoring data, which could potentially violate data ownership and privacy principles.
+
+	Option C, using default dashboards, might not provide the flexibility and customization needed to effectively monitor CPU, memory, and disk usage across multiple projects.
+
+	Therefore, enabling the API, creating a workspace, and adding projects B and C to the workspace is the most appropriate approach for setting up a centralized application performance monitoring solution. This approach ensures data ownership, proper permissions, and a unified view of metrics from multiple projects.

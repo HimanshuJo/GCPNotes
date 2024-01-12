@@ -1,1 +1,27 @@
-This is question 143.
+Your team maintains the infrastructure for your organization. The current infrastructure requires changes. You need to share your proposed changes with the rest of the team. You want to follow Google's recommended best practices. What should you do?
+	
+	Use Deployment Manager templates to describe the proposed changes and store them in a Cloud Storage bucket.
+	
+	Use Deployment Manager templates to describe the proposed changes and store them in Cloud Source Repositories. [✔️]
+	
+	Apply the changes in a development environment, run gcloud compute instances list, and then save the output in a shared Storage bucket.
+	
+	Apply the changes in a development environment, run gcloud compute instances list, and then save the output in Cloud Source Repositories.
+
+-------
+
+Bard:
+
+	The correct answer is B. Use Deployment Manager templates to describe the proposed changes and store them in Cloud Source Repositories.
+
+	Here's a detailed explanation of why each option is right or wrong:
+
+		Option A: Storing Deployment Manager templates in Cloud Storage is not recommended, as it doesn't provide version control or collaboration capabilities. Cloud Storage is primarily used for storing static data, while Deployment Manager templates are intended to manage infrastructure configuration changes.
+
+		Option B: Using Deployment Manager templates and storing them in Cloud Source Repositories is the most recommended approach for sharing infrastructure change proposals. Deployment Manager templates provide a declarative way to define infrastructure configurations, and Cloud Source Repositories offer version control, collaboration, and auditing features. This allows the team to review, discuss, and collaborate on the proposed changes in a central location.
+
+		Option C: Applying the changes in a development environment and saving the output from gcloud compute instances list in a shared Storage bucket is not an effective way to share infrastructure change proposals. It doesn't provide a structured and maintainable way to describe the proposed changes, and it lacks version control and collaboration capabilities.
+
+		Option D: Applying the changes in a development environment, saving the output from gcloud compute instances list in Cloud Source Repositories, and then sharing the repository doesn't fully address the issue. It's still not a structured approach to describe the proposed changes, and it doesn't provide the same level of collaboration and version control as using Deployment Manager templates.
+
+	In summary, utilizing Deployment Manager templates in Cloud Source Repositories is the most suitable option for sharing infrastructure change proposals. It provides a structured, version-controlled, and collaborative platform for defining and reviewing proposed changes, ensuring a more organized and efficient workflow for the team.

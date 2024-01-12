@@ -1,1 +1,45 @@
-This is question 142.
+Your company has workloads running on Compute Engine and on-premises. The Google Cloud Virtual Private Cloud (VPC) is connected to your WAN over a Virtual Private Network (VPN). You need to deploy a new Compute Engine instance and ensure that no public Internet traffic can be routed to it. What should you do?
+	
+	Create the instance without a public IP address. [✔️]
+	
+	Create the instance with Private Google Access enabled.
+	
+	Create a deny-all egress firewall rule on the VPC network.
+	
+	Create a route on the VPC to route all traffic to the instance over the VPN tunnel.
+
+-------
+
+A. Create the instance without a public IP address.
+
+	Explanation:
+
+		To ensure that no public Internet traffic can be routed to a Compute Engine instance, you should create the instance without a public IP address. This means the instance will only have an internal IP address and won't be accessible from the public Internet.
+
+Options B, C, and D do not directly address the requirement of preventing public Internet traffic to the instance:
+
+	Option B (Create the instance with Private Google Access enabled) allows the instance to access Google services without a public IP, but it doesn't prevent inbound public traffic.
+
+	Option C (Create a deny-all egress firewall rule on the VPC network) would affect outbound traffic, not inbound traffic, and might disrupt the instance's ability to communicate with the Internet if needed.
+
+	Option D (Create a route on the VPC to route all traffic to the instance over the VPN tunnel) is about routing, but it doesn't prevent public Internet traffic. It would be more about controlling the path for the traffic but wouldn't stop public traffic from reaching the instance if it had a public IP.
+
+By creating the instance without a public IP address (Option A), you are ensuring that the instance is only reachable within the internal network and won't accept public Internet traffic.
+
+-------
+
+Bard:
+
+	The correct answer is Create the instance without a public IP address.
+
+		This is the most secure way to ensure that no public Internet traffic can be routed to the instance. By not assigning a public IP address, the instance will not have any external connectivity. This means that it cannot be directly accessed from the Internet, and any traffic that needs to reach the instance will have to pass through the VPN tunnel.
+
+	The other options are not correct for the following reasons:
+
+		Creating the instance with Private Google Access enabled will allow the instance to communicate with other Google Cloud services, such as Google Kubernetes Engine (GKE) and Google Cloud Storage (GCS). However, it will not prevent the instance from being accessed from the public Internet.
+
+		Creating a deny-all egress firewall rule on the VPC network will prevent the instance from making any outbound connections to the Internet. However, it will not prevent incoming traffic from reaching the instance.
+
+		Creating a route on the VPC to route all traffic to the instance over the VPN tunnel will ensure that all traffic that is destined for the instance will pass through the VPN tunnel. However, it will not prevent the instance from being accessed from the public Internet.
+
+	Therefore, the most secure way to ensure that no public Internet traffic can be routed to the instance is to create it without a public IP address.

@@ -1,1 +1,59 @@
-This is question 167.
+Your company developed a mobile game that is deployed on Google Cloud. Gamers are connecting to the game with their personal phones over the Internet. The game sends UDP packets to update the servers about the gamers' actions while they are playing in multiplayer mode. Your game backend can scale over multiple Virtual Machines (VMs), and you want to expose the VMs over a single IP address. What should you do?
+	
+	Configure an SSL Proxy load balancer in front of the application servers.
+	
+	Configure an Internal UDP load balancer in front of the application servers.
+	
+	Configure an External HTTP(s) load balancer in front of the application servers.
+	
+	Configure an External Network load balancer in front of the application servers. [✔️]
+
+-------
+
+For exposing the game backend over a single IP address, handling UDP packets, and scaling over multiple virtual machines (VMs), the most suitable option is:
+
+	D. Configure an External Network load balancer in front of the application servers.
+
+Here's why:
+
+	A. Configure an SSL Proxy load balancer in front of the application servers.
+
+		SSL Proxy load balancers are designed for handling HTTPS traffic, and they operate at the application layer. They are not suitable for UDP traffic or non-HTTP protocols like those used in gaming applications.
+	
+	B. Configure an Internal UDP load balancer in front of the application servers.
+
+		Internal UDP load balancers are used for internal communication within a Virtual Private Cloud (VPC). Since gamers are connecting over the Internet, an external load balancer is more appropriate.
+	
+	C. Configure an External HTTP(s) load balancer in front of the application servers.
+
+		HTTP(s) load balancers are designed for HTTP/HTTPS traffic and are not suitable for handling UDP packets common in gaming applications.
+	
+	D. Configure an External Network load balancer in front of the application servers.
+
+		This is the correct option. Network load balancers operate at the transport layer (Layer 4) and can handle UDP traffic. They provide a simple and effective way to distribute UDP packets across multiple backend servers, allowing the game backend to scale horizontally.
+	
+Why Option D is Recommended:
+
+	Network load balancers operate at the transport layer, making them suitable for handling UDP traffic.
+	
+	They provide a single IP address for external access and distribute UDP packets across multiple backend servers, supporting scalability.
+
+Conclusion:
+	
+	Option D, "Configure an External Network load balancer in front of the application servers," is the most suitable choice for exposing the game backend over a single IP address and handling UDP traffic in a scalable manner.
+
+-------
+
+Bard:
+
+	The correct answer is Configure an External Network load balancer in front of the application servers.
+
+		An External Network load balancer is the most suitable choice for exposing game servers over a single IP address while handling UDP packets from the game clients. It efficiently distributes traffic across the game servers, ensuring low latency and responsiveness.
+
+	Option 1, configuring an SSL Proxy load balancer, is not recommended for UDP traffic. SSL Proxy load balancers are designed for TCP and HTTPS traffic, not for UDP.
+
+	Option 2, configuring an Internal UDP load balancer, is not suitable for exposing the game servers to the public internet. Internal load balancers are intended for traffic within the Google Cloud network, not for public access.
+
+	Option 3, configuring an External HTTP(s) load balancer, can be used for HTTP traffic, but it's not optimized for UDP traffic. UDP packets require a different handling approach than HTTP packets.
+
+	Therefore, configuring an External Network load balancer in front of the application servers is the most appropriate solution. It handles UDP traffic efficiently, exposes the game servers over a single IP address, and allows for scaling the game backend across multiple VMs.

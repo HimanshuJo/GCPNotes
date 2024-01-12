@@ -1,1 +1,69 @@
-This is question 148.
+A colleague handed over a Google Cloud Platform project for you to maintain. As part of a security checkup, you want to review who has been granted the Project Owner role. What should you do?
+	
+	A. In the console, validate which SSH keys have been stored as project-wide keys. [Suggested]
+	
+	B. Navigate to Identity-Aware Proxy and check the permissions for these resources.
+	
+	C. Enable Audit Logs on the IAM & admin page for all resources, and validate the results.
+	
+	D. Use the command gcloud projects get "iam" policy to view the current role assignments. [✔️]
+
+-------
+
+The appropriate option for reviewing who has been granted the Project Owner role in a Google Cloud Platform project is:
+
+D. Use the command gcloud projects get-iam-policy to view the current role assignments.
+
+Here's the reasoning:
+
+	Option A: In the console, validate which SSH keys have been stored as project-wide keys.
+		
+		Issues:
+
+			Checking SSH keys is not directly related to reviewing IAM roles assigned to users.
+			
+			SSH keys are more related to user authentication than IAM roles and permissions.
+	
+	Option B: Navigate to Identity-Aware Proxy and check the permissions for these resources.
+		
+		Issues:
+
+			Identity-Aware Proxy is primarily focused on securing access to web applications, and it's not the tool to review IAM roles or permissions directly.
+	
+	Option C: Enable Audit Logs on the IAM & admin page for all resources, and validate the results.
+		
+		Issues:
+
+		While audit logs are useful for tracking changes and events, enabling audit logs may not provide a quick and direct way to see the current role assignments, especially for Project Owner role.
+	
+	Option D: Use the command gcloud projects get-iam-policy to view the current role assignments.
+		
+		Advantages:
+
+			This command provides a direct way to view the IAM policy for a project, including the role assignments.
+			
+			It allows you to see who has been granted the Project Owner role and other roles in the project.
+	
+	In-Depth Analysis:
+		
+		Option D is the recommended and efficient approach to review IAM role assignments, including Project Owner, for a Google Cloud Platform project.
+		
+		The gcloud projects get-iam-policy command provides a clear and direct view of the IAM policy, making it easy to identify who has the Project Owner role.
+	
+	Conclusion:
+		
+		Using the gcloud projects get-iam-policy command is the most appropriate and direct method to review IAM role assignments, including the Project Owner role, for a Google Cloud Platform project.
+
+-------
+
+The correct answer is D. Use the command gcloud projects get "iam" policy to view the current role assignments.
+
+	This command directly retrieves the IAM policy for the project, which includes all the role assignments for all users and service accounts. By inspecting this policy, you can easily identify who has been granted the Project Owner role.
+
+The other options are not appropriate for this task:
+
+	Option A checks for project-wide SSH keys, which is not related to role assignments.
+
+	Option B focuses on Identity-Aware Proxy (IAP), which is used for access control to web applications.
+
+	Option C enables audit logs, which is useful for tracking access events but doesn't provide immediate information about role assignments.

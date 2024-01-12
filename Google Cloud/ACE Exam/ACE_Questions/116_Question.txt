@@ -1,1 +1,62 @@
-This is question 116.
+You are configuring service accounts for an application that spans multiple projects. Virtual machines (VMs) running in the web-applications project need access to BigQuery datasets in crm-databases-proj. You want to follow Google-recommended practices to give access to the service account in the web-applications project. What should you do?
+	
+	A. Give project owner for web-applications appropriate roles to crm-databases-proj.
+	
+	B. Give project owner role to crm-databases-proj and the web-applications project.
+	
+	C. Give project owner role to crm-databases-proj and bigquery.dataViewer role to web-applications.
+	
+	D. Give bigquery.dataViewer role to crm-databases-proj and appropriate roles to web-applications. [✔️]
+
+-------
+
+To follow Google-recommended practices and provide the necessary access for Virtual Machines (VMs) in the web-applications project to access BigQuery datasets in the crm-databases-proj project, you should use the principle of least privilege. Here's an analysis of the options:
+
+Option A: Give "project owner" for web-applications appropriate roles to crm-databases-proj.
+
+	Issues:
+
+		Granting "project owner" to the entire web-applications project is overly permissive and goes against the principle of least privilege. Project owner has broad administrative access, which is more than what is required for BigQuery data access.
+
+Option B: Give "project owner" role to crm-databases-proj and the web-applications project.
+	
+	Issues:
+
+		Similar to Option A, granting "project owner" to both projects is overly permissive and not aligned with the principle of least privilege. It gives more access than necessary for the specific task of accessing BigQuery datasets.
+
+Option C: Give "project owner" role to crm-databases-proj and "bigquery.dataViewer" role to web-applications.
+
+	Analysis:
+
+		This option still grants "project owner" to the crm-databases-proj, which is overly permissive.
+		Granting "bigquery.dataViewer" to web-applications is a better approach as it provides read-only access to BigQuery datasets without unnecessary administrative privileges.
+
+Option D: Give "bigquery.dataViewer" role to crm-databases-proj and appropriate roles to web-applications.
+
+	Recommendation:
+
+		This option is more aligned with the principle of least privilege.
+		
+		Give the "bigquery.dataViewer" role to crm-databases-proj to allow read-only access to the BigQuery datasets.
+		
+		Provide appropriate roles to web-applications based on the specific requirements of your application, such as roles necessary for VMs to operate without granting unnecessary permissions.
+
+Conclusion:
+	
+	Option D is the recommended choice as it aligns with the principle of least privilege by providing the minimum necessary permissions for each project. It ensures that the web-applications project only gets read-only access to the BigQuery datasets, and the crm-databases-proj project receives the required role for BigQuery data access.
+
+-------
+
+Bard:
+
+	The correct answer is D. Give bigquery.dataViewer role to crm-databases-proj and appropriate roles to web-applications.
+
+		This option provides the most secure and granular access control for the application's service accounts. By granting the bigquery.dataViewer role to the crm-databases-proj project, you allow the VMs running in the web-applications project to only access the BigQuery datasets they need, minimizing the potential for unauthorized access.
+
+	Option A, granting the project owner role to the web-applications project, is not recommended as it provides excessive privileges that could lead to security risks. This option grants full administrative access to the project, which could be misused by unauthorized individuals.
+
+	Option B, granting the project owner role to both crm-databases-proj and the web-applications project, is also not recommended for similar reasons. This option grants excessive privileges to both projects, increasing the risk of unauthorized access and resource manipulation.
+
+	Option C, granting the bigquery.dataViewer role to crm-databases-proj and the project owner role to web-applications, is not as secure as option D. While it allows the VMs to access the BigQuery datasets, it also grants the web-applications service account excessive privileges over the web-applications project. This could lead to unauthorized access and manipulation of project resources.
+
+	Therefore, the best practice to provide access to the BigQuery datasets for the application's VMs is to grant the bigquery.dataViewer role to the crm-databases-proj project and appropriate roles to web-applications. This approach ensures that the VMs only have access to the necessary data while maintaining granular control over access permissions.

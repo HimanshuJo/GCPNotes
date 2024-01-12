@@ -1,1 +1,59 @@
-This is question 164.
+You have experimented with Google Cloud using your own credit card and expensed the costs to your company. Your company wants to streamline the billing process and charge the costs of your projects to their monthly invoice. What should you do?
+	
+	Grant the financial team the IAM role of Billing Account User on the billing account linked to your credit card.
+	
+	Set up BigQuery billing export and grant your financial department IAM access to query the data.
+	
+	Create a ticket with Google Billing Support to ask them to send the invoice to your company.
+	
+	Change the billing account of your projects to the billing account of your company. [✔️]
+
+-------
+
+To streamline the billing process and charge the costs of your projects to your company's monthly invoice, you should:
+
+	D. Change the billing account of your projects to the billing account of your company.
+
+Here's why:
+
+	A. Grant the financial team the IAM role of "Billing Account User" on the billing account linked to your credit card.
+
+		This grants permissions to view and associate projects with the billing account but doesn't change the billing account itself. To centralize billing, you need to move the projects to the company's billing account.
+	
+	B. Set up BigQuery billing export and grant your financial department IAM access to query the data.
+
+		BigQuery billing export is for analyzing billing data and not for changing the billing account associated with projects.
+	
+	C. Create a ticket with Google Billing Support to ask them to send the invoice to your company.
+
+		Google Billing Support doesn't typically handle changing the billing account for individual projects. It's more focused on addressing billing-related issues and queries.
+	
+	D. Change the billing account of your projects to the billing account of your company.
+
+		This is the correct option. By associating your projects with your company's billing account, all costs incurred by the projects will be charged to your company's monthly invoice.
+	
+	Why Option D is Recommended:
+
+		Changing the billing account of your projects ensures that the costs are billed to the company's account, streamlining the billing process.
+		
+		It is the standard and recommended procedure for associating projects with a specific billing account.
+	
+Conclusion:
+	
+	Option D, "Change the billing account of your projects to the billing account of your company," is the most appropriate choice for streamlining the billing process and charging the costs of your projects to your company's monthly invoice.
+
+-------
+
+Bard:
+
+	The correct answer is Change the billing account of your projects to the billing account of your company.
+
+		This approach ensures that your company's billing account is directly associated with the usage of Google Cloud resources, enabling your company to receive the corresponding invoices.
+
+	Option 1, granting the financial team the IAM role of Billing Account User on the billing account linked to your credit card, is not sufficient. While it provides the financial team with access to billing information, it does not transfer the ownership of the billing account to the company.
+
+	Option 2, setting up BigQuery billing export and granting your financial department IAM access to query the data, is a useful step for analyzing billing data. However, it does not address the underlying issue of billing ownership.
+
+	Option 3, creating a ticket with Google Billing Support to ask them to send the invoice to your company, is not the most efficient way to manage billing. It involves manual intervention from Google support and may not be scalable for long-term use.
+
+	Therefore, changing the billing account of your projects to the billing account of your company is the most appropriate solution. This ensures that your company is directly responsible for the billing costs and receives the corresponding invoices, streamlining the billing process and simplifying expense reporting.

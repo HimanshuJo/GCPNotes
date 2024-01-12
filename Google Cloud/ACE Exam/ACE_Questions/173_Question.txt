@@ -1,1 +1,73 @@
-This is question 173.
+You are developing a financial trading application that will be used globally. Data is stored and queried using a relational structure, and clients from all over the world should get the exact identical state of the data. The application will be deployed in multiple regions to provide the lowest latency to end users. You need to select a storage option for the application data while minimizing latency. What should you do?
+	
+	Use Cloud Bigtable for data storage.
+	
+	Use Cloud SQL for data storage.
+	
+	Use Cloud Spanner for data storage. [✔️]
+	
+	Use Firestore for data storage.
+
+-------
+
+For a financial trading application that requires a global deployment, relational data storage, and the need for clients worldwide to access the exact identical state of the data with minimal latency, the most suitable option would be:
+
+	C. Use Cloud Spanner for data storage.
+
+Here's why:
+
+	A. Use Cloud Bigtable for data storage.
+
+		Cloud Bigtable is a NoSQL database optimized for large analytical and operational workloads, but it may not be the best fit for relational data and the requirement for clients to access the exact identical state of the data.
+	
+	B. Use Cloud SQL for data storage.
+
+		While Cloud SQL provides a managed relational database service, its global distribution may result in higher latencies due to data replication delays. It may not provide the low-latency access required for a global financial trading application.
+	
+	C. Use Cloud Spanner for data storage.
+
+		Cloud Spanner is a globally distributed, strongly consistent, and horizontally scalable database that supports both relational and NoSQL data models. It provides low-latency access to data across multiple regions while ensuring strong consistency, making it suitable for financial applications requiring global access to the same state of data.
+	
+	D. Use Firestore for data storage.
+
+		Firestore is a NoSQL database that is optimized for mobile and web applications. While it supports global distribution, its focus is on providing real-time updates for client applications, and it may not be the best fit for complex financial trading applications with relational data and specific consistency requirements.
+
+Why Option C is Recommended:
+
+	Cloud Spanner provides globally distributed, strongly consistent transactions with low-latency access to data.
+	
+	It supports a relational data model, making it suitable for applications that rely on a structured and relational database schema.
+	
+	Cloud Spanner is designed to provide a consistent and up-to-date view of data across multiple regions, meeting the requirements of a global financial trading application.
+
+Conclusion:
+	
+	Option C, "Use Cloud Spanner for data storage," is the most suitable choice for a financial trading application with global deployment, relational data storage, and the need for low-latency access to the exact identical state of the data.
+
+-------
+
+Bard:
+
+	The correct answer is Use Cloud Spanner for data storage.
+
+		This approach provides a highly consistent, scalable, and globally-distributed relational database that is well-suited for the requirements of the financial trading application. Cloud Spanner offers several advantages for this use case:
+
+		Global consistency: 
+
+			Cloud Spanner ensures that all clients have the exact identical state of the data, even when the application is deployed in multiple regions. This is essential for a financial trading application, where data accuracy is crucial.
+
+		Scalability: 
+
+			Cloud Spanner can automatically scale up or down to meet the changing demands of the application. This ensures that the application can handle peak traffic without experiencing performance bottlenecks.
+
+		Relational data structure: 
+
+			Cloud Spanner supports a relational data structure, which is well-suited for storing and querying financial data. This allows for efficient data analysis and reporting.
+
+	Option 1, using Cloud Bigtable for data storage, is not a suitable option for this use case. Cloud Bigtable is a NoSQL database that is not designed for transactional workloads or low latency requirements.
+
+	Option 2, using Cloud SQL for data storage, is a relational database but is not globally-distributed. This means that clients in different regions would not have access to the same data, which is not feasible for a financial trading application.
+
+	Option 3, using Firestore for data storage, is a NoSQL database that is not as scalable or performant as Cloud Spanner. It is also not designed for global distribution, which would not meet the requirements of the application.
+
+	Therefore, the most recommended approach is to use Cloud Spanner for data storage. This will provide the application with the necessary consistency, scalability, and relational data structure to meet the demands of the financial trading application.

@@ -1,1 +1,27 @@
-This is question 100.
+Your organization has strict requirements to control access to Google Cloud projects. You need to enable your Site Reliability Engineers (SREs) to approve requests from the Google Cloud support team when an SRE opens a support case. You want to follow Google-recommended practices. What should you do?
+	
+	A. Add your SREs to roles/iam.roleAdmin role.
+	
+	B. Add your SREs to roles/accessapproval.approver role. [Suggested]
+	
+	C. Add your SREs to a group and then add this group to roles/iam.roleAdmin.role.
+	
+	D. Add your SREs to a group and then add this group to roles/accessapproval.approver role. [✔️]
+
+-------
+
+Bard:
+
+	The correct answer is D. Add your SREs to a group and then add this group to roles/accessapproval.approver role.
+
+		This is the most secure and recommended way to enable your Site Reliability Engineers (SREs) to approve requests from the Google Cloud (GCP) support team when an SRE opens a support case.
+
+	The roles/iam.roleAdmin role provides full administrative privileges over the IAM (Identity and Access Management) system, which is too broad for granting access approval permissions. The roles/accessapproval.approver role specifically grants the ability to approve requests within Access Approval, which is a more secure and controlled way to manage access to GCP resources.
+
+	By creating a group and adding your SREs to that group, you can easily manage their access permissions centrally. You can then add the group to the roles/accessapproval.approver role to grant all SREs in the group the ability to approve requests. This approach provides granular control over access permissions and ensures that only authorized individuals can approve requests.
+
+	Option A, adding SREs directly to the roles/iam.roleAdmin role, is not recommended as it grants excessive privileges that could lead to security risks.
+
+	Option B, adding SREs directly to the roles/accessapproval.approver role, is also not recommended as it can make it difficult to manage access permissions for a large number of SREs. Using a group provides a more scalable and manageable approach.
+
+	Therefore, the best practice to enable your SREs to approve requests from the GCP support team is to create a group, add your SREs to the group, and then add the group to the roles/accessapproval.approver role. This approach provides granular control over access permissions, simplifies management, and aligns with Google's recommended practices.

@@ -1,1 +1,69 @@
-This is question 163.
+You have developed a containerized web application that will serve internal colleagues during business hours. You want to ensure that no costs are incurred outside of the hours the application is used. You have just created a new Google Cloud project and want to deploy the application. What should you do?
+	
+	Deploy the container on Cloud Run for Anthos, and set the minimum number of instances to zero.
+	
+	Deploy the container on Cloud Run (fully managed), and set the minimum number of instances to zero. [✔️]
+	
+	Deploy the container on App Engine flexible environment with autoscaling, and set the value min_instances to zero in the app.yaml. [Suggested]
+	
+	Deploy the container on App Engine flexible environment with manual scaling, and set the value instances to zero in the app.yaml.
+
+-------
+
+To ensure that no costs are incurred outside of the hours the application is used in a new Google Cloud project, the recommended option is:
+
+	B. Deploy the container on Cloud Run (fully managed), and set the minimum number of instances to zero.
+
+Here's why:
+
+	A. Deploy the container on Cloud Run for Anthos, and set the minimum number of instances to zero.
+
+		Cloud Run for Anthos is designed for Kubernetes-based applications and might introduce unnecessary complexity for a simple scenario. Cloud Run (fully managed) is more suitable for stateless, containerized applications.
+	
+	B. Deploy the container on Cloud Run (fully managed), and set the minimum number of instances to zero.
+
+		This is the correct option. Cloud Run (fully managed) allows automatic scaling down to zero when there is no traffic, minimizing costs during idle periods.
+	
+	C. Deploy the container on App Engine flexible environment with autoscaling, and set the value min_instances to zero in the app.yaml.
+
+		While App Engine flexible environment supports scaling down to zero, Cloud Run (fully managed) is a more lightweight and efficient option for containerized applications.
+	
+	D. Deploy the container on App Engine flexible environment with manual scaling, and set the value instances to zero in the app.yaml.
+
+		Manual scaling in App Engine flexible environment requires at least one instance to be running, and setting the value to zero would not be suitable for cost optimization during idle periods.
+
+Why Option B is Recommended:
+
+	Cloud Run (fully managed) is designed for stateless, containerized applications with automatic scaling based on demand.
+	
+	Setting the minimum number of instances to zero allows the platform to scale down to zero during idle periods, minimizing costs.
+
+Conclusion:
+	
+	Option B, "Deploy the container on Cloud Run (fully managed), and set the minimum number of instances to zero," is the most suitable choice for ensuring no costs are incurred outside of the hours the application is used.
+
+-------
+
+Bard:
+
+	The best option to deploy your containerized web application while ensuring no costs are incurred outside of business hours is to use App Engine flexible environment with manual scaling and set the value instances to zero in the app.yaml.
+
+		This approach allows you to have complete control over the number of instances running your application, ensuring that no instances are running when the application is not in use, thereby preventing unnecessary billing charges.
+
+	Here's a breakdown of each option and why it's not recommended:
+
+		Option 1: Deploying the container on Cloud Run for Anthos and setting the minimum number of instances to zero is not recommended because Cloud Run for Anthos is a managed service that automatically scales based on traffic. Setting the minimum number of instances to zero would disable autoscaling altogether, which could lead to performance issues during peak traffic hours.
+
+		Option 2: Deploying the container on Cloud Run (fully managed) and setting the minimum number of instances to zero is also not recommended for the same reason as Option 1. Cloud Run (fully managed) also utilizes autoscaling, and disabling autoscaling could affect the application's performance during busy periods.
+
+		Option 3: Deploying the container on App Engine flexible environment with autoscaling and setting the value min_instances to zero in the app.yaml is not the most efficient option because autoscaling can still incur charges even when there is no traffic.
+
+	Benefits of deploying on App Engine flexible environment with manual scaling:
+
+		Cost-effectiveness: You only pay for the instances that you specify, and no charges are incurred when there are no instances running.
+
+		Flexibility: You have full control over the number of instances running your application, allowing you to adjust the scaling as needed based on traffic patterns.
+
+		Simple management: Manual scaling is a more straightforward approach compared to managing autoscaling policies.
+
+	By deploying your application on App Engine flexible environment with manual scaling and setting the value instances to zero in the app.yaml, you can ensure that your application is only running when it is needed, minimizing unnecessary billing charges and optimizing your application's resource utilization.

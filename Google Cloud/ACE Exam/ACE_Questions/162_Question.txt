@@ -1,1 +1,62 @@
-This is question 162.
+Your company has embraced a hybrid cloud strategy where some of the applications are deployed on Google Cloud. A Virtual Private Network (VPN) tunnel connects your Virtual Private Cloud (VPC) in Google Cloud with your company's on-premises network. Multiple applications in Google Cloud need to connect to an on-premises database server, and you want to avoid having to change the IP configuration in all of your applications when the IP of the database changes. What should you do?
+	
+	Configure Cloud NAT for all subnets of your VPC to be used when egressing from the VM instances.
+	[Suggested]
+	
+	Create a private zone on Cloud DNS, and configure the applications with the DNS name. [✔️]
+	
+	Configure the IP of the database as custom metadata for each instance, and query the metadata server.
+	
+	Query the Compute Engine internal DNS from the applications to retrieve the IP of the database.
+
+-------
+
+To avoid having to change the IP configuration in all of your applications when the IP of the database changes, the recommended option is:
+
+	B. Create a private zone on Cloud DNS, and configure the applications with the DNS name.
+
+Here's why:
+
+	A. Configure Cloud NAT for all subnets of your VPC to be used when egressing from the VM instances.
+
+		Cloud NAT is used for outbound traffic, and it doesn't address the issue of dynamic IP changes for the on-premises database server.
+	
+	B. Create a private zone on Cloud DNS, and configure the applications with the DNS name.
+
+		This is the correct option. Using a DNS name allows you to abstract the IP address, and when the IP of the database changes, you only need to update the DNS record without modifying the application configurations.
+	
+	C. Configure the IP of the database as custom metadata for each instance, and query the metadata server.
+
+		Storing the IP as custom metadata for each instance is not a scalable solution and could lead to configuration management challenges.
+	
+	D. Query the Compute Engine internal DNS from the applications to retrieve the IP of the database.
+
+		This is a viable option, but using Cloud DNS allows for a more centralized and managed approach to DNS resolution.
+
+Why Option B is Recommended:
+
+	Creating a private zone on Cloud DNS provides a centralized and scalable way to manage DNS records for internal services.
+	
+	Using a DNS name in the application configurations abstracts the IP address, making it easier to update when the IP of the database changes.
+
+Conclusion:
+	
+	Option B, "Create a private zone on Cloud DNS, and configure the applications with the DNS name," is the most suitable choice for avoiding the need to change the IP configuration in all applications when the IP of the database changes.
+
+-------
+
+Bard:
+
+	The best approach to avoid having to change the IP configuration in all of your applications when the IP of the database changes is to create a private zone on Cloud DNS, and configure the applications with the DNS name.
+
+		This approach allows you to manage the database's DNS record centrally, and applications can simply resolve the DNS name to connect to the database. This eliminates the need to update the IP configuration in each application whenever the database's IP changes.
+
+	Here's a breakdown of why the other options are not recommended:
+
+		Option 1: Configuring Cloud NAT for all subnets of your VPC is not recommended because it would expose all of your Google Cloud applications to the public internet. This could pose a security risk, as malicious actors could potentially exploit the NAT configuration to gain access to your applications.
+
+		Option 2: Configuring the IP of the database as custom metadata for each instance and querying the metadata server is not recommended because it would require updating the metadata configuration in each instance whenever the database's IP changes. This could be tedious and prone to errors.
+
+		Option 3: Querying the Compute Engine internal DNS from the applications to retrieve the IP of the database is not recommended because it would require the applications to be aware of the database's IP address. This could be difficult to manage if the database's IP changes frequently.
+
+	By creating a private zone on Cloud DNS, you can centralize the management of the database's DNS record and ensure that applications can consistently connect to the database without the need for manual updates. This approach is more secure, efficient, and scalable for a hybrid cloud deployment.

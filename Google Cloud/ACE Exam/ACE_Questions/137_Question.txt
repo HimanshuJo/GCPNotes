@@ -1,1 +1,32 @@
-This is question 137.
+You are developing a new application and are looking for a Jenkins installation to build and deploy your source code. You want to automate the installation as quickly and easily as possible. What should you do?
+
+	Deploy Jenkins through the Google Cloud Marketplace. [✔️]
+	
+	Create a new Compute Engine instance. Run the Jenkins executable.
+	
+	Create a new Kubernetes Engine cluster. Create a deployment for the Jenkins image.
+	
+	Create an instance template with the Jenkins executable. Create a Managed Instance Group with this template.
+
+-------
+
+Bard:
+
+	The correct answer is A. Deploy Jenkins through the Google Cloud Marketplace.
+
+		This is the most convenient and efficient option for deploying Jenkins on Google Cloud Platform (GCP). The Google Cloud Marketplace provides a catalog of pre-built and certified software applications that can be easily installed and configured.
+
+		Jenkins is available as a pre-built application in the Google Cloud Marketplace. By deploying Jenkins through the marketplace, you can skip the manual installation process and get up and running with Jenkins quickly.
+
+	The other options are less suitable for automating the installation of Jenkins on GCP:
+
+	Option B: Create a new Compute Engine instance. Run the Jenkins executable.
+	This option is not as efficient as deploying Jenkins through the marketplace because it involves manually creating and configuring a Compute Engine instance.
+
+	Option C: Create a new Kubernetes Engine cluster. Create a deployment for the Jenkins image.
+	This option is more complex than deploying Jenkins through the marketplace and requires a working knowledge of Kubernetes.
+
+	Option D: Create an instance template with the Jenkins executable. Create a managed instance group with this template.
+	This option is similar to Option B, but it involves creating an instance template instead of manually configuring a Compute Engine instance.
+
+	Therefore, the best option for automating the installation of Jenkins on GCP is to deploy Jenkins through the Google Cloud Marketplace. This option is the most convenient, efficient, and secure way to get up and running with Jenkins quickly.
